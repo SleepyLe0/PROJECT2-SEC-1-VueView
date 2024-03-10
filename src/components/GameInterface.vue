@@ -1,6 +1,6 @@
 <script setup>
-import { computed, reactive, ref, watch } from 'vue';
-import ActionButton from './gameplay components/ActionButton.vue';
+import { computed, ref, watch } from 'vue';
+import ActionButton from './gameplay/ActionButton.vue';
 
 const maxSkillPoint = 4
 const turn = ref(1)
