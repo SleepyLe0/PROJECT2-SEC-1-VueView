@@ -1,6 +1,7 @@
 <script setup>
-import { computed, ref, watch } from 'vue';
-import ActionButton from './gameplay/ActionButton.vue';
+import { ref, watch } from 'vue'
+import ActionButton from './gameplay/ActionButton.vue'
+import HealthBar from './gameplay/HealthBar.vue'
 
 const maxSkillPoint = 4
 const turn = ref(1)
@@ -92,6 +93,7 @@ const calculateActionTurn = (char) => {
     }
     const calculateAttack = actor.attack - nonActor.defense
     if (calculateAttack > 0) nonActorStatus.currentHp -= (calculateAttack * actorStatus.attack)
+    nonActorStatus.currentHp = nonActorStatus.currentHp <= 0 ? 0 : nonActorStatus.currentHp
     setTimeout(() => {
         playerCurrentHp.value = playerChar.value.currentHp
         enemyCurrentHp.value = enemyChar.value.currentHp
@@ -136,16 +138,6 @@ const attackPointAction = () => {
     playerAction.value.attack++
 }
 
-const playerHp = computed(() => {
-    console.log('playerHp : ' + playerChar.value.currentHp / playerChar.value.maxHp * 100 + '%')
-    return playerChar.value.currentHp / playerChar.value.maxHp * 100
-})
-
-const enemyHp = computed(() => {
-    console.log('enemyHp : ' + enemyChar.value.currentHp / enemyChar.value.maxHp * 100 + '%')
-    return enemyChar.value.currentHp / enemyChar.value.maxHp * 100
-})
-
 watch(skillPoint, () => {
     if (skillPoint.value === 0) nextAction()
 })
@@ -169,19 +161,15 @@ gameStart()
 <template>
     <div class="relative w-screen h-screen overflow-hidden flex justify-center">
         <div class="absolute flex w-screen justify-between top-[3vh] text-[5vh] p-10">
-            <div class="border-2 w-[50vh] p-5">
-                <div class="bg-green-500 h-full text-white" :class="`w-[${playerHp}%]`">
-                    In progress
-                </div>
-            </div>
+            <HealthBar charBar="player" :hpPercentage="playerChar.currentHp / playerChar.maxHp * 100">
+                {{ playerChar.currentHp + ' / ' + playerChar.maxHp }}
+            </HealthBar>
             <div class="font-bold bg-base-300 p-5 rounded-full">
                 <h1>Turn {{ turn }}</h1>
             </div>
-            <div class="border-2 w-[50vh] p-5">
-                <div class="bg-green-500 h-full text-white" :class="`w-[${enemyHp}%]`">
-                    In progress
-                </div>
-            </div>
+            <HealthBar charBar="enemy" :hpPercentage="enemyChar.currentHp / enemyChar.maxHp * 100">
+                {{ enemyChar.currentHp + ' / ' + enemyChar.maxHp }}
+            </HealthBar>
         </div>
         <div class="relative w-screen h-screen bg-slate-300 -z-10">
             <div class="absolute">
