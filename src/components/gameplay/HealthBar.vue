@@ -28,7 +28,7 @@ const hpColor = computed(() => {
             <div class="h-full flex transition-all ease-in-out duration-500"
                 :class="hpColor, props.charBar === 'player' ? 'justify-start' : 'justify-end'"
                 :style="{ width: props.hpPercentage + '%' }">
-                <p class="w-[50vh] opacity-0">demo</p>
+                <p class="w-[50vh] opacity-0">Blank</p>
             </div>
             <h1 class="absolute w-full flex text-white" :class="props.charBar === 'player' ? 'justify-start' : 'justify-end'">
                 <slot>{{ props.charBar }}</slot>
@@ -38,4 +38,5 @@ const hpColor = computed(() => {
 
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+</style>

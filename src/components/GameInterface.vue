@@ -2,6 +2,8 @@
 import { ref, watch } from 'vue'
 import ActionButton from './gameplay/ActionButton.vue'
 import HealthBar from './gameplay/HealthBar.vue'
+import Character from './gameplay/Character.vue'
+import CalculateScreen from './gameplay/CalculateScreen.vue'
 
 const maxSkillPoint = 4
 const turn = ref(1)
@@ -15,6 +17,9 @@ const enemySkillPoint = ref(0)
 const disableChargePoint = ref(false)
 const playerCurrentHp = ref(0)
 const enemyCurrentHp = ref(0)
+const hitChar = ref(false)
+const hitDamage = ref(0)
+const calculateScreen = ref(false)
 const playerAction = ref({
     charge: 0,
     defense: 0,
@@ -23,17 +28,21 @@ const playerAction = ref({
 const enemyAction = ref({
     charge: 0,
     defense: 0,
-    attack: 0
+    attack: 0,
 })
 const playerChar = ref({
     maxHp: 100,
     currentHp: 100,
-    attack: 20
+    attack: 20,
+    hitAnimation: false,
+    blockAnimation: false
 })
 const enemyChar = ref({
     maxHp: 50,
     currentHp: 50,
-    attack: 30
+    attack: 30,
+    hitAnimation: false,
+    blockAnimation: false
 })
 
 const gameStart = () => {
@@ -77,8 +86,6 @@ const enemyActionTurn = () => {
 }
 
 const calculateActionTurn = (char) => {
-    playerTurn.value = false
-    enemyTurn.value = false
     let actor, actorStatus, nonActor, nonActorStatus
     if (char === 'player') {
         actor = playerAction.value
@@ -91,15 +98,38 @@ const calculateActionTurn = (char) => {
         actorStatus = enemyChar.value
         nonActorStatus = playerChar.value
     }
-    const calculateAttack = actor.attack - nonActor.defense
-    if (calculateAttack > 0) nonActorStatus.currentHp -= (calculateAttack * actorStatus.attack)
-    nonActorStatus.currentHp = nonActorStatus.currentHp <= 0 ? 0 : nonActorStatus.currentHp
+    calculateScreen.value = true
     setTimeout(() => {
-        playerCurrentHp.value = playerChar.value.currentHp
-        enemyCurrentHp.value = enemyChar.value.currentHp
-        nextAction()
+        calculateScreen.value = false
+        playerTurn.value = false
+        enemyTurn.value = false
+        const calculateAttack = actor.attack - nonActor.defense
+        if (calculateAttack > 0) {
+            hitDamage.value = calculateAttack * actorStatus.attack
+            nonActorStatus.currentHp -= hitDamage.value
+            nonActorStatus.currentHp = nonActorStatus.currentHp <= 0 ? 0 : nonActorStatus.currentHp
+            playerCurrentHp.value = playerChar.value.currentHp
+            enemyCurrentHp.value = enemyChar.value.currentHp
+            nonActorStatus.hitAnimation = true
+            hitChar.value = true
+        } else if (actor.attack > 0 && nonActor.defense > 0) {
+            nonActorStatus.blockAnimation = true
+            hitChar.value = true
+        }
         actor.attack = 0
         nonActor.defense = 0
+        setTimeout(() => {
+            hitChar.value = false
+        }, 1)
+        setTimeout(() => {
+            nonActorStatus.hitAnimation = false
+            nonActorStatus.blockAnimation = false
+            if (playerChar.value.currentHp <= 0 || enemyChar.value.currentHp <= 0) {
+                turnPhase.value = 10
+            } else {
+                nextAction()
+            }
+        }, 1500)
     }, 2000)
 }
 
@@ -142,17 +172,12 @@ watch(skillPoint, () => {
     if (skillPoint.value === 0) nextAction()
 })
 
-watch([playerCurrentHp, enemyCurrentHp], () => {
-    console.log(playerCurrentHp.value + ' ' + enemyCurrentHp.value)
-    if (playerCurrentHp.value <= 0 || enemyCurrentHp.value <= 0) turnPhase.value = 4
-})
-
 watch(turnPhase, (newValue, oldValue) => {
     if (turnPhase.value === 1) playerActionTurn()
     else if (turnPhase.value === 2) newValue - oldValue > 0 ? calculateActionTurn('player') : calculateActionTurn('enemy')
     else if (turnPhase.value === 3) enemyActionTurn()
     else gameEnd()
-},{ immediate: true })
+}, { immediate: true })
 
 gameStart()
 
@@ -160,22 +185,41 @@ gameStart()
 
 <template>
     <div class="relative w-screen h-screen overflow-hidden flex justify-center">
+        <!-- calculate screen -->
+        <transition name="calculate-screen">
+            <div v-if="calculateScreen" class="absolute z-50 w-full h-full bg-black bg-opacity-80">
+                <CalculateScreen :attackChar="playerTurn ? 'player' : 'enemy'" 
+                :attackPoint="playerTurn ? playerAction.attack : enemyAction.attack" 
+                :defensePoint="playerTurn ? enemyAction.defense : playerAction.defense"/>
+            </div>
+        </transition>
+
+        <!-- top screen -->
         <div class="absolute flex w-screen justify-between top-[3vh] text-[5vh] p-10">
             <HealthBar charBar="player" :hpPercentage="playerChar.currentHp / playerChar.maxHp * 100">
-                {{ playerChar.currentHp + ' / ' + playerChar.maxHp }}
+                {{ playerChar.currentHp }}
             </HealthBar>
             <div class="font-bold bg-base-300 p-5 rounded-full">
                 <h1>Turn {{ turn }}</h1>
             </div>
             <HealthBar charBar="enemy" :hpPercentage="enemyChar.currentHp / enemyChar.maxHp * 100">
-                {{ enemyChar.currentHp + ' / ' + enemyChar.maxHp }}
+                {{ enemyChar.currentHp }}
             </HealthBar>
         </div>
-        <div class="relative w-screen h-screen bg-slate-300 -z-10">
-            <div class="absolute">
 
-            </div>
+        <!-- main screen -->
+        <div class="relative w-screen h-screen flex items-center -z-10">
+            <Character char="player" :hitTrigger="playerChar.hitAnimation" :blockTrigger="playerChar.blockAnimation"
+                :hitChar="hitChar" :hitDamage="hitDamage">
+                SleepyLeo
+            </Character>
+            <Character char="enemy" :hitTrigger="enemyChar.hitAnimation" :blockTrigger="enemyChar.blockAnimation"
+                :hitChar="hitChar" :hitDamage="hitDamage">
+                Demon King
+            </Character>
         </div>
+
+        <!-- bottom screen -->
         <div class="absolute bottom-0">
             <div class="flex justify-center w-screen">
                 <div v-if="playerTurn" class="flex w-full items-center text-5xl font-bold p-[5vh]">
@@ -186,12 +230,16 @@ gameStart()
                 </div>
             </div>
             <div class="flex justify-between w-screen h-[20vh] bg-base-300 p-[5vh]">
-                <div class="flex gap-10 justify-center items-center" :class="playerTurn ? '' : 'opacity-50 pointer-events-none'">
-                    <ActionButton :actionVar="playerAction.charge" :actionFunc="chargePointAction" :class="disableChargePoint ? 'pointer-events-none opacity-50' : ''">charge</ActionButton>
-                    <ActionButton :actionVar="playerAction.defense" :actionFunc="defensePointAction">defense</ActionButton>
+                <div class="flex gap-10 justify-center items-center"
+                    :class="playerTurn ? '' : 'opacity-50 pointer-events-none'">
+                    <ActionButton :actionVar="playerAction.charge" :actionFunc="chargePointAction"
+                        :class="disableChargePoint ? 'pointer-events-none opacity-50' : ''">charge</ActionButton>
+                    <ActionButton :actionVar="playerAction.defense" :actionFunc="defensePointAction">defense
+                    </ActionButton>
                     <ActionButton :actionVar="playerAction.attack" :actionFunc="attackPointAction">attack</ActionButton>
                 </div>
-                <div class="flex gap-10 justify-center items-center" :class="enemyTurn ? '' : 'opacity-50 pointer-events-none'">
+                <div class="flex gap-10 justify-center items-center"
+                    :class="enemyTurn ? '' : 'opacity-50 pointer-events-none'">
                     <ActionButton :actionVar="enemyAction.attack">attack</ActionButton>
                     <ActionButton :actionVar="enemyAction.defense">defense</ActionButton>
                     <ActionButton :actionVar="enemyAction.charge">charge</ActionButton>
@@ -201,4 +249,14 @@ gameStart()
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.calculate-screen-enter-from,
+.calculate-screen-leave-to {
+    opacity: 0;
+}
+
+.calculate-screen-enter-active,
+.calculate-screen-leave-active {
+    transition: all .5s ease;
+}
+</style>
