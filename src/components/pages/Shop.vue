@@ -1,8 +1,8 @@
 <script setup>
-import heros from "../../assets/heros";
-import Cardcharater from "../common/Cardcharater.vue";
-const headBanner = "bg-gradient-to-b from-[#D9D9D9] to-[#737373]";
-const outerContainer = "bg-gradient-to-b from-[#757A69] to-[#131411]";
+import heros from "../../assets/heros"
+import Cardcharater from "../common/Cardcharater.vue"
+const headBanner = "bg-gradient-to-b from-[#D9D9D9] to-[#737373]"
+const outerContainer = "bg-gradient-to-b from-[#757A69] to-[#131411]"
 </script>
 
 <template>
@@ -16,6 +16,9 @@ const outerContainer = "bg-gradient-to-b from-[#757A69] to-[#131411]";
     </div>   
     <div v-if="heros.pop()" > 
       <Cardcharater />
+      <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Buy Now
+      </button>
       </div>
   </div>
 </template>
