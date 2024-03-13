@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="flex justify-center items-center text-5xl font-bold">
-        <h1>This is welcome</h1>
+    <div>
+        
     </div>
 </template>
 
