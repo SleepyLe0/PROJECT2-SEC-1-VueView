@@ -1,11 +1,12 @@
 <script setup>
+import { RouterView } from 'vue-router';
 import Guideline from './Guideline.vue';
 </script>
 
 <template>
   <div class="font-main">
     <!-- Remove this line after you understand guideline -->
-    <Guideline />
+    <RouterView/>
   </div>
 </template>
 
