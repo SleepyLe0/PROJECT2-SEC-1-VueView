@@ -1,21 +1,20 @@
 <script setup>
-const colorBg = '#757A69';
+
 </script>
 
 <template>
-    <img src="../../../public/Background/Castle.jpg" alt="Background" class="w-full h-full absolute -z-50" />
-    <img src="../../../public/Common/Logo.png" alt="logo" class="absolute top-5 right-5 px-[1.25vh] py-[.125vh]">
-    <div class="absolute inset-0 flex items-center justify-center ">
+    <div class="relative w-screen h-screen flex justify-center items-center">
+        <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh] right-[3vh] px-[1.25vh] py-[.125vh]">
         <form class="bg-slate-500 rounded-xl p-8 w-full max-w-md">
             <div class="mb-4">
                 <label for="username" class="text-white block mb-2">Username</label>
                 <input type="text" id="username" name="username"
-                    class="w-full p-2 rounded rounded-full border border-gray-300 focus:outline-none focus:border-blue-500">
+                    class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500">
             </div>
             <div class="mb-4">
                 <label for="password" class="text-white block mb-2">Password</label>
                 <input type="password" id="password" name="password"
-                    class="w-full p-2 rounded rounded-full border border-gray-300 focus:outline-none focus:border-blue-500">
+                    class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500">
             </div>
             <router-link to="ForgetPassword">
                 <p class="pb-3 hover:text-blue-700 ">Forget password?</p>

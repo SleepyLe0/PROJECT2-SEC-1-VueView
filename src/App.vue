@@ -1,6 +1,5 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import Guideline from './Guideline.vue';
 </script>
 
 <template>

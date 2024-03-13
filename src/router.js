@@ -1,21 +1,18 @@
-import { createApp } from "vue"
 import { createRouter, createWebHistory } from "vue-router"
 import Login from "./components/pages/Login.vue"
 import Home from "./components/pages/Home.vue"
 import Inventory from "./components/pages/Inventory.vue"
-import Achievement from "./components/pages/Achievement.vue"
 import Level from "./components/pages/Level.vue"
 import Setting from "./components/pages/Setting.vue"
 import Shop from "./components/pages/Shop.vue"
 
 const routes = [
-    {path: '/',component: Home},
-    {path: '/login',component: Login},
-    {path: '/inventory',component: Inventory },
-    {path: '/achievement',component: Achievement },
-    {path: '/level',component: Level },
-    {path: '/setting',component: Setting },
-    {path: '/shop',component: Shop }
+    { path: '/', component: Home },
+    { path: '/login', component: Login },
+    { path: '/inventory', component: Inventory },
+    { path: '/level', component: Level },
+    { path: '/setting', component: Setting },
+    { path: '/shop', component: Shop }
 ]
 
 const router =  createRouter({
@@ -23,4 +20,4 @@ const router =  createRouter({
     routes,
 })
 
-export default router;
+export default router
