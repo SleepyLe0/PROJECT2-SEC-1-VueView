@@ -1,11 +1,11 @@
 <script setup>
+import { RouterView } from 'vue-router';
 import Guideline from './Guideline.vue';
 </script>
 
 <template>
-  <div class="font-main">
-    <!-- Remove this line after you understand guideline -->
-    <Guideline />
+  <div class="font-main w-screen h-screen overflow-hidden bg-[url('/Background/Castle.jpg')] bg-center bg-cover">
+    <RouterView/>
   </div>
 </template>
 
