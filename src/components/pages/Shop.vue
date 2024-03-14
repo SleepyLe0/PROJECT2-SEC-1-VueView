@@ -6,20 +6,22 @@ const outerContainer = "bg-gradient-to-b from-[#757A69] to-[#131411]"
 </script>
 
 <template>
-  <div class="relative mx-8 mt-28 pt-16 h-[80vh] border-4 border-black " :class="outerContainer">
-    <div
-      class="absolute px-64 py-4 -top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-black "
+  <div class="relative h-[80vh] border-4 border-black " :class="outerContainer">
+    <div class="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-black "
       :class="headBanner">
-      <h1 class="font-main text-center text-5xl text-black">
+      <h1 class="text-center text-5xl text-black">
         SHOP
       </h1>
-    </div>   
-    <div v-if="heros.pop()" > 
-      <Cardcharater />
-      <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Buy Now
-      </button>
-      </div>
+    </div>
+    <div class=" flex flex-wrap gap-3">
+      <div v-for="hero in heros">
+        <Cardcharater :hero="hero" />
+      </div>     
+    </div>
+<button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Buy Now
+    </button>
+ 
   </div>
 </template>
 
