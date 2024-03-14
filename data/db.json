@@ -1,7 +1,6 @@
 {
     "userAccounts": [
         {
-            "id": 1,
             "username": "SleepyLeo",
             "password": "password123",
             "gold": 1000,
@@ -27,11 +26,9 @@
                     "unlock": true
                 }
             ],
-            "characters": ["1", "2", "3", "4", "5"],
-            "achievements": []
+            "characters": ["1", "2", "3", "4", "5"]
         },
         {
-            "id": 2,
             "username": "Gunnie",
             "password": "123password",
             "gold": 100,
@@ -57,8 +54,7 @@
                     "unlock": false
                 }
             ],
-            "characters": ["1", "2", "3"],
-            "achievements": []
+            "characters": ["1", "2", "3"]
         }
     ]
 }
