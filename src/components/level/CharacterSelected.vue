@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import BackButton from '../common/BackButton.vue'
 import CharacterCard from '../common/CharacterCard.vue'
-import CharacterControlButton from './CharacterControlButton.vue'
 
 const emits = defineEmits(['resetLevel'])
 const props = defineProps({
@@ -17,6 +16,7 @@ const props = defineProps({
 })
 
 const currentCharacterId = ref(props.characters[0])
+const widthScreen = ref(window.innerWidth)
 
 const nextCharacter = () => {
     if (currentCharacterId.value === props.characters[props.characters.length - 1]) currentCharacterId.value = props.characters[0]
@@ -28,6 +28,11 @@ const previousCharacter = () => {
     else currentCharacterId.value--
 }
 
+const calculateWidthScreen = () => {
+    widthScreen.value = window.innerWidth
+}
+
+window.onresize = calculateWidthScreen
 </script>
 
 <template>
@@ -44,14 +49,17 @@ const previousCharacter = () => {
             </div>
         </div>
         <div class="absolute bottom-0 bg-[#45483D] w-screen h-[35vh] flex justify-center items-center">
-            <div class="relative w-full h-full flex justify-center items-center">
-                <div class="absolute left-0">
-                    <CharacterControlButton @buttonFunc="previousCharacter">B</CharacterControlButton>
-                </div>
+            <div v-if="widthScreen <= 1024" class="relative w-full h-full flex justify-center items-center">
+                <button class="flex justify-center items-center p-[3vh] shadow-lg bg-[#3C2A21] absolute left-0" @click="previousCharacter">
+                    B
+                </button>
                 <CharacterCard :heroId="currentCharacterId" />
-                <div class="absolute right-0">
-                    <CharacterControlButton @buttonFunc="nextCharacter">N</CharacterControlButton>
-                </div>
+                <button class="flex justify-center items-center p-[3vh] shadow-lg bg-[#3C2A21] absolute right-0" @click="nextCharacter">
+                    N
+                </button>
+            </div>
+            <div v-else>
+                
             </div>
         </div>
     </div>

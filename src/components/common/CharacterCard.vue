@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed } from 'vue'
 import heros from '../../data/heros'
 
 const props = defineProps({
