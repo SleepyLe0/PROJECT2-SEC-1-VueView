@@ -1,5 +1,15 @@
 const url = 'http://localhost:168/userAccounts'
 
+async function getAllUsers() {
+    try {
+        const data = await fetch(`${url}`)
+        const users = await data.json()
+        return users
+    } catch (error) {
+        console.log(`error: ${error}`)
+    }
+}
+
 async function getUserById(id) {
     try {
         const data = await fetch(`${url}/${id}`)
@@ -10,4 +20,4 @@ async function getUserById(id) {
     }
 }
 
-export { getUserById }
+export { getAllUsers, getUserById }

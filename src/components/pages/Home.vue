@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="flex  h-screen p-[10vh]  ">
+    <div class="flex h-screen p-[10vh]">
         <div class="absolute top-[4vh] left-[4vh]">
             <img src="/Common/Logo.png" alt="logo" class="w-[70vh]">
         </div>
