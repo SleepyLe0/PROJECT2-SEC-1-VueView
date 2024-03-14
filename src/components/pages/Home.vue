@@ -1,5 +1,6 @@
 <script setup>
-
+import {ref} from 'vue'
+const currentUser =ref(JSON.parse(localStorage.getItem('currentUser')))
 </script>
 
 <template>
@@ -16,9 +17,14 @@
             </div>
         </div>
         <div
-            class="absolute top-[10vh] right-0 px-[4vh] bg-white w-[50vh] h-[20vh] text-[4vh] flex flex-col justify-center">
-            <h1>UserName</h1>
-            <img src="/Common/Coin.png" alt="Coin" class="w-[6vh]">
+            class="absolute top-[10vh] right-0 px-[4vh] bg-gradient-to-t from-[#436850] to-[#ADBC9F] w-[38vh] h-[16vh] text-[4vh] 
+            flex flex-col justify-center text-black shadow-lg  border-[0.5vh] border-lime-950 rounded-l-xl">
+            <h1 class=" ">{{ currentUser.username }}</h1>
+            <div class="flex gap-[2.5vh]">
+                <img src="/Common/Coin.png" alt="Coin" class="w-[6vh]">
+                <h1>{{ currentUser.gold }}</h1>
+            </div>
+            
         </div>
     </div>
 </template>
