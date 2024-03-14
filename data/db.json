@@ -1,6 +1,7 @@
 {
     "userAccounts": [
         {
+            "id": "1",
             "username": "SleepyLeo",
             "password": "password123",
             "gold": 1000,
@@ -29,6 +30,7 @@
             "characters": ["1", "2", "3", "4", "5"]
         },
         {
+            "id": "2",
             "username": "Gunnie",
             "password": "123password",
             "gold": 100,
