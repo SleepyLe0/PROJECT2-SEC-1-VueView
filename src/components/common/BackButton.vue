@@ -2,7 +2,6 @@
 const props = defineProps({
     path: {
         type: String,
-        required: true
     }
 })
 </script>
