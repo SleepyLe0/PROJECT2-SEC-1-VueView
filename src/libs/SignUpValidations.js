@@ -1,4 +1,4 @@
-import Validations from "./validations";
+import Validations from "./Validations";
 
 export default class SignupValidations {
     constructor(username,password,confirmPassword) {

@@ -1,6 +1,6 @@
 <script setup>
-import SignupValidations from '../../store/SignUpValidations';
-import { addUser } from '../../api/fetchapi.js';
+import SignupValidations from '../../libs/SignUpValidations';
+import { addUser } from '../../libs/fetchapi';
 import {  ref } from 'vue';
 
 const username = ref('');
@@ -10,8 +10,8 @@ const errors = ref([]);
 const gold = ref(100);
 const level = ref([
   { id: 1, unlock: true },
-  { id: 2, unlock: true },
-  { id: 3, unlock: true },
+  { id: 2, unlock: false },
+  { id: 3, unlock: false },
   { id: 4, unlock: false },
   { id: 5, unlock: false }
 ]);
@@ -30,7 +30,7 @@ const onSignup = async () => {
             username: username.value,
             password: password.value,
             gold: gold.value,
-            level: level.value,
+            levels: level.value,
             character: character.value
         };
         await addUser(id);

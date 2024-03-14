@@ -1,8 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import { userAccounts } from '../data/db.json'
 
-localStorage.setItem('currentUser', JSON.stringify(userAccounts[1]))
 </script>
 
 <template>

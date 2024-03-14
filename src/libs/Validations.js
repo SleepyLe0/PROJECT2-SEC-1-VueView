@@ -1,6 +1,6 @@
 export default class Validations {
     static checkUsername(username) {
-        if(/^[0-9A-Za-z-.]{6,16}$/i.test(username,)){
+        if(/^[0-9A-Za-z_.]{6,16}$/i.test(username)){
             return true
         }
         return false
@@ -12,4 +12,6 @@ export default class Validations {
         }
         return false
     }
+
+
 }

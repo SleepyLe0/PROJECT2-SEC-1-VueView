@@ -1,25 +1,31 @@
 <script setup>
-import SignupValidations from '../../store/SignUpValidations';
-import {  ref } from 'vue';
+import { ref } from 'vue';
+import { getAllUsers } from '../../libs/fetchapi';
+import  router  from '../../router';
 
 const username = ref('');
 const password = ref('');
 const errors = ref([]);
 
 const onLogin = async () => {
+    try {
+        const users = await getAllUsers();
+        const user = users.find(u => u.username === username.value && u.password === password.value);
+        if (user) {
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            console.log('Logged in successfully:', user);
+            router.push({ path: '/home' });
+        } else {
 
-            //check the validations
-            let validations = new SignupValidations(this.username, this.password);
-
-            this.errors = validations.checkValidations();
-            if (this.errors.length) {
-                return false;
-            }
-
-
+            errors.value.push('Invalid username or password');
         }
-
+    } catch (error) {
+        console.error('Error logging in:', error);
+        errors.value.push('Error logging in. Please try again later.');
+    }
+}
 </script>
+
 
 <template>
     <div class="relative w-screen h-screen flex justify-center items-center">
@@ -43,8 +49,10 @@ const onLogin = async () => {
                     v-model="password">
                 <div class=" text-red-600 pt-[1vh]" v-if="errors.password">{{ errors.password }}</div>
             </div>
+            
             <button type="submit"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  focus:outline-none focus:shadow-outline ">Login
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  focus:outline-none focus:shadow-outline ">
+                Login
             </button>
             <div class="strike">
                 <span>Or</span>
