@@ -5,7 +5,7 @@ const monsters = [
         hp: 100,
         attack: 10,
         level: 1,
-        image: "/Monster/LizardMan.png"
+        image: "/Monster/LizardMan.png",
     },
     {
         id: "2",
