@@ -1,4 +1,5 @@
 <script setup>
+const emits = defineEmits(['changeLevel'])
 const props = defineProps({
     level: {
         type: Object,
@@ -8,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <button class="w-full h-full flex justify-center items-center bg-gradient-to-t from-[#737373] to-[#D9D9D9]"
+    <button class="w-full h-full flex justify-center items-center bg-gradient-to-t from-[#737373] to-[#D9D9D9]" @click="$emit('changeLevel', props.level.id)"
         :class="props.level.unlock ? '' : 'opacity-50 pointer-events-none'">
         <h1 class="text-[5vh] text-black">Level {{ props.level.id }}</h1>
     </button>
