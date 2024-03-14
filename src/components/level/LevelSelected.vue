@@ -12,7 +12,7 @@ const props = defineProps({
 <template>
     <div class="w-screen h-screen flex justify-center items-center">
         <div class="absolute top-[2vh] left-[2vh]">
-            <router-link to="/">
+            <router-link to="/home">
                 <img src="/Common/BackButton.png" alt="back" class="w-[15vw] md:w-[10vh]">
             </router-link>
         </div>
