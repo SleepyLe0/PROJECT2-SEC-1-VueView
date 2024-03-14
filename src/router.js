@@ -6,6 +6,8 @@ import Inventory from './components/pages/Inventory.vue'
 import Level from './components/pages/Level.vue'
 import Setting from './components/pages/Setting.vue'
 import Shop from './components/pages/Shop.vue'
+import SignUp from './components/pages/SignUp.vue'
+
 
 const routes = [
     { path: '/', component: Welcome },
@@ -14,7 +16,9 @@ const routes = [
     { path: '/inventory', component: Inventory },
     { path: '/level', component: Level },
     { path: '/setting', component: Setting },
-    { path: '/shop', component: Shop }
+    { path: '/shop', component: Shop },
+    { path: '/signup', component: SignUp },
+
 ]
 
 const router =  createRouter({
