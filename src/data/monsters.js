@@ -1,6 +1,6 @@
 const monsters = [
     {
-        id: "1",
+        id: 1,
         name: "Lizard Man",
         hp: 100,
         attack: 10,
@@ -8,7 +8,7 @@ const monsters = [
         image: "/Monster/LizardMan.png",
     },
     {
-        id: "2",
+        id: 2,
         name: "Jhin",
         hp: 80,
         attack: 20,
@@ -16,7 +16,7 @@ const monsters = [
         image: "/Monster/Jhin.png"
     },
     {
-        id: "3",
+        id: 3,
         name: "Medusa",
         hp: 60,
         attack: 30,
@@ -24,7 +24,7 @@ const monsters = [
         image: "/Monster/Medusa.png"
     },
     {
-        id: "4",
+        id: 4,
         name: "Dragon",
         hp: 150,
         attack: 15,
@@ -32,7 +32,7 @@ const monsters = [
         image: "/Monster/Dragon.png"
     },
     {
-        id: "5",
+        id: 5,
         name: "Demon",
         hp: 200,
         attack: 10,

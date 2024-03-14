@@ -27,7 +27,7 @@
                     "unlock": true
                 }
             ],
-            "characters": ["1", "2", "3", "4", "5"]
+            "characters": [1, 2, 3, 4, 5]
         },
         {
             "id": "2",
@@ -56,7 +56,7 @@
                     "unlock": false
                 }
             ],
-            "characters": ["1", "2", "3"]
+            "characters": [4, 5]
         }
     ]
 }
