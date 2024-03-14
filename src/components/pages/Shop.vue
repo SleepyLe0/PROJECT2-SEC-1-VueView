@@ -1,6 +1,7 @@
 <script setup>
-import heros from "../../assets/heros"
-import Cardcharater from "../common/Cardcharater.vue"
+import heros from '../../data/heros'
+import CharacterCard from '../common/CharacterCard.vue'
+
 const headBanner = "bg-gradient-to-b from-[#D9D9D9] to-[#737373]"
 const outerContainer = "bg-gradient-to-b from-[#757A69] to-[#131411]"
 </script>

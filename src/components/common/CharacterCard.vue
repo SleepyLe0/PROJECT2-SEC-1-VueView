@@ -1,5 +1,5 @@
 <script setup>
-import heros from '../../assets/heros'
+
 </script>
 
 <template>
