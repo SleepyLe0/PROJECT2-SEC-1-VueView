@@ -1,27 +1,26 @@
 <script setup>
-import { ref } from 'vue';
-import { getAllUsers } from '../../libs/fetchapi';
-import  router  from '../../router';
+import { ref } from 'vue'
+import { getAllUsers } from '../../libs/fetchapi'
+import  router  from '../../router'
 
-const username = ref('');
-const password = ref('');
-const errors = ref([]);
+const username = ref('')
+const password = ref('')
+const errors = ref([])
 
 const onLogin = async () => {
     try {
-        const users = await getAllUsers();
-        const user = users.find(u => u.username === username.value && u.password === password.value);
+        const users = await getAllUsers()
+        const user = users.find(u => u.username === username.value && u.password === password.value)
         if (user) {
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            console.log('Logged in successfully:', user);
-            router.push({ path: '/home' });
+            localStorage.setItem('currentUser', JSON.stringify(user))
+            console.log('Logged in successfully:', user)
+            router.push({ path: '/home' })
         } else {
-
-            errors.value.push('Invalid username or password');
+            errors.value.push('Invalid username or password')
         }
     } catch (error) {
-        console.error('Error logging in:', error);
-        errors.value.push('Error logging in. Please try again later.');
+        console.error('Error logging in:', error)
+        errors.value.push('Error logging in. Please try again later.')
     }
 }
 </script>

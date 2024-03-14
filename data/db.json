@@ -1,8 +1,8 @@
 {
   "userAccounts": [
     {
-      "id": "cc8e",
-      "username": "Niraphan",
+      "id": "3daf",
+      "username": "SleepyLeo",
       "password": "123456",
       "gold": 100,
       "levels": [
@@ -27,7 +27,13 @@
           "unlock": false
         }
       ],
-      "character": []
+      "characters": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
     }
   ]
 }

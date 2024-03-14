@@ -1,5 +1,6 @@
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
+
 const currentUser =ref(JSON.parse(localStorage.getItem('currentUser')))
 </script>
 

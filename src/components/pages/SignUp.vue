@@ -1,41 +1,38 @@
 <script setup>
-import SignupValidations from '../../libs/SignUpValidations';
-import { addUser } from '../../libs/fetchapi';
-import {  ref } from 'vue';
+import SignUpValidations from '../../libs/SignUpValidations'
+import router from '../../router'
+import levels from '../../data/levels'
+import { addUser } from '../../libs/fetchapi'
+import { ref } from 'vue'
 
-const username = ref('');
-const password = ref('');
-const confirmPassword = ref('');
-const errors = ref([]);
-const gold = ref(100);
-const level = ref([
-  { id: 1, unlock: true },
-  { id: 2, unlock: false },
-  { id: 3, unlock: false },
-  { id: 4, unlock: false },
-  { id: 5, unlock: false }
-]);
-
-
-const character = ref([]);
+const username = ref('')
+const password = ref('')
+const confirmPassword = ref('')
+const errors = ref({})
+const gold = ref(100)
+const level = ref(levels)
+const character = ref([ 1, 2, 3, 4, 5 ])
 
 const onSignup = async () => {
-    let validations = new SignupValidations(username.value, password.value, confirmPassword.value);
-    errors.value = validations.checkValidations();
-    if (errors.value.length) {
-        return false;
+    const validations = new SignUpValidations(username.value, password.value, confirmPassword.value)
+    errors.value = await validations.checkValidations()
+    let countError = 0
+    for (const error in errors.value) {
+        if (errors.value[error].length > 0) countError++
     }
+    if (countError > 0) return false
     try {
         const id = {
             username: username.value,
             password: password.value,
             gold: gold.value,
             levels: level.value,
-            character: character.value
-        };
-        await addUser(id);
+            characters: character.value
+        }
+        await addUser(id)
+        router.push({ path: '/login' })
     } catch (error) {
-        console.error('Error signing up:', error);
+        console.error('Error signing up:', error)
     }
 }
 
@@ -53,36 +50,32 @@ const onSignup = async () => {
                 <input type="text" id="username" name="username"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     placeholder="Username" v-model.trim="username">
-                <div class=" text-red-600 pt-[1vh]" v-if="errors.username">{{ errors.username }}</div>
+                <div class=" text-red-600 pt-[1vh]" v-if="errors.username !== ''">{{ errors.username }}</div>
             </div>
             <div class="mb-4">
                 <label for="Password" class="text-white block mb-2">Password</label>
                 <input type="password" id="Password" name="Password"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     placeholder="New password" v-model.trim="password">
-                <div class=" text-red-600 pt-[1vh]" v-if="errors.password">{{ errors.password }}</div>
+                <div class=" text-red-600 pt-[1vh]" v-if="errors.password !== ''">{{ errors.password }}</div>
             </div>
             <div class="mb-4">
                 <label for="ConfirmPassword" class="text-white block mb-2">Confirm Password</label>
                 <input type="password" id="ConfirmPassword" name="ConfirmPassword"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     placeholder="Confirm password" v-model="confirmPassword">
-                <div class=" text-red-600 pt-[1vh]" v-if="errors.confirmPassword">{{ errors.confirmPassword }}</div>
+                <div class=" text-red-600 pt-[1vh]" v-if="errors.confirm !== ''">{{ errors.confirm }}</div>
             </div>
             <div class="flex justify-center gap-3">
                 <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  focus:outline-none focus:shadow-outline ">
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  focus:outline-none focus:shadow-outline">
                     Sign Up
                 </button>
                 <router-link to="/login"
                     class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded  focus:outline-none focus:shadow-outline">
                     Cancel
                 </router-link>
-
-
             </div>
-
-
         </form>
     </div>
 </template>

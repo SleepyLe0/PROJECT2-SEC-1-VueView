@@ -19,8 +19,8 @@ const changeCharacter = (character) => {
   currentPage.value = 'game'
 }
 
-const currentPage = ref('levelSelected')
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
+const currentPage = ref('levelSelected')
 const selectedLevel = ref(0)
 const selectedCharacter = ref(0)
 </script>
