@@ -11,15 +11,12 @@ import heros from '../../data/heros'
         SHOP
       </h1>
     </div>
-    <div class=" flex flex-wrap gap-3">
-      <div v-for="hero in heros">
-        <CharacterCard :hero="hero"/>
-      </div>     
+    <div class="flex flex-wrap gap-3">
+      <div v-for="hero in heros" :key="hero.id"> <CharacterCard :hero="hero" />
+        <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buy Now</button>
+      </div>
     </div>
-<button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-      Buy Now
-    </button>
- 
+
   </div>
 </template>
 
