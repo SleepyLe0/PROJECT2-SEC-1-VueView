@@ -1,21 +1,14 @@
 <script setup>
-import heros from '../../data/heros'
 import CharacterCard from '../common/CharacterCard.vue'
-import { computed, defineProps } from 'vue'
-import { ref } from 'vue'
+import { defineProps } from 'vue'
 
 const props = defineProps({
-    character: {
+    characters: {
         type: Array,
         required: true
     }
 })
 
-const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
-
-const characters = computed(() => {
-    return heros.filter(hero => currentUser.value.characters.includes(hero.id))
-})
 </script>
 
 <template>
@@ -30,8 +23,8 @@ const characters = computed(() => {
                 <h1 class="text-center text-[5vh] lg:text-[6vh] text-black">Inventory </h1>
             </div>
             <div class="flex flex-wrap  items-center gap-[4vh] p-[10vh]">
-            <div v-for="character in characters" :key="character.id">
-                <CharacterCard :hero="character" />
+            <div v-for="character in props.characters" :key="character.id">
+                <CharacterCard :heroId="character" />
             </div>
         </div>
         </div>

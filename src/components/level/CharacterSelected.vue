@@ -1,6 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue'
-import heros from '../../data/heros'
+import { ref } from 'vue'
 import BackButton from '../common/BackButton.vue'
 import CharacterCard from '../common/CharacterCard.vue'
 import CharacterControlButton from './CharacterControlButton.vue'
@@ -17,21 +16,18 @@ const props = defineProps({
     }
 })
 
-const currentCharacterId = ref(1)
+const currentCharacterId = ref(props.characters[0])
 
 const nextCharacter = () => {
-    if (currentCharacterId.value === props.characters.length) currentCharacterId.value = 1
+    if (currentCharacterId.value === props.characters[props.characters.length - 1]) currentCharacterId.value = props.characters[0]
     else currentCharacterId.value++
 }
 
 const previousCharacter = () => {
-    if (currentCharacterId.value === 1) currentCharacterId.value = 3
+    if (currentCharacterId.value === props.characters[0]) currentCharacterId.value = props.characters[props.characters.length - 1]
     else currentCharacterId.value--
 }
 
-const character = computed(() => {
-    return heros.find(hero => hero.id === `${currentCharacterId.value}`)
-})
 </script>
 
 <template>
@@ -52,7 +48,7 @@ const character = computed(() => {
                 <div class="absolute left-0">
                     <CharacterControlButton @buttonFunc="previousCharacter">B</CharacterControlButton>
                 </div>
-                <CharacterCard :hero="character"/>
+                <CharacterCard :heroId="currentCharacterId" />
                 <div class="absolute right-0">
                     <CharacterControlButton @buttonFunc="nextCharacter">N</CharacterControlButton>
                 </div>
