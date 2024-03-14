@@ -4,19 +4,26 @@ import heros from '../../data/heros'
 </script>
 
 <template>
-  <div class="relative h-[80vh] border-4 border-black bg-gradient-to-b from-[#757A69] to-[#131411]">
-    <div class="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-black 
-      bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
-      <h1 class="text-center text-5xl text-black">
-        SHOP
-      </h1>
-    </div>
-    <div class="flex flex-wrap gap-3">
-      <div v-for="hero in heros" :key="hero.id"> <CharacterCard :hero="hero" />
-        <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Buy Now</button>
+  <div class="px-[10vh]">
+    <div
+      class="flex justify-center relative  top-[15vh] h-[72vh] border-[2vh] border-[#332222] bg-gradient-to-b from-[#757A69] to-[#131411]">
+      <div
+        class="absolute top-[-6vh] w-[50vh] h-[10vh] border-[#332222] border-[1vh] bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
+        <h1 class="text-center text-[6vh] text-black">
+          SHOP
+        </h1>
+      </div>
+      <div class="flex items-center gap-[3.5vh] ">
+        <div v-for="hero in heros" :key="hero.id">
+          <CharacterCard :hero="hero" />
+          <div class="flex justify-center p-4">
+          <button @click="" class=" bg-blue-500 hover:bg-blue-700 text-white font-bold rounded  w-[15vh] h-[5vh] gap-3">
+            Buy Now
+          </button>
+        </div>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
