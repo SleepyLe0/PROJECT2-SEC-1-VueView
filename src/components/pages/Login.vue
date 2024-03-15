@@ -1,7 +1,12 @@
 <script setup>
 import { ref } from 'vue'
+<<<<<<< HEAD
 import { getAllUsers } from '../../libs/fetchapi'
 import router from '../../router'
+=======
+import { getAllUsers } from '../../libs/FetchAPI'
+import  router  from '../../router'
+>>>>>>> 21c71996644ec81f0263ff6b1a00b1baaccf13d2
 
 const username = ref('')
 const password = ref('')

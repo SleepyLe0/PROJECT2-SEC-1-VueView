@@ -1,7 +1,7 @@
 import Validations from './Validations'
-import { getAllUsers } from '../libs/fetchapi'
+import { getAllUsers } from '../libs/FetchAPI'
 
-export default class SignUpValidations {
+class SignUpValidations {
     constructor(username, password, confirmPassword) {
         this.username = username
         this.password = password
@@ -23,7 +23,9 @@ export default class SignUpValidations {
             }
             return errors
         } catch (error) {
-            console.log(`error: ${error}`)
+            console.log(`Validation Error: ${error}`)
         }
     }
 }
+
+export default SignUpValidations
