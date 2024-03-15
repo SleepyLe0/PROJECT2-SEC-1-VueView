@@ -1,12 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-<<<<<<< HEAD
-import { getAllUsers } from '../../libs/fetchapi'
-import router from '../../router'
-=======
 import { getAllUsers } from '../../libs/FetchAPI'
-import  router  from '../../router'
->>>>>>> 21c71996644ec81f0263ff6b1a00b1baaccf13d2
+import router from '../../router'
 
 const username = ref('')
 const password = ref('')
@@ -15,19 +10,22 @@ const errors = ref({ username: '', password: ''})
 const onLogin = async () => {
     try {
         const users = await getAllUsers()
-        const user = users.find(u => u.username === username.value && u.password === password.value)
-
-
-        if (user) {
-            localStorage.setItem('currentUser', JSON.stringify(user))
-            console.log('Logged in successfully:', user)
-            router.push({ path: '/home' })
+        const user = users.find(user => user.username === username.value)
+        errors.value.username = ''
+        errors.value.password = ''
+        if (user !== undefined) {
+            if (user.password === password.value) {
+                localStorage.setItem('currentUser', JSON.stringify(user))
+                console.log('Logged in successfully:', user.username)
+                router.push({ path: '/home' })
+            } else {
+                errors.value.password = 'Password is incorrect'
+            }
         } else {
-            errors.value.username = 'Username or password is incorrect'
+            errors.value.username = 'Not found this username'
         }
     } catch (error) {
-        console.error('Error logging in:', error)
-        errors.value.push('Error logging in. Please try again later.')
+        console.log(`Log-in Error: ${error}`)
     }
 }
 </script>
@@ -36,8 +34,8 @@ const onLogin = async () => {
 <template>
     <div class="relative w-screen h-screen flex justify-center items-center">
         <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh] right-[3vh] px-[1.25vh] py-[.125vh] ">
-        <form class="bg-slate-500 rounded-xl p-8 w-full m-[30vh] sm: p-[5vh]" @submit.prevent="onLogin()">
-            <div class="text-[60px] text-white sm: text-[45px]">Login</div>
+        <form class="bg-slate-500 rounded-xl p-8 w-full m-[30vh] sm:p-[5vh]" @submit.prevent="onLogin()">
+            <div class="text-[60px] text-white sm:text-[45px]">Login</div>
 
             <div class="mb-4">
                 <hr class=" opacity-50 pb-[1vh]">
@@ -46,14 +44,14 @@ const onLogin = async () => {
                 <input type="text" id="username" name="username"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     v-model="username">
-                    <div class="text-red-600 pt-[1vh]" v-if="errors.username">{{ errors.username }}</div>
+                    <div class="text-red-600 pt-[1vh]" v-if="errors.username !== ''">{{ errors.username }}</div>
             </div>
             <div class="mb-4">
                 <label for="password" class="text-white block mb-2">Password</label>
                 <input type="password" id="password" name="password"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     v-model="password">
-                <div class=" text-red-600 pt-[1vh]" v-if="errors.password">{{ errors.password }}</div>
+                <div class=" text-red-600 pt-[1vh]" v-if="errors.password !== ''">{{ errors.password }}</div>
             </div>
 
             <button type="submit"

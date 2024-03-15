@@ -29,7 +29,7 @@ const onSignup = async () => {
         await addUser(id)
         router.push({ path: '/login' })
     } catch (error) {
-        console.log(`Sign-Up Error: ${error}`)
+        console.log(`Sign-up Error: ${error}`)
     }
 }
 
