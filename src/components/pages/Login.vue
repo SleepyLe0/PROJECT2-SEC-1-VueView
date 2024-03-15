@@ -5,7 +5,7 @@ import router from '../../router'
 
 const username = ref('')
 const password = ref('')
-const errors = ref({ username: '', password: ''})
+const errors = ref({ username: '', password: '' })
 
 const onLogin = async () => {
     try {
@@ -43,22 +43,22 @@ const onOffPassword = () => {
 
             <div class="mb-4">
                 <hr class=" opacity-50 pb-[1vh]">
-
                 <label for="username" class="text-white block mb-2">Username</label>
-                <input type="text"  name="username"
+                <input type="text" id="username" name="username"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     v-model="username">
-                    <div class="text-red-600 pt-[1vh]" v-if="errors.username !== ''">{{ errors.username }}</div>
+
+                <div class="text-red-600 pt-[1vh]" v-if="errors.username !== ''">{{ errors.username }}</div>
             </div>
             <div class="mb-4">
                 <label for="password" class="text-white block mb-2">Password</label>
                 <div
                     class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white">
-                    <input :type="isPasswordHind?'password':'text'" name="password"
-                        placeholder="Password" class="w-10/12 p-2 rounded-full"
-                    v-model="password">
-                    <img @click="onOffPassword" class=" opacity-20" :src="`/Icon/${isPasswordHind?'in':''}visible.png`" />
- 
+                    <input :type="isPasswordHind ? 'password' : 'text'" id="password" name="password" placeholder="Password"
+                        class="w-10/12 p-2 rounded-full" v-model="password">
+                    <img @click="onOffPassword" class=" opacity-20"
+                        :src="`/Icon/${isPasswordHind ? 'in' : ''}visible.png`" />
+
                 </div>
                 <div class=" text-red-600 pt-[1vh]" v-if="errors.password !== ''">{{ errors.password }}</div>
             </div>
@@ -78,7 +78,7 @@ const onOffPassword = () => {
             </div>
 
         </form>
-        
+
 
     </div>
 </template>

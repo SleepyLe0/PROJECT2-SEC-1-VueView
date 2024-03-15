@@ -57,10 +57,10 @@ const onSignup = async () => {
                 <div class=" text-red-600 pt-[1vh]" v-if="errors.username !== ''">{{ errors.username }}</div>
             </div>
             <div class="mb-4">
-                <label for="Password" class="text-white block mb-2">Password</label>
+                <label for="password"  class="text-white block mb-2">Password</label>
                 <div
                     class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white focus:border-blue-500">
-                    <input :type="isPasswordHind ? 'password' : 'text'" name="Password" class="w-10/12 rounded-full p-2"
+                    <input :type="isPasswordHind ? 'password' : 'text'" name="Password" id="password" class="w-10/12 rounded-full p-2"
                         placeholder="New password" v-model.trim="password">
                     <img @click="onOffPassword('isPasswordHind')" class=" opacity-20"
                         :src="`/Icon/${isPasswordHind ? 'in' : ''}visible.png`" />
