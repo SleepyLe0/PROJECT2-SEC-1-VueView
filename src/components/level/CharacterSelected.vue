@@ -14,8 +14,12 @@ const props = defineProps({
         type: Number,
         required: true
     },
+    selectedCharacter: {
+        type: Number,
+        required: true
+    },
     action: {
-        type: Function,
+        type: Object,
         required: true
     }
 })
@@ -40,7 +44,9 @@ const monster = computed(() => {
             </div>
         </div>
         <div class="absolute bottom-0 bg-[#45483D] w-screen h-[40vh] flex justify-center items-center">
-            <CharacterCollection :characters="props.characters" @changeCharacter="props.action"/>
+            <CharacterCollection :characters="props.characters" :selectedCharacter="props.selectedCharacter"
+            @changeCharacter="props.action.changeCharacter"
+            @selectCharacter="props.action.selectCharacter"/>
         </div>
     </div>
 </template>

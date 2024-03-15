@@ -2,10 +2,14 @@
 import { ref, computed } from 'vue'
 import CharacterCard from '../common/CharacterCard.vue'
 
-const emits = defineEmits(['changeCharacter'])
+const emits = defineEmits(['changeCharacter', 'selectCharacter'])
 const props = defineProps({
     characters: {
         type: Array,
+        required: true
+    },
+    selectedCharacter: {
+        type: Number,
         required: true
     }
 })
@@ -53,8 +57,15 @@ const calculateWidth = computed(() => {
             >>
         </button>
     </div>
-    <div v-else class="w-full h-full flex justify-center items-center gap-[2vh] overflow-hidden">
-        <CharacterCard v-for="character in props.characters" :heroId="character" />
+    <div v-else class="relative w-full h-full flex justify-center items-center gap-[2vh] overflow-hidden">
+        <CharacterCard v-for="character in props.characters" class="cursor-pointer"
+        :class="props.selectedCharacter === character ? 'border-[.5vh] border-[#49FF00] rounded-lg' : ''"
+        :heroId="character" 
+        @click="$emit('selectCharacter', character)"/>
+        <button class="absolute top-[3vh] right-[3vh] p-[2vh] text-[3vh] text-black bg-[#49FF00] rounded-lg border-[.5vh] border-black"
+            @click="$emit('changeCharacter')">
+            Confirm
+        </button>
     </div>
 </template>
 

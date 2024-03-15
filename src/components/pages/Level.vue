@@ -11,12 +11,17 @@ const changeLevel = (level) => {
 
 const resetLevel = () => {
   selectedLevel.value = 0
+  selectedCharacter.value = 0
   currentPage.value = 'levelSelected'
 }
 
 const changeCharacter = (character) => {
-  selectedCharacter.value = character
+  if (character !== undefined) selectedCharacter.value = character
   currentPage.value = 'game'
+}
+
+const selectCharacter = (character) => {
+  selectedCharacter.value = character
 }
 
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
@@ -32,8 +37,9 @@ const selectedCharacter = ref(0)
     :action="changeLevel"/>
     <CharacterSelected v-else-if="currentPage === 'characterSelected'" 
     :characters="currentUser.characters" 
-    :level="selectedLevel" 
-    :action="changeCharacter"
+    :level="selectedLevel"
+    :selectedCharacter="selectedCharacter"
+    :action="{ selectCharacter, changeCharacter }"
     @resetLevel="resetLevel"/>
     <Game v-else :level="selectedLevel" :character="selectedCharacter"/>
   </div>
