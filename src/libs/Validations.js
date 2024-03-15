@@ -5,5 +5,5 @@ export default class Validations {
 
     static minLength(username, minLength) {
         return username.length >= minLength
-    }
+    }     
 }
