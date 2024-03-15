@@ -38,7 +38,7 @@ async function addUser(user) {
 
 async function updateUser(user) {
     try {
-        const response = await fetch(`${url}/${user.id}`, {
+        const response = await fetch(`${url}/${user.username}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

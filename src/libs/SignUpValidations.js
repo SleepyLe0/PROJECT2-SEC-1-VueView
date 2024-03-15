@@ -1,5 +1,5 @@
 import Validations from './Validations'
-import { getAllUsers } from '../libs/FetchAPI'
+import { getAllUsers } from './FetchAPI'
 
 class SignUpValidations {
     constructor(username, password, confirmPassword) {
