@@ -1,6 +1,6 @@
 <script setup>
 import CharacterCard from '../common/CharacterCard.vue'
-import { defineProps } from 'vue'
+import { defineProps} from 'vue'
 
 const props = defineProps({
     characters: {
@@ -22,7 +22,7 @@ const props = defineProps({
             <div class="absolute top-[-6vh] w-[25vh] lg:w-[50vh] h-[10vh] border-[#332222] border-[1vh] bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
                 <h1 class="text-center text-[5vh] lg:text-[6vh] text-black">Inventory </h1>
             </div>
-            <div class="flex flex-wrap  items-center gap-[4vh] p-[10vh]">
+            <div class="flex flex-wrap items-center justify-center xl:justify-start pt-[5vh] gap-[3.5vh] p-[2vh] xl:p-[7vh]  overflow-scroll ">
             <div v-for="character in props.characters" :key="character.id">
                 <CharacterCard :heroId="character" />
             </div>
