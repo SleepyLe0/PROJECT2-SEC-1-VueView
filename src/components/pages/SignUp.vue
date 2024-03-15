@@ -2,16 +2,13 @@
 import SignUpValidations from '../../libs/SignUpValidations'
 import router from '../../router'
 import levels from '../../data/levels'
-import { addUser } from '../../libs/fetchapi'
+import { addUser } from '../../libs/FetchAPI'
 import { ref } from 'vue'
 
 const username = ref('')
 const password = ref('')
 const confirmPassword = ref('')
 const errors = ref({})
-const gold = ref(100)
-const level = ref(levels)
-const character = ref([ 1, 2, 3, 4, 5 ])
 
 const onSignup = async () => {
     const validations = new SignUpValidations(username.value, password.value, confirmPassword.value)
@@ -25,14 +22,14 @@ const onSignup = async () => {
         const id = {
             username: username.value,
             password: password.value,
-            gold: gold.value,
-            levels: level.value,
-            characters: character.value
+            gold: 100,
+            levels: levels,
+            characters: [ 1 ]
         }
         await addUser(id)
         router.push({ path: '/login' })
     } catch (error) {
-        console.error('Error signing up:', error)
+        console.log(`Sign-Up Error: ${error}`)
     }
 }
 
