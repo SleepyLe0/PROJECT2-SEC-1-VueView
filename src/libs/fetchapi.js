@@ -36,4 +36,32 @@ async function addUser(user) {
     }
 }
 
+async function updateUser(user) {
+    try {
+        const response = await fetch(`${url}/${user.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ...user })
+        })
+        const updatedUser = await response.json()
+        return updatedUser
+    } catch (error) {
+        console.error(`Error updating user: ${error}`)
+    }
+}
+
+async function deleteUser(id) {
+    try {
+        const response = await fetch(`${url}/${id}`, {
+            method: 'DELETE'
+        })
+        const deletedUser = await response.json()
+        return deletedUser
+    } catch (error) {
+        console.error(`Error deleting user: ${error}`)
+    }
+}
+
 export { getAllUsers, getUserById, addUser}
