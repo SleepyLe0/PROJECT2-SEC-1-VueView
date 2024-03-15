@@ -53,7 +53,7 @@ const onOffPassword = () => {
             <div class="mb-4">
                 <label for="password" class="text-white block mb-2">Password</label>
                 <div
-                    class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white focus:border-blue-500">
+                    class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white">
                     <input :type="isPasswordHind?'password':'text'" name="password"
                         placeholder="Password" class="w-10/12 p-2 rounded-full"
                     v-model="password">
