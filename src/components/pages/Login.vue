@@ -53,10 +53,10 @@ const onOffPassword = () => {
             <div class="mb-[2vh]">
                 <label for="password" class="text-white block mb-2 ">Password</label>
                 <div
-                    class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white">
+                    class="flex flex-row w-full rounded-full border border-gray-300 relative focus:outline-none bg-white">
                     <input :type="isPasswordHind ? 'password' : 'text'" id="password" name="password" placeholder="Password"
-                        class="w-10/12 p-2 rounded-full" v-model="password">
-                    <img @click="onOffPassword" class=" opacity-20"
+                        class="w-full p-2 rounded-full" v-model="password">
+                    <img @click="onOffPassword" class=" opacity-30 absolute  right-0 object-fill h-[40px] w-[40px]" 
                         :src="`/Icon/${isPasswordHind ? 'in' : ''}visible.png`" />
 
                 </div>

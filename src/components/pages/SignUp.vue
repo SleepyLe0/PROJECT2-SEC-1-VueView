@@ -59,10 +59,10 @@ const onSignup = async () => {
             <div class="mb-4">
                 <label for="password"  class="text-white block mb-2">Password</label>
                 <div
-                    class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white focus:border-blue-500">
-                    <input :type="isPasswordHind ? 'password' : 'text'" name="Password" id="password" class="w-10/12 rounded-full p-2"
+                    class="flex flex-row w-full rounded-full border border-gray-300 relative focus:outline-none bg-white">
+                    <input :type="isPasswordHind ? 'password' : 'text'" name="Password" id="password" class="w-full p-2 rounded-full"
                         placeholder="New password" v-model.trim="password">
-                    <img @click="onOffPassword('isPasswordHind')" class=" opacity-20"
+                    <img @click="onOffPassword('isPasswordHind')" class=" opacity-30 absolute  right-0 object-fill h-[40px] w-[40px]"
                         :src="`/Icon/${isPasswordHind ? 'in' : ''}visible.png`" />
                 </div>
                 <div class=" text-red-600 pt-[1vh]" v-if="errors.password !== ''">{{ errors.password }}</div>
@@ -73,11 +73,11 @@ const onSignup = async () => {
                 <label for="ConfirmPassword" class="text-white block mb-2">Confirm Password</label>
                 <div class=" text-red-600 pt-[1vh]" v-if="errors.confirm !== ''">{{ errors.confirm }}</div>
                 <div
-                    class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white focus:border-blue-500">
+                    class="flex flex-row w-full rounded-full border border-gray-300 relative focus:outline-none bg-white">
                     
                 <input :type="isConfirmPasswordHind ? 'password' : 'text'" id="ConfirmPassword" name="ConfirmPassword"
-                class="w-10/12 rounded-full p-2"                    placeholder="Confirm password" v-model="confirmPassword">
-                <img @click="onOffPassword('isConfirmPasswordHind')" class=" opacity-20"
+                class="w-full p-2 rounded-full"                    placeholder="Confirm password" v-model="confirmPassword">
+                <img @click="onOffPassword('isConfirmPasswordHind')" class=" opacity-30 absolute  right-0  h-[40px] w-[40px]"
                     :src="`/Icon/${isConfirmPasswordHind ? 'in' : ''}visible.png`" /></div>
 
             </div>
