@@ -37,21 +37,21 @@ const onOffPassword = () => {
 
 <template>
     <div class="relative w-screen h-screen flex justify-center items-center">
-        <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh] right-[3vh] px-[1.25vh] py-[.125vh] ">
-        <form class="bg-slate-500 rounded-xl p-8 w-full m-[30vh] sm:p-[5vh]" @submit.prevent="onLogin()">
+        <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh]">
+        <form class="bg-slate-500 rounded-xl p-[3vh] w-full mx-[5vh] xl:mx-[30vh] " @submit.prevent="onLogin()">
             <div class="text-[60px] text-white sm:text-[45px]">Login</div>
 
-            <div class="mb-4">
+            <div class="mb-[2vh]">
                 <hr class=" opacity-50 pb-[1vh]">
-                <label for="username" class="text-white block mb-2">Username</label>
+                <label for="username" class="text-white block mb-2 ">Username</label>
                 <input type="text" id="username" name="username"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     v-model="username">
 
                 <div class="text-red-600 pt-[1vh]" v-if="errors.username !== ''">{{ errors.username }}</div>
             </div>
-            <div class="mb-4">
-                <label for="password" class="text-white block mb-2">Password</label>
+            <div class="mb-[2vh]">
+                <label for="password" class="text-white block mb-2 ">Password</label>
                 <div
                     class="flex flex-row w-full rounded-full border border-gray-300 justify-around focus:outline-none bg-white">
                     <input :type="isPasswordHind ? 'password' : 'text'" id="password" name="password" placeholder="Password"

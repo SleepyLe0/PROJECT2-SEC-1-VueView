@@ -45,8 +45,8 @@ const onSignup = async () => {
 
 <template>
     <div class="relative w-screen h-screen flex justify-center items-center">
-        <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh] right-[3vh] px-[1.25vh] py-[.125vh]">
-        <form class="bg-slate-500 rounded-xl p-8 w-full max-w-md" @submit.prevent="onSignup()">
+        <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh]">
+        <form class="bg-slate-500 rounded-xl p-[3vh] w-full mx-[5vh] xl:mx-[30vh]" @submit.prevent="onSignup()">
             <div class="text-[60px] text-white">SignUp</div>
             <div class="mb-4">
                 <hr class=" opacity-50 pb-[1vh]">
