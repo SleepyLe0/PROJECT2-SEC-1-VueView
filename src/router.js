@@ -8,7 +8,6 @@ import Setting from './components/pages/Setting.vue'
 import Shop from './components/pages/Shop.vue'
 import SignUp from './components/pages/SignUp.vue'
 
-
 const routes = [
     { path: '/', component: Welcome },
     { path: '/home', component: Home },
@@ -18,7 +17,6 @@ const routes = [
     { path: '/setting', component: Setting },
     { path: '/shop', component: Shop },
     { path: '/signup', component: SignUp },
-
 ]
 
 const router =  createRouter({
