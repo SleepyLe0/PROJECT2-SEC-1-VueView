@@ -2,16 +2,20 @@
 <script setup>
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 
-import BackButton from "../common/BackButton.vue";
-import Confirm from "../setting/Confirm.vue";
-import EditingAccount from "../setting/EditingAccount.vue";
-import { ref } from 'vue';
-import { deleteUser } from "../../libs/FetchAPI";
-import router from "../../router";
+import BackButton from "../common/BackButton.vue"
+import Confirm from "../setting/Confirm.vue"
+import EditingAccount from "../setting/EditingAccount.vue"
+import { ref } from 'vue'
+import { deleteUser } from "../../libs/FetchAPI"
+import router from "../../router"
 
 const settingPage = ref('setting')
 
 
+const confirmLogout = () => {
+  localStorage.removeItem('currentUser')
+  router.push('/')
+}
 
 
  const confirmDelete = async () => {
@@ -31,6 +35,7 @@ const settingPage = ref('setting')
  
 
 
+
 </script>
 
 <template>
@@ -42,19 +47,35 @@ const settingPage = ref('setting')
     <div class="flex flex-col justify-center items-center text-black text-6xl bg-[#45483D] bg-opacity-70 gap-5">
       <p @click="settingPage = 'edit'" class="text-lime-200 hover:text-black">Editing Password</p>
       <p class="text-lime-200 hover:text-black">Mute music</p>
-      <p class="text-lime-200 hover:text-black">log out</p>
-      <p @click="settingPage = 'confirm'" class="text-lime-200 hover:text-black">Delete Account</p>
+      <p @click="settingPage = 'confirmLogout'"  class="text-lime-200 hover:text-black">log out</p>
+      <p @click="settingPage = 'confirmDelete'" class="text-lime-200 hover:text-black">Delete Account</p>
 
     </div>
   </div>
 
-  <Confirm v-else-if="settingPage === 'confirm'"
-         @confirmed="confirmDelete"
-         @cancel="settingPage = 'setting'"/>
+  <div v-else-if="settingPage=== 'confirmDelete'" class="w-full h-full flex justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
+  
+      <button @click="confirmDelete"
+      class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 ">
+      Confirm</button>
+      <button 
+      @click="settingPage = 'setting'" 
+      class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 ">
+      Cancel</button>
+  </div>
 
-  <EditingAccount v-else 
-        @cancel="settingPage = 'setting'"/>
+  <div v-else-if="settingPage=== 'confirmLogout'" class="w-full h-full flex justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
+   
+      <button @click="confirmLogout"
+      class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 ">
+      Confirm</button>
+      <button 
+      @click="settingPage = 'setting'" 
+      class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 ">
+      Cancel</button>
+  </div>
 
+  <EditingAccount v-else   @cancel="settingPage = 'setting'"/>
 </template>
 
 
