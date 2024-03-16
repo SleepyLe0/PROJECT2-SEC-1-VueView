@@ -127,4 +127,7 @@ const onSignup = async () => {
     left: 100%;
     margin-left: 15px;
 }
+#username::placeholder {
+    padding: 3vh;
+}
 </style>

@@ -44,7 +44,7 @@ const onOffPassword = () => {
             <div class="mb-[2vh]">
                 <hr class=" opacity-50 pb-[1vh]">
                 <label for="username" class="text-white block mb-2 ">Username</label>
-                <input type="text" id="username" name="username"
+                <input type="text" id="username" name="username" placeholder="Username"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     v-model="username">
 
@@ -114,5 +114,9 @@ const onOffPassword = () => {
 .strike>span:after {
     left: 100%;
     margin-left: 15px;
+}
+
+#username::placeholder {
+    padding: 3vh;
 }
 </style>
