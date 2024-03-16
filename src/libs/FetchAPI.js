@@ -8,7 +8,7 @@ async function getAllUsers() {
     } catch (error) {
         console.log(`error: ${error}`)
     }
-} 
+}
 
 async function getUserById(id) {
     try {
@@ -38,7 +38,7 @@ async function addUser(user) {
 
 async function updateUser(user) {
     try {
-        const response = await fetch(`${url}/${user.username}`, {
+        const response = await fetch(`${url}/${user.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,17 +52,16 @@ async function updateUser(user) {
     }
 }
 
-    async function deleteUser(id) {
-        try {
-            const response = await fetch(`${url}/${id}`, {
-                method: 'DELETE'
-            })
-            const deletedUser = await response.json()
-            return deletedUser
-        } catch (error) {
-            console.error(`Error deleting user: ${error}`)
-        }
+async function deleteUser(id) {
+    try {
+        const response = await fetch(`${url}/${id}`, {
+            method: 'DELETE'
+        })
+        const deletedUser = await response.json()
+        return deletedUser
+    } catch (error) {
+        console.error(`Error deleting user: ${error}`)
     }
+}
 
-     
 export { getAllUsers, getUserById, addUser, updateUser, deleteUser }

@@ -4,7 +4,7 @@
       "id": "3daf",
       "username": "SleepyLeo",
       "password": "123456",
-      "gold": 100,
+      "gold": 0,
       "levels": [
         {
           "id": 1,
@@ -30,7 +30,9 @@
       "characters": [
         1,
         2,
-        3
+        3,
+        4,
+        5
       ]
     }
   ]

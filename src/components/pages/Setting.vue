@@ -1,24 +1,21 @@
-
 <script setup>
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 
-import BackButton from "../common/BackButton.vue"
-import Confirm from "../setting/Confirm.vue"
-import EditingAccount from "../setting/EditingAccount.vue"
+import BackButton from '../common/BackButton.vue'
+import Confirm from '../setting/Confirm.vue'
+import EditingAccount from '../setting/EditingAccount.vue'
 import { ref } from 'vue'
-import { deleteUser } from "../../libs/FetchAPI"
-import router from "../../router"
+import { deleteUser } from '../../libs/FetchAPI'
+import router from '../../router'
 
 const settingPage = ref('setting')
-
 
 const confirmLogout = () => {
   localStorage.removeItem('currentUser')
   router.push('/')
 }
 
-
- const confirmDelete = async () => {
+const confirmDelete = async () => {
   try {
     const userId = currentUser.value.id
     if (userId) {
@@ -32,14 +29,11 @@ const confirmLogout = () => {
     console.error('Error deleting account:', error)
   }
 }
- 
-
-
 
 </script>
 
 <template>
-  <BackButton path="Home" />
+  <BackButton path="Home"/>
   <div v-if="settingPage === 'setting'" class="flex flex-col justify-center items-center w-screen h-screen gap-5">
     <div class="text-black text-6xl bg-[#45483D] bg-opacity-70">
       <p class="text-lime-200">Setting</p>

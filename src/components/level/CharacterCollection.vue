@@ -35,8 +35,8 @@ const previousCharacter = () => {
 }
 
 const calculateWidth = computed(() => {
-    const cardWidth = heightScreen.value * 26 / 100
-    return widthScreen.value <= (props.characters.length * cardWidth) + 100
+    const cardWidth = heightScreen.value * 28 / 100
+    return widthScreen.value <= (props.characters.length * cardWidth)
 })
 </script>
 
@@ -48,7 +48,7 @@ const calculateWidth = computed(() => {
         </button>
         <div class="flex flex-col gap-[2vh]">
             <CharacterCard :heroId="currentCharacterId" />
-            <button class="bg-green-500 p-[1vh] rounded-lg border-[.25vh] border-black" @click="$emit('changeCharacter', currentCharacterId)">
+            <button class="bg-[#49FF00] p-[1vh] rounded-lg border-[.25vh] border-black" @click="$emit('changeCharacter', currentCharacterId)">
                 Confirm
             </button>
         </div>
@@ -57,13 +57,14 @@ const calculateWidth = computed(() => {
             >>
         </button>
     </div>
-    <div v-else class="relative w-full h-full flex justify-center items-center gap-[2vh] overflow-hidden">
+    <div v-else class="relative w-full h-full flex justify-center items-center gap-[2vh]">
         <CharacterCard v-for="character in props.characters" class="cursor-pointer"
         :class="props.selectedCharacter === character ? 'border-[.5vh] border-[#49FF00] rounded-lg' : ''"
         :heroId="character" 
         @click="$emit('selectCharacter', character)"/>
-        <button class="absolute top-[3vh] right-[3vh] p-[2vh] text-[3vh] text-black bg-[#49FF00] rounded-lg border-[.5vh] border-black"
-            @click="$emit('changeCharacter')">
+        <button class="absolute -top-[10vh] right-[3vh] p-[2vh] text-[3vh] text-black bg-[#49FF00] rounded-lg border-[.5vh] border-black"
+        :class="props.selectedCharacter === 0 ? 'pointer-events-none opacity-50' : ''"
+        @click="$emit('changeCharacter')">
             Confirm
         </button>
     </div>

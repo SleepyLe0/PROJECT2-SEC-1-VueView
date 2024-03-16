@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 import CharacterCard from '../common/CharacterCard.vue'
 import BackButton from '../common/BackButton.vue'
-import coin from '../shop/coin.vue';
-import heros from '../../data/heros';
+import coin from '../shop/Coin.vue'
+import heros from '../../data/heros'
 
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 

@@ -4,7 +4,7 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="font-main w-screen h-screen overflow-hidden bg-[url('/Background/Castle.jpg')] bg-center bg-cover">
+  <div class="font-main w-screen h-screen overflow-hidden bg-[url(/Background/Castle.jpg)] bg-center bg-cover">
     <RouterView />
   </div>
 </template>
