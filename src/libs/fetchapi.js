@@ -64,4 +64,4 @@ async function deleteUser(id) {
     }
 }
 
-export { getAllUsers, getUserById, addUser}
+export { getAllUsers, getUserById, addUser, updateUser, deleteUser }
