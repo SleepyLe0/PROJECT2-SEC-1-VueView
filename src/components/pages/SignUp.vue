@@ -29,9 +29,9 @@ const onSignup = async () => {
         const id = {
             username: username.value,
             password: password.value,
-            gold: 100,
+            gold: 0,
             levels: levels,
-            characters: [1]
+            characters: [ 1 ]
         }
         await addUser(id)
         router.push({ path: '/login' })

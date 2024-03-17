@@ -17,16 +17,11 @@ const confirmLogout = () => {
 
 const confirmDelete = async () => {
   try {
-    const userId = currentUser.value.id
-    if (userId) {
-      await deleteUser(userId)
-      console.log('Account deleted successfully')
-      router.push('/')
-    } else {
-      console.error('No current user ID found')
-    }
+    await deleteUser(currentUser.value.id)
+    console.log('Account deleted successfully')
+    confirmLogout()
   } catch (error) {
-    console.error('Error deleting account:', error)
+    console.log(`error: ${error}`)
   }
 }
 
