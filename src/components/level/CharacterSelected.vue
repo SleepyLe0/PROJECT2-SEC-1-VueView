@@ -39,7 +39,7 @@ const monster = computed(() => {
             </h1>
             <div class="w-[30vh] h-[30vh] xl:w-[50vw] p-[1vh] bg-gradient-to-b from-[#757A69] to-[#131411] transition-all duration-300 ease-in-out">
                 <div class="w-full h-full bg-[#EDDEAA] flex justify-center items-center p-[2vh]">
-                    <img :src="`/Character Icon/${monster.image}`" alt="monster">
+                    <img :src="`/Character/${monster.image}`" alt="monster">
                 </div>
             </div>
         </div>

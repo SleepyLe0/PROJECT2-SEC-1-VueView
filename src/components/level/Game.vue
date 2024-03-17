@@ -5,6 +5,8 @@ import heros from '../../data/heros'
 import monsters from '../../data/monsters'
 import ActionBar from './ActionBar.vue'
 import Character from './Character.vue'
+import HealthBar from './HealthBar.vue'
+import CalculateScreen from './CalculateScreen.vue'
 
 const props = defineProps({
     level: {
@@ -20,14 +22,6 @@ const props = defineProps({
         required: true
     }
 })
-
-const widthScreen = ref(window.innerWidth)
-const heightScreen = ref(window.innerHeight)
-
-window.onresize = () => {
-    widthScreen.value = window.innerWidth
-    heightScreen.value = window.innerHeight
-}
 
 const hero = computed(() => {
     return heros.find(hero => hero.id === props.character)
@@ -45,6 +39,12 @@ const calculateWidth = computed(() => {
     return widthScreen.value <= heightScreen.value * 25 / 100 * 3
 })
 
+const widthScreen = ref(window.innerWidth)
+const heightScreen = ref(window.innerHeight)
+window.onresize = () => {
+    widthScreen.value = window.innerWidth
+    heightScreen.value = window.innerHeight
+}
 const turn = ref(1)
 const phase = ref(1)
 const hitCharacter = ref(false)
@@ -128,18 +128,23 @@ const calculateActionTurn = (actor) => {
             defender.isBlock = false
             if (defender.currentHP === 0) phase.value = -1
             else phase.value++
-            console.log(player.value.currentHP)
-            console.log(enemy.value.currentHP)
         }, 1500)
     }, 2000)
+}
+
+const hpPercentage = (char) => {
+    return char.currentHP / char.character.hp * 100
 }
 
 const gameEnd = () => {
     if (player.value.currentHP === 0) {
         console.log('Enemy Win!')
+        props.beatStage()
     } else {
-        props.beatStage(props.level)
         console.log('Player Win!') 
+        setTimeout(() => {
+            props.beatStage(props.level)
+        }, 1000)
     }
 }
 
@@ -156,30 +161,48 @@ watch(phase, () => {
 <template>
     <div class="relative w-screen h-screen overflow-hidden flex">
         <!-- calculate screen -->
-        <!-- <transition name="calculate-screen">
-            <div v-if="calculateScreen" class="absolute z-50 w-full h-full bg-black bg-opacity-80">
-                <CalculateScreen :attackChar="playerTurn ? 'player' : 'enemy'" 
-                :attackPoint="playerTurn ? playerAction.attack : enemyAction.attack" 
-                :defensePoint="playerTurn ? enemyAction.defense : playerAction.defense"/>
+        <transition name="calculate-screen">
+            <div v-if="calculate.screen" class="absolute z-50 w-full h-full bg-black bg-opacity-80">
+                <CalculateScreen :attackChar="phase === 2 ? 'player' : 'enemy'" 
+                :attackPoint="phase === 2 ? player.action.attack : enemy.action.attack" 
+                :defensePoint="phase === 2 ? enemy.action.defense : player.action.defense"
+                :screenRatio="screenRation"
+                :calculateWidth="calculateWidth"/>
             </div>
-        </transition> -->
+        </transition>
 
         <!-- top screen -->
-        <!-- <div class="absolute flex w-screen justify-between top-[3vh] text-[5vh] p-10">
-            <HealthBar charBar="player" :hpPercentage="playerChar.currentHp / playerChar.maxHp * 100">
-                {{ playerChar.currentHp }}
+        <div v-if="!calculateWidth" class="absolute flex w-screen justify-between top-[3vh] px-[5vh] gap-[3vh] z-10">
+            <HealthBar char="player" 
+            :hpPercentage="hpPercentage(player)"
+            :atk="player.character.attack">
+                {{ player.currentHP }}
             </HealthBar>
-            <div class="font-bold bg-base-300 p-5 rounded-full">
-                <h1>Turn {{ turn }}</h1>
+            <div v-if="screenRation" class="w-[45vh] flex justify-center items-center p-[3vh] bg-[#56443b] rounded-lg">
+                <h1 class="text-[4vh] font-bold text-[#FCE6AE]">Turn {{ turn }}</h1>
             </div>
-            <HealthBar charBar="enemy" :hpPercentage="enemyChar.currentHp / enemyChar.maxHp * 100">
-                {{ enemyChar.currentHp }}
+            <HealthBar char="enemy" 
+            :hpPercentage="hpPercentage(enemy)"
+            :atk="enemy.character.attack">
+                {{ enemy.currentHP }}
             </HealthBar>
-        </div> -->
+        </div>
+        <div v-else class="absolute flex w-screen top-[3vh] px-[5vh] gap-[3vh] z-10">
+            <HealthBar v-if="phase === 1 || phase === 4" char="player" 
+            :hpPercentage="hpPercentage(player)"
+            :atk="player.character.attack">
+                {{ player.currentHP }}
+            </HealthBar>
+            <HealthBar v-if="phase === 2 || phase === 3" char="enemy" 
+            :hpPercentage="hpPercentage(enemy)"
+            :atk="enemy.character.attack">
+                {{ enemy.currentHP }}
+            </HealthBar>
+        </div>
 
         <!-- main screen -->
         <div v-if="!calculateWidth" class="relative w-screen flex items-center bg-[url(/Background/Stage2.png)] bg-center bg-cover"
-        :class="screenRation ? 'h-screen' : 'h-[70vh]'">
+        :class="screenRation ? 'h-screen' : 'h-[60vh]'">
             <Character class="absolute left-[3vh]"
             char="player" 
             :character="player"
@@ -216,5 +239,13 @@ watch(phase, () => {
 </template>
 
 <style scoped>
+.calculate-screen-enter-from,
+.calculate-screen-leave-to {
+    opacity: 0;
+}
 
+.calculate-screen-enter-active,
+.calculate-screen-leave-active {
+    transition: all .5s ease;
+}
 </style>

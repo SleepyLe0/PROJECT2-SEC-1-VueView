@@ -4,6 +4,9 @@ import { ref } from 'vue'
 const props = defineProps({
     char: {
         type: String,
+        validator(value) {
+            return ['player', 'enemy'].includes(value)
+        },
         required: true
     },
     character: {

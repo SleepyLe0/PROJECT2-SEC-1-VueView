@@ -32,11 +32,19 @@ const props = defineProps({
 
 <template>
     <div class="absolute bottom-0">
-        <div class="flex w-screen">
-            <div class="bg-[#3C2A21] rounded-r-lg">
+        <div class="flex w-screen"
+        :class="props.screenRatio ? '' : 'bg-[#56443b]'">
+            <div class="bg-[#3C2A21] rounded-r-lg"
+            :class="props.screenRatio ? 'w-[40vh]' : 'w-full'">
                 <h1 class="flex justify-center text-[#FCE6AE] font-bold"
-                :class="props.turnPhase.phase === 1 ? '' : 'opacity-50', calculateWidth ? 'text-[4vh] px-[5vh]' : 'text-[5vh] px-[7vh]'">
+                :class="props.turnPhase.phase === 1 ? '' : 'opacity-50', props.calculateWidth ? 'text-[4vh] px-[5vh]' : 'text-[5vh] px-[7vh]'">
                     {{ props.player.skillPoint }} / {{ props.turnPhase.turn > 4 ? 4 : props.turnPhase.turn }}
+                </h1>
+            </div>
+            <div class="w-full flex justify-center items-center">
+                <h1 v-if="!props.screenRatio" class="text-[#FCE6AE] font-bold"
+                :class="props.calculateWidth ? 'text-[4vh] px-[5vh]' : 'text-[5vh] px-[7vh]'">
+                    Turn {{ props.turnPhase.turn }}
                 </h1>
             </div>
         </div>
