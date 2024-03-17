@@ -172,7 +172,8 @@ watch(phase, () => {
         </transition>
 
         <!-- top screen -->
-        <div v-if="!calculateWidth" class="absolute flex w-screen justify-between top-[3vh] px-[5vh] gap-[3vh] z-10">
+        <div v-if="!calculateWidth" class="absolute flex w-screen justify-between gap-[3vh] z-10"
+        :class="screenRation ? 'top-[3vh] px-[5vh]' : ''">
             <HealthBar char="player" 
             :hpPercentage="hpPercentage(player)"
             :atk="player.character.attack">
@@ -187,7 +188,8 @@ watch(phase, () => {
                 {{ enemy.currentHP }}
             </HealthBar>
         </div>
-        <div v-else class="absolute flex w-screen top-[3vh] px-[5vh] gap-[3vh] z-10">
+        <div v-else class="absolute flex w-screen gap-[3vh] z-10"
+        :class="screenRation ? 'top-[3vh] px-[5vh]' : ''">
             <HealthBar v-if="phase === 1 || phase === 4" char="player" 
             :hpPercentage="hpPercentage(player)"
             :atk="player.character.attack">
@@ -203,16 +205,20 @@ watch(phase, () => {
         <!-- main screen -->
         <div v-if="!calculateWidth" class="relative w-screen flex items-center bg-[url(/Background/Stage2.png)] bg-center bg-cover"
         :class="screenRation ? 'h-screen' : 'h-[60vh]'">
-            <Character class="absolute left-[3vh]"
+            <Character class="absolute left-[15vh]"
             char="player" 
             :character="player"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
-            <Character class="absolute right-[3vh]"
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
+            <Character class="absolute right-[15vh]"
             char="enemy" 
             :character="enemy"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
         </div>
         <div v-else class="relative w-screen flex justify-center items-center h-[50vh] bg-[url(/Background/Stage2.png)] bg-cover transition-all duration-100 ease-in-out"
         :class="phase === 1 || phase === 4 ? 'bg-left' : phase === 2 || phase === 3 ? 'bg-right' : 'bg-center'">
@@ -220,12 +226,16 @@ watch(phase, () => {
             char="player" 
             :character="player"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
             <Character v-if="phase === 2 || phase === 3"
             char="enemy" 
             :character="enemy"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
         </div>
 
         <ActionBar 
