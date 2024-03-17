@@ -1,16 +1,18 @@
 <script setup>
-import { ref } from 'vue'
+import { RouterView } from 'vue-router'
 
-const colorTheme = ref(true)
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center h-screen gap-10" :data-theme=" colorTheme ? 'light' : 'dark'">
-    <h1 class="font-bold text-3xl">Tailwind CSS Test</h1>
-    <input type="checkbox" class="toggle" v-model="colorTheme">
+  <div class="font-main w-screen h-screen overflow-hidden bg-[url(/Background/Castle.jpg)] bg-center bg-cover">
+    <RouterView />
   </div>
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
+.font-main {
+  font-family: "MedievalSharp", cursive;
+}
 </style>

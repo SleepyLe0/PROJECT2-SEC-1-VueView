@@ -1,4 +1,35 @@
 {
-    "userAccounts": [
-    ]
+  "userAccounts": [
+    {
+      "id": "3daf",
+      "username": "SleepyLeo",
+      "password": "123456",
+      "gold": 0,
+      "levels": [
+        {
+          "id": 1,
+          "unlock": true
+        },
+        {
+          "id": 2,
+          "unlock": false
+        },
+        {
+          "id": 3,
+          "unlock": false
+        },
+        {
+          "id": 4,
+          "unlock": false
+        },
+        {
+          "id": 5,
+          "unlock": false
+        }
+      ],
+      "characters": [
+        1
+      ]
+    }
+  ]
 }
