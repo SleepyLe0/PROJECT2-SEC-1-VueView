@@ -116,7 +116,4 @@ const onOffPassword = () => {
     margin-left: 15px;
 }
 
-#username::placeholder {
-    padding: 3vh;
-}
 </style>
