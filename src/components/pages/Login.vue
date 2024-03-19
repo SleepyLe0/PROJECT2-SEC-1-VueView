@@ -36,7 +36,7 @@ const onOffPassword = () => {
 
 
 <template>
-    <div class="relative w-screen h-screen flex justify-center items-center text-white">
+    <div class="relative w-screen h-screen flex justify-center items-center ">
         <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh]">
         <form class="bg-slate-500 rounded-xl p-[3vh] w-full mx-[5vh] xl:mx-[30vh] " @submit.prevent="onLogin()">
             <div class="text-[60px] text-white sm:text-[45px]">Login</div>
@@ -70,7 +70,7 @@ const onOffPassword = () => {
             <div class="strike">
                 <span>Or</span>
             </div>
-            <div class="inline-block ">
+            <div class="inline-block text-white">
                 <p class="inline">Not register yet? </p>
                 <router-link to="/signup">
                     <p class="inline pb-3 hover:text-blue-700 ">Sign Up</p>
