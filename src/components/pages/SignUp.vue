@@ -2,7 +2,7 @@
 import SignUpValidations from '../../libs/SignUpValidations'
 import router from '../../router'
 import levels from '../../data/levels'
-import { addUser } from '../../libs/FetchAPI'
+import { addUser,getAllUsers } from '../../libs/FetchAPI'
 import { ref } from 'vue'
 
 const username = ref('')
@@ -20,6 +20,8 @@ const onOffPassword = (x) => {
 const onSignup = async () => {
     const validations = new SignUpValidations(username.value, password.value, confirmPassword.value)
     errors.value = await validations.checkValidations()
+    const users = await getAllUsers()
+    console.log(users)
     let countError = 0
     for (const error in errors.value) {
         if (errors.value[error].length > 0) countError++
@@ -27,6 +29,7 @@ const onSignup = async () => {
     if (countError > 0) return false
     try {
         const id = {
+            id: users.length + 1,
             username: username.value,
             password: password.value,
             gold: 0,
