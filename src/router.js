@@ -22,6 +22,7 @@ const routes = [
 const router =  createRouter({
     history: createWebHistory(),
     routes,
+    linkActiveClass:"text-blue-600"
 })
 
 export default router

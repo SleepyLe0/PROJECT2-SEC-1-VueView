@@ -36,7 +36,7 @@ const onOffPassword = () => {
 
 
 <template>
-    <div class="relative w-screen h-screen flex justify-center items-center">
+    <div class="relative w-screen h-screen flex justify-center items-center text-white">
         <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh]">
         <form class="bg-slate-500 rounded-xl p-[3vh] w-full mx-[5vh] xl:mx-[30vh] " @submit.prevent="onLogin()">
             <div class="text-[60px] text-white sm:text-[45px]">Login</div>
