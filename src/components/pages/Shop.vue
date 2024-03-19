@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import CharacterCard from '../common/CharacterCard.vue'
 import BackButton from '../common/BackButton.vue'
-import coin from '../shop/Coin.vue'
 import heros from '../../data/heros'
 import { updateUser } from '../../libs/FetchAPI'
 
