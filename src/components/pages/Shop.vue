@@ -9,6 +9,8 @@ const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 
 const isConfirmationVisible = ref(false)
 
+const isErrorMessageVisible = ref(false)
+
 const selectedHero = ref('')
 const conFirmBuyHero = (hero) => {
   selectedHero.value = hero
@@ -23,17 +25,20 @@ const confirmBuy = async () => {
   if (selectedHero.value) {
     const newGold = currentUser.value.gold - 100;
     if (newGold >= 0) {
-      currentUser.value.gold = newGold;
-      currentUser.value.characters.push(selectedHero.value);
+      currentUser.value.gold = newGold
+      currentUser.value.characters.push(selectedHero.value)
       await updateUser(currentUser.value)
-      localStorage.setItem('currentUser', JSON.stringify(currentUser.value));
-      isConfirmationVisible.value = false;
+      localStorage.setItem('currentUser', JSON.stringify(currentUser.value))
+      isConfirmationVisible.value = false
 
     } else {
-      console.log("Not enough gold to buy this hero.");
+      isErrorMessageVisible.value = true
+      setTimeout(() => {
+        isErrorMessageVisible.value = false
+      }, 1000)
     }
   } else {
-    console.log("No hero selected.");
+    console.log("No hero selected.")
   }
 }
 
@@ -57,7 +62,8 @@ const confirmBuy = async () => {
           SHOP
         </h1>
       </div>
-      <div class="flex flex-wrap items-center justify-center xl:justify-start pt-[5vh] gap-[3.5vh] p-[2vh] xl:p-[7vh]  overflow-auto  h-[65vh]">
+      <div
+        class="flex flex-wrap items-center justify-center xl:justify-start pt-[5vh] gap-[3.5vh] p-[2vh] xl:p-[7vh]  overflow-auto  h-[65vh]">
         <div v-for="character in heros">
           <div v-if="!currentUser.characters.includes(character.id)">
             <CharacterCard :heroId="character.id" />
@@ -73,27 +79,42 @@ const confirmBuy = async () => {
       </div>
     </div>
     <teleport to="body">
-      <div v-if="isConfirmationVisible" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[400px] font-main">
-        <div class="flex justify-center items-center ">
-          <h2 class="text-2xl font-bold text-black p-[1.5vh] ">Confirmation</h2>
-        </div>
-        <div v-for="character in heros" :key="character.id">
-          <div v-if="character.id === selectedHero">
-            <CharacterCard :heroId="character.id" />
+      <div v-if="isConfirmationVisible"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div
+          class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[400px] font-main">
+          <div class="flex justify-center items-center ">
+            <h2 class="text-2xl font-bold text-black p-[1.5vh] ">Confirmation</h2>
+          </div>
+          <div v-for="character in heros" :key="character.id">
+            <div v-if="character.id === selectedHero">
+              <CharacterCard :heroId="character.id" />
+            </div>
+          </div>
+          <div class="flex justify-center gap-3 p-[1.5vh]">
+            <button @click="confirmBuy"
+              class="bg-[#49FF00] hover:bg-green-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh] ">
+              Confirm
+            </button>
+            <button @click="cancelBuy"
+              class="bg-[#FF1700] hover:bg-red-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh]">
+              Cancel
+            </button>
           </div>
         </div>
-        <div class="flex justify-center gap-3 p-[1.5vh]">
-          <button @click="confirmBuy" class="bg-[#49FF00] hover:bg-green-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh] ">
-            Confirm
-          </button>
-          <button @click="cancelBuy" class="bg-[#FF1700] hover:bg-red-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh]">
-            Cancel
-          </button>
+      </div>
+      <div v-if="isErrorMessageVisible"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div
+          class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[300px] font-main">
+          <div class="flex justify-center items-center ">
+            <h2 class="text-2xl font-bold text-black p-[1.5vh] ">Error</h2>
+          </div>
+          <div class="flex justify-center gap-3 p-[1.5vh]">
+            <p class="text-black p-[1.5vh]">Not enough gold to buy this hero.</p>
+          </div>
         </div>
       </div>
-    </div>
-  
     </teleport>
   </div>
 </template>
