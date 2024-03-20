@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import levels from '../../data/levels'
 import monsters from '../../data/monsters'
 import BackButton from '../common/BackButton.vue'
 import CharacterCollection from './CharacterCollection.vue'
@@ -28,6 +29,10 @@ const monster = computed(() => {
     return monsters.find(monster => monster.level === props.level)
 })
 
+const reward = computed(() => {
+    return levels.find(level => level.id === props.level).reward
+})
+
 </script>
 
 <template>
@@ -37,9 +42,18 @@ const monster = computed(() => {
             <h1 class="text-[10vh] bg-gradient-to-t from-[#630707] to-[#FFC582] bg-clip-text text-transparent">
                 LEVEL {{ props.level }}
             </h1>
-            <div class="w-[30vh] h-[30vh] xl:w-[50vw] p-[1vh] bg-gradient-to-b from-[#757A69] to-[#131411] transition-all duration-300 ease-in-out">
-                <div class="w-full h-full bg-[#EDDEAA] flex justify-center items-center p-[2vh]">
-                    <img :src="`/Character/${monster.image}`" alt="monster">
+            <div class="p-[1vh] bg-gradient-to-b from-[#757A69] to-[#131411] transition-all duration-300 ease-in-out">
+                <div class="bg-[#EDDEAA] flex p-[2vh]">
+                    <img :src="`/Character/${monster.image}`" alt="monster" class="w-[20vh] md:w-[30vh]">
+                    <div class="flex flex-col gap-[1vh] justify-center text-[2vh] md:text-[3vh] text-black">
+                        <h1>Name : {{ monster.name }}</h1>
+                        <h1>HP : {{ monster.hp }}</h1>
+                        <h1>ATK : {{ monster.attack }}</h1>
+                        <div class="flex items-center gap-[1vh]">
+                            <img src="/Common/Coin.png" alt="" class="w-[4vh]">
+                            <h1>{{ reward }}</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
