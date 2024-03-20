@@ -28,15 +28,15 @@ const onSignup = async () => {
     }
     if (countError > 0) return false
     try {
-        const id = {
-            id: users.length + 1,
+        const newUser = {
+            id: users.length === 0 ? 1 : users[users.length - 1].id + 1,
             username: username.value,
             password: password.value,
             gold: 0,
             levels: levels,
             characters: [ 1 ]
         }
-        await addUser(id)
+        await addUser(newUser)
         router.push({ path: '/login' })
     } catch (error) {
         console.log(`Sign-up Error: ${error}`)
