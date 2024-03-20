@@ -78,21 +78,18 @@ const skillAction = (action) => {
 const startNewTurn = () => {
     turn.value++
     phase.value = 1
-    if (turn.value > 4) {
-        player.value.skillPoint = 4
-        enemy.value.skillPoint = 4
-    } else {
-        player.value.skillPoint = turn.value
-        enemy.value.skillPoint = turn.value
-    }
 }
 
 const playerActionTurn = () => {
+    if (turn.value >= 4) player.value.skillPoint = 4
+    else player.value.skillPoint = turn.value
     player.value.skillPoint += player.value.action.charge
     player.value.action.charge = 0
 }
 
 const enemyActionTurn = () => {
+    if (turn.value >= 4) enemy.value.skillPoint = 4
+    else enemy.value.skillPoint = turn.value
     enemy.value.skillPoint += enemy.value.action.charge
     enemy.value.action.charge = 0
     if (turn.value === 1) enemy.value.skillPoint++
@@ -100,7 +97,7 @@ const enemyActionTurn = () => {
         monsterEasy(enemy.value)
         console.log(enemy.value.action)
         phase.value++
-    }, 1500)
+    }, 3000)
 }
 
 const calculateActionTurn = (actor) => {
@@ -130,10 +127,6 @@ const calculateActionTurn = (actor) => {
             else phase.value++
         }, 1500)
     }, 2000)
-}
-
-const hpPercentage = (char) => {
-    return char.currentHP / char.character.hp * 100
 }
 
 const gameEnd = () => {
@@ -175,29 +168,29 @@ watch(phase, () => {
         <div v-if="!calculateWidth" class="absolute flex w-screen justify-between gap-[3vh] z-10"
         :class="screenRation ? 'top-[3vh] px-[5vh]' : ''">
             <HealthBar char="player" 
-            :hpPercentage="hpPercentage(player)"
-            :atk="player.character.attack">
+            :character="player"
+            :turn="turn">
                 {{ player.currentHP }}
             </HealthBar>
             <div v-if="screenRation" class="w-[45vh] flex justify-center items-center p-[3vh] bg-[#56443b] rounded-lg">
                 <h1 class="text-[4vh] font-bold text-[#FCE6AE]">Turn {{ turn }}</h1>
             </div>
             <HealthBar char="enemy" 
-            :hpPercentage="hpPercentage(enemy)"
-            :atk="enemy.character.attack">
+            :character="enemy"
+            :turn="turn">
                 {{ enemy.currentHP }}
             </HealthBar>
         </div>
         <div v-else class="absolute flex w-screen gap-[3vh] z-10"
         :class="screenRation ? 'top-[3vh] px-[5vh]' : ''">
             <HealthBar v-if="phase === 1 || phase === 4" char="player" 
-            :hpPercentage="hpPercentage(player)"
-            :atk="player.character.attack">
+            :character="player"
+            :turn="turn">
                 {{ player.currentHP }}
             </HealthBar>
             <HealthBar v-if="phase === 2 || phase === 3" char="enemy" 
-            :hpPercentage="hpPercentage(enemy)"
-            :atk="enemy.character.attack">
+            :character="enemy"
+            :turn="turn">
                 {{ enemy.currentHP }}
             </HealthBar>
         </div>
@@ -205,14 +198,14 @@ watch(phase, () => {
         <!-- main screen -->
         <div v-if="!calculateWidth" class="relative w-screen flex items-center bg-[url(/Background/Stage2.png)] bg-center bg-cover"
         :class="screenRation ? 'h-screen' : 'h-[60vh]'">
-            <Character class="absolute left-[15vh]"
+            <Character class="absolute left-[5vh]"
             char="player" 
             :character="player"
             :hitChar="hitCharacter" 
             :hitDamage="calculate.damageResult"
             :screenRatio="screenRation"
             :calculateWidth="calculateWidth"/>
-            <Character class="absolute right-[15vh]"
+            <Character class="absolute right-[5vh]"
             char="enemy" 
             :character="enemy"
             :hitChar="hitCharacter" 
@@ -238,11 +231,11 @@ watch(phase, () => {
             :calculateWidth="calculateWidth"/>
         </div>
 
-        <ActionBar 
-        :player="player" 
-        :enemy="enemy" 
+        <!-- bottom screen -->
+        <ActionBar
+        :player="player"
         :action="skillAction"
-        :turnPhase="{ turn: turn, phase: phase }"
+        :phase="phase"
         :screenRatio="screenRation"
         :calculateWidth="calculateWidth"/>
     </div>

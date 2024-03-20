@@ -35,13 +35,13 @@ const blockDirection = ref(props.char === 'player' ? -1 : 1)
 
 <template>
     <div class="transition-all duration-300 ease-in" 
-    :class="props.character.isHit ? 'hit' : props.character.isBlock ? 'blockHit' : 
-    props.character.currentHP === 0 ? 'rotate-90 translate-y-[-20px]' : ''">
+    :class="props.character.isHit ? 'hit' : props.character.isBlock ? 'blockHit' : ''">
         <div class="relative flex justify-center items-center">
             <img v-if="props.char === 'player'" :src="`/Character/${props.character.character.image}`" :alt="props.char"
             :class="props.calculateWidth ? 'w-[23vh]' : 'w-[28vh]'">
             <img v-else :src="`/Character/${props.character.character.image}`" :alt="props.char"
-            class="transform -scale-x-90" :class="props.calculateWidth ? 'w-[25vh]' : 'w-[30vh]'">
+            class="transform -scale-x-90" 
+            :class="props.calculateWidth ? 'w-[25vh]' : 'w-[30vh]'">
             <transition name="damage">
                 <div v-if="props.hitChar" class="absolute text-[5vh] font-bold text-white">
                     {{ props.character.isHit ? props.hitDamage * -1 : props.character.isBlock ? 'Block' : '' }}
@@ -58,10 +58,6 @@ const blockDirection = ref(props.char === 'player' ? -1 : 1)
 
 .blockHit {
     animation: block 1.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
-}
-
-.dead {
-    animation: dead 1s cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
 .damage-leave-to {
