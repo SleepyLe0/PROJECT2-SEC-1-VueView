@@ -38,7 +38,7 @@ const confirmBuy = async () => {
       }, 1000)
     }
   } else {
-    console.log("No hero selected.")
+    alert("No hero selected.")
   }
 }
 
@@ -78,51 +78,43 @@ const confirmBuy = async () => {
         </div>
       </div>
     </div>
-    <teleport to="body">
-      <div v-if="isConfirmationVisible"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div
-          class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[400px] font-main">
-          <div class="flex justify-center items-center ">
-            <h2 class="text-2xl font-bold text-black p-[1.5vh] ">Confirmation</h2>
-          </div>
-          <div v-for="character in heros" :key="character.id">
-            <div v-if="character.id === selectedHero">
-              <CharacterCard :heroId="character.id" />
-            </div>
-          </div>
-          <div class="flex justify-center gap-3 p-[1.5vh]">
-            <button @click="confirmBuy"
-              class="bg-[#49FF00] hover:bg-green-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh] ">
-              Confirm
-            </button>
-            <button @click="cancelBuy"
-              class="bg-[#FF1700] hover:bg-red-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh]">
-              Cancel
-            </button>
+    <div v-if="isConfirmationVisible"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div
+        class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[400px] font-main">
+        <div class="flex justify-center items-center ">
+          <h2 class="text-2xl font-bold text-black p-[1.5vh] ">Confirmation</h2>
+        </div>
+        <div v-for="character in heros" :key="character.id">
+          <div v-if="character.id === selectedHero">
+            <CharacterCard :heroId="character.id" />
           </div>
         </div>
-      </div>
-      <div v-if="isErrorMessageVisible"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-        <div
-          class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[300px] font-main">
-          <div class="flex justify-center items-center ">
-            <h2 class="text-2xl font-bold text-black p-[1.5vh] ">Error</h2>
-          </div>
-          <div class="flex justify-center gap-3 p-[1.5vh]">
-            <p class="text-black p-[1.5vh]">Not enough gold to buy this hero.</p>
-          </div>
+        <div class="flex justify-center gap-3 p-[1.5vh]">
+          <button @click="confirmBuy"
+            class="bg-[#49FF00] hover:bg-green-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh] ">
+            Confirm
+          </button>
+          <button @click="cancelBuy"
+            class="bg-[#FF1700] hover:bg-red-600 text-black font-bold rounded focus:outline-none w-[10vh] h-[5vh]">
+            Cancel
+          </button>
         </div>
       </div>
-    </teleport>
+    </div>
+    <div v-if="isErrorMessageVisible"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div
+        class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[300px] font-main">
+        <div class="flex justify-center items-center ">
+          <h2 class="text-2xl font-bold text-black p-[1.5vh] ">Error</h2>
+        </div>
+        <div class="flex justify-center gap-3 p-[1.5vh]">
+          <p class="text-black p-[1.5vh]">Not enough gold to buy this hero.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
-
-.font-main {
-  font-family: "MedievalSharp", cursive;
-}
-</style>
+<style scoped></style>
