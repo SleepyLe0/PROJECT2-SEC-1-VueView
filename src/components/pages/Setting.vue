@@ -27,18 +27,22 @@ const confirmDelete = async () => {
 </script>
 
 <template>
-  <BackButton path="Home"/>
-  <div v-if="settingPage === 'setting'" class="flex flex-col justify-center items-center w-screen h-screen gap-5">
-    <div class="text-black text-6xl bg-[#45483D] bg-opacity-70">
-      <p class="text-lime-200">Setting</p>
+    <div v-if="settingPage === 'setting'" class="px-[6vh]">
+      <BackButton path="Home"/>
+      <div class="flex justify-center relative top-[18vh] h-[72vh] border-[1.5vh] lg:border-[2vh] border-[#332222] bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
+        <div class="absolute top-[-6vh] w-[25vh] lg:w-[50vh] h-[10vh] border-[#332222] border-[1vh] bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
+          <h1 class="text-center text-[5vh] lg:text-[6vh] text-black">
+            Setting
+          </h1>        
+        </div>
+        <div class="flex flex-col items-center justify-center absolute top-[20vh] text-[3vh] gap-5 text-black sm:text-[5vh]">
+          <p @click="settingPage = 'edit'" class=" hover:text-lime-200">Editing Password</p>
+          <p class=" hover:text-lime-200">Mute music</p>
+          <p @click="settingPage = 'confirmLogout'"  class=" hover:text-lime-200">log out</p>
+          <p @click="settingPage = 'confirmDelete'" class=" hover:text-lime-200">Delete Account</p>
+        </div>
+      </div>
     </div>
-    <div class="flex flex-col justify-center items-center text-black text-6xl bg-[#45483D] bg-opacity-70 gap-5">
-      <p @click="settingPage = 'edit'" class="text-lime-200 hover:text-black">Editing Password</p>
-      <p class="text-lime-200 hover:text-black">Mute music</p>
-      <p @click="settingPage = 'confirmLogout'"  class="text-lime-200 hover:text-black">log out</p>
-      <p @click="settingPage = 'confirmDelete'" class="text-lime-200 hover:text-black">Delete Account</p>
-    </div>
-  </div>
 
   <div v-else-if="settingPage=== 'confirmDelete'" class="flex flex-col w-full h-full justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
     <p class="text-white text-2xl mb-4">Delete Account</p> 
@@ -63,7 +67,7 @@ const confirmDelete = async () => {
       Cancel</button>
   </div>
 
-  <EditingAccount @cancel="settingPage = 'setting'"/>
+  <EditingAccount v-else @cancel="settingPage = 'setting'"/>
 </template>
 
 

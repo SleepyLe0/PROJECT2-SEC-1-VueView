@@ -25,7 +25,7 @@ const updatePassword = async () => {
 </script>
 
 <template>
-  <div class="w-full h-full flex justify-center items-center bg-[#45483D] bg-opacity-70">
+  <div class="min-h-screen flex justify-center items-center bg-[#45483D] bg-opacity-70">
     <div class="max-w-md w-full mx-auto p-8 bg-slate-500 rounded-lg shadow-lg">
       <h2 class="text-3xl font-bold text-white mb-8">Change Password</h2>
       <div class="flex flex-col gap-4">
@@ -45,6 +45,7 @@ const updatePassword = async () => {
     </div>
   </div>
 </template>
+
 
 <style scoped>
 
