@@ -1,46 +1,10 @@
 {
   "userAccounts": [
     {
-      "id": 1,
-      "username": "Niraphan",
-      "password": "123456",
-      "gold": 0,
-      "levels": [
-        {
-          "id": 1,
-          "unlock": true,
-          "reward": 20
-        },
-        {
-          "id": 2,
-          "unlock": false,
-          "reward": 40
-        },
-        {
-          "id": 3,
-          "unlock": false,
-          "reward": 60
-        },
-        {
-          "id": 4,
-          "unlock": false,
-          "reward": 80
-        },
-        {
-          "id": 5,
-          "unlock": false,
-          "reward": 100
-        }
-      ],
-      "characters": [
-        1
-      ]
-    },
-    {
-      "id": 2,
+      "id": "1",
       "username": "SleepyLeo",
-      "password": "123456",
-      "gold": 0,
+      "password": "1",
+      "gold": 40,
       "levels": [
         {
           "id": 1,
@@ -49,27 +13,29 @@
         },
         {
           "id": 2,
-          "unlock": false,
+          "unlock": true,
           "reward": 40
         },
         {
           "id": 3,
-          "unlock": false,
+          "unlock": true,
           "reward": 60
         },
         {
           "id": 4,
-          "unlock": false,
+          "unlock": true,
           "reward": 80
         },
         {
           "id": 5,
-          "unlock": false,
+          "unlock": true,
           "reward": 100
         }
       ],
       "characters": [
-        1
+        1,
+        5,
+        3
       ]
     }
   ]

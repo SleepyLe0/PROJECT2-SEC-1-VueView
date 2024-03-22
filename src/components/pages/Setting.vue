@@ -2,7 +2,6 @@
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 
 import BackButton from '../common/BackButton.vue'
-import Confirm from '../setting/Confirm.vue'
 import EditingAccount from '../setting/EditingAccount.vue'
 import { ref } from 'vue'
 import { deleteUser } from '../../libs/FetchAPI'
@@ -38,23 +37,23 @@ const confirmDelete = async () => {
       <p class="text-lime-200 hover:text-black">Mute music</p>
       <p @click="settingPage = 'confirmLogout'"  class="text-lime-200 hover:text-black">log out</p>
       <p @click="settingPage = 'confirmDelete'" class="text-lime-200 hover:text-black">Delete Account</p>
-
     </div>
   </div>
 
-  <div v-else-if="settingPage=== 'confirmDelete'" class="w-full h-full flex justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
-  
-      <button @click="confirmDelete"
+  <div v-else-if="settingPage=== 'confirmDelete'" class="flex flex-col w-full h-full justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
+    <p class="text-white text-2xl mb-4">Delete Account</p> 
+      <div class="flex flex-row gap-5">
+    <button @click="confirmDelete"
       class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 ">
       Confirm</button>
       <button 
       @click="settingPage = 'setting'" 
       class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 ">
       Cancel</button>
+    </div>
   </div>
 
   <div v-else-if="settingPage=== 'confirmLogout'" class="w-full h-full flex justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
-   
       <button @click="confirmLogout"
       class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 ">
       Confirm</button>
@@ -64,7 +63,7 @@ const confirmDelete = async () => {
       Cancel</button>
   </div>
 
-  <EditingAccount v-else   @cancel="settingPage = 'setting'"/>
+  <EditingAccount @cancel="settingPage = 'setting'"/>
 </template>
 
 
