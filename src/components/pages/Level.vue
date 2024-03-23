@@ -4,11 +4,13 @@ import { updateUser } from '../../libs/FetchAPI'
 import LevelSelected from '../level/LevelSelected.vue'
 import CharacterSelected from '../level/CharacterSelected.vue'
 import Game from '../level/Game.vue'
+import Result from '../level/Result.vue'
 
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const currentPage = ref('levelSelected')
 const selectedLevel = ref(0)
 const selectedCharacter = ref(0)
+const gameResult = ref(false)
 
 const changeLevel = (level) => {
   selectedLevel.value = level
@@ -19,6 +21,7 @@ const resetLevel = () => {
   selectedLevel.value = 0
   selectedCharacter.value = 0
   currentPage.value = 'levelSelected'
+  gameResult.value = false
 }
 
 const changeCharacter = (character) => {
@@ -37,8 +40,9 @@ const finishStage = async (levelId) => {
       currentUser.value.gold += currentUser.value.levels.find(level => level.id === levelId).reward
       await updateUser(currentUser.value)
       localStorage.setItem('currentUser', JSON.stringify(currentUser.value))
+      gameResult.value = true
     } 
-    resetLevel()
+    currentPage.value = 'result'
   } catch (error) {
     console.log(`error: ${error}`)
   }
@@ -56,10 +60,14 @@ const finishStage = async (levelId) => {
     :selectedCharacter="selectedCharacter"
     :action="{ selectCharacter, changeCharacter }"
     @resetLevel="resetLevel"/>
-    <Game v-else 
+    <Game v-else-if="currentPage === 'game'" 
     :level="selectedLevel" 
     :character="selectedCharacter"
     :beatStage="finishStage"/>
+    <Result v-else 
+    :gameResult="gameResult"
+    :level="selectedLevel"
+    @return="resetLevel"/>
   </div>
 </template>
 

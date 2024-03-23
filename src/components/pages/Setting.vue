@@ -24,6 +24,10 @@ const confirmDelete = async () => {
   }
 }
 
+const closeEditAccount = () => {
+  settingPage.value = 'setting'
+}
+
 </script>
 
 <template>
@@ -66,7 +70,7 @@ const confirmDelete = async () => {
       Cancel</button>
   </div>
 
-  <EditingAccount v-else @cancel="settingPage = 'setting'"/>
+  <EditingAccount v-else :close="closeEditAccount"/>
 </template>
 
 

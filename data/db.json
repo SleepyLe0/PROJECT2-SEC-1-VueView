@@ -3,8 +3,8 @@
     {
       "id": "1",
       "username": "SleepyLeo",
-      "password": "1",
-      "gold": 40,
+      "password": "123456",
+      "gold": 80,
       "levels": [
         {
           "id": 1,

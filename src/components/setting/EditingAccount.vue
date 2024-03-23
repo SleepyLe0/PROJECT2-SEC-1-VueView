@@ -3,20 +3,30 @@
 import { updateUser } from "../../libs/FetchAPI"
 import { ref } from 'vue'
 import router from "../../router"
+
+const props = defineProps({
+  close: {
+    type: Function,
+    required: true
+  }
+})
+
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const currentPassword = ref('')
 const newPassword = ref('')
 
 const updatePassword = async () => {
   try {
-    if (currentPassword.value === currentUser.value.password) {    
-      currentUser.value.password = newPassword.value  
-      const updatedUser = await updateUser(currentUser.value)     
-      localStorage.setItem('currentUser', JSON.stringify(updatedUser))   
-      router.push('/home')  
-      console.log('Password updated successfully')
-    } else {     
+    if (currentPassword.value !== currentUser.value.password) {
       console.log('Old password is incorrect')
+    } else if (newPassword.value.length < 6) {
+      console.log('New password invalid')
+    } else {
+      currentUser.value.password = newPassword.value
+      const updatedUser = await updateUser(currentUser.value)
+      localStorage.setItem('currentUser', JSON.stringify(updatedUser))
+      props.close()
+      console.log('Password updated successfully')
     }
   } catch (error) {
     console.error('Error updating password:', error)
@@ -40,7 +50,7 @@ const updatePassword = async () => {
       </div>
       <div class="flex justify-end mt-8">
         <button @click="updatePassword"  class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-4">Confirm</button>
-        <button @click="$emit('cancel')" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Cancel</button>
+        <button @click="props.close" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Cancel</button>
       </div>
     </div>
   </div>

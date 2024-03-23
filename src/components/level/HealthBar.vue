@@ -51,7 +51,7 @@ const hpColor = computed(() => {
                     <h1 class="text-black text-[3vh]">ATK : {{ props.character.character.attack }}</h1>
                 </div>
                 <div class="px-[3vh]">
-                    <h1 class="text-[#FCE6AE] text-[3vh]">{{ `${props.character.skillPoint} / ${props.turn}` }}</h1>
+                    <h1 class="text-[#FCE6AE] text-[3vh]">{{ `${props.character.skillPoint} / ${props.turn > 4 ? 4 : props.turn}` }}</h1>
                 </div>
             </div>
         </div>
