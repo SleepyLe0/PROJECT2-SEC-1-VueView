@@ -36,10 +36,9 @@ const confirmDelete = async () => {
           </h1>        
         </div>
         <div class="flex flex-col items-center justify-center absolute top-[20vh] text-[3vh] gap-5 text-black sm:text-[5vh]">
-          <p @click="settingPage = 'edit'" class=" hover:text-lime-200">Editing Password</p>
-          <p class=" hover:text-lime-200">Mute music</p>
-          <p @click="settingPage = 'confirmLogout'"  class=" hover:text-lime-200">log out</p>
-          <p @click="settingPage = 'confirmDelete'" class=" hover:text-lime-200">Delete Account</p>
+          <button @click="settingPage = 'edit'" class=" hover:text-lime-200">Editing Password</button>
+          <button @click="settingPage = 'confirmLogout'"  class=" hover:text-lime-200">Log Out</button>
+          <button @click="settingPage = 'confirmDelete'" class=" hover:text-lime-200">Delete Account</button>
         </div>
       </div>
     </div>
