@@ -1,10 +1,12 @@
 <script setup>
 import { ref, watch, computed } from 'vue'
-import { monsterEasy } from '../../libs/MonsterDifficult'
+import { monsterEasy, monsterHard } from '../../libs/MonsterDifficult'
 import heros from '../../data/heros'
 import monsters from '../../data/monsters'
 import ActionBar from './ActionBar.vue'
 import Character from './Character.vue'
+import HealthBar from './HealthBar.vue'
+import CalculateScreen from './CalculateScreen.vue'
 
 const props = defineProps({
     level: {
@@ -20,14 +22,6 @@ const props = defineProps({
         required: true
     }
 })
-
-const widthScreen = ref(window.innerWidth)
-const heightScreen = ref(window.innerHeight)
-
-window.onresize = () => {
-    widthScreen.value = window.innerWidth
-    heightScreen.value = window.innerHeight
-}
 
 const hero = computed(() => {
     return heros.find(hero => hero.id === props.character)
@@ -45,6 +39,12 @@ const calculateWidth = computed(() => {
     return widthScreen.value <= heightScreen.value * 25 / 100 * 3
 })
 
+const widthScreen = ref(window.innerWidth)
+const heightScreen = ref(window.innerHeight)
+window.onresize = () => {
+    widthScreen.value = window.innerWidth
+    heightScreen.value = window.innerHeight
+}
 const turn = ref(1)
 const phase = ref(1)
 const hitCharacter = ref(false)
@@ -78,29 +78,26 @@ const skillAction = (action) => {
 const startNewTurn = () => {
     turn.value++
     phase.value = 1
-    if (turn.value > 4) {
-        player.value.skillPoint = 4
-        enemy.value.skillPoint = 4
-    } else {
-        player.value.skillPoint = turn.value
-        enemy.value.skillPoint = turn.value
-    }
 }
 
 const playerActionTurn = () => {
+    if (turn.value >= 4) player.value.skillPoint = 4
+    else player.value.skillPoint = turn.value
     player.value.skillPoint += player.value.action.charge
     player.value.action.charge = 0
 }
 
 const enemyActionTurn = () => {
+    if (turn.value >= 4) enemy.value.skillPoint = 4
+    else enemy.value.skillPoint = turn.value
     enemy.value.skillPoint += enemy.value.action.charge
     enemy.value.action.charge = 0
     if (turn.value === 1) enemy.value.skillPoint++
     setTimeout(() => {
-        monsterEasy(enemy.value)
-        console.log(enemy.value.action)
+        if (props.level < 3) monsterEasy(enemy.value)
+        else monsterHard(enemy.value, player.value, turn.value)
         phase.value++
-    }, 1500)
+    }, 3000)
 }
 
 const calculateActionTurn = (actor) => {
@@ -128,18 +125,16 @@ const calculateActionTurn = (actor) => {
             defender.isBlock = false
             if (defender.currentHP === 0) phase.value = -1
             else phase.value++
-            console.log(player.value.currentHP)
-            console.log(enemy.value.currentHP)
         }, 1500)
     }, 2000)
 }
 
 const gameEnd = () => {
-    if (player.value.currentHP === 0) {
-        console.log('Enemy Win!')
-    } else {
-        props.beatStage(props.level)
-        console.log('Player Win!') 
+    if (player.value.currentHP === 0) props.beatStage()
+    else {
+        setTimeout(() => {
+            props.beatStage(props.level)
+        }, 1000)
     }
 }
 
@@ -156,40 +151,64 @@ watch(phase, () => {
 <template>
     <div class="relative w-screen h-screen overflow-hidden flex">
         <!-- calculate screen -->
-        <!-- <transition name="calculate-screen">
-            <div v-if="calculateScreen" class="absolute z-50 w-full h-full bg-black bg-opacity-80">
-                <CalculateScreen :attackChar="playerTurn ? 'player' : 'enemy'" 
-                :attackPoint="playerTurn ? playerAction.attack : enemyAction.attack" 
-                :defensePoint="playerTurn ? enemyAction.defense : playerAction.defense"/>
+        <transition name="calculate-screen">
+            <div v-if="calculate.screen" class="absolute z-50 w-full h-full bg-black bg-opacity-80">
+                <CalculateScreen :attackChar="phase === 2 ? 'player' : 'enemy'" 
+                :attackPoint="phase === 2 ? player.action.attack : enemy.action.attack" 
+                :defensePoint="phase === 2 ? enemy.action.defense : player.action.defense"
+                :screenRatio="screenRation"
+                :calculateWidth="calculateWidth"/>
             </div>
-        </transition> -->
+        </transition>
 
         <!-- top screen -->
-        <!-- <div class="absolute flex w-screen justify-between top-[3vh] text-[5vh] p-10">
-            <HealthBar charBar="player" :hpPercentage="playerChar.currentHp / playerChar.maxHp * 100">
-                {{ playerChar.currentHp }}
+        <div v-if="!calculateWidth" class="absolute flex w-screen justify-between gap-[3vh] z-10"
+        :class="screenRation ? 'top-[3vh] px-[5vh]' : ''">
+            <HealthBar char="player" 
+            :character="player"
+            :turn="turn">
+                {{ player.currentHP }}
             </HealthBar>
-            <div class="font-bold bg-base-300 p-5 rounded-full">
-                <h1>Turn {{ turn }}</h1>
+            <div v-if="screenRation" class="w-[45vh] flex justify-center items-center p-[3vh] bg-[#56443b] rounded-lg">
+                <h1 class="text-[4vh] font-bold text-[#FCE6AE]">Turn {{ turn }}</h1>
             </div>
-            <HealthBar charBar="enemy" :hpPercentage="enemyChar.currentHp / enemyChar.maxHp * 100">
-                {{ enemyChar.currentHp }}
+            <HealthBar char="enemy" 
+            :character="enemy"
+            :turn="turn">
+                {{ enemy.currentHP }}
             </HealthBar>
-        </div> -->
+        </div>
+        <div v-else class="absolute flex w-screen gap-[3vh] z-10"
+        :class="screenRation ? 'top-[3vh] px-[5vh]' : ''">
+            <HealthBar v-if="phase === 1 || phase === 4" char="player" 
+            :character="player"
+            :turn="turn">
+                {{ player.currentHP }}
+            </HealthBar>
+            <HealthBar v-if="phase === 2 || phase === 3" char="enemy" 
+            :character="enemy"
+            :turn="turn">
+                {{ enemy.currentHP }}
+            </HealthBar>
+        </div>
 
         <!-- main screen -->
         <div v-if="!calculateWidth" class="relative w-screen flex items-center bg-[url(/Background/Stage2.png)] bg-center bg-cover"
-        :class="screenRation ? 'h-screen' : 'h-[70vh]'">
-            <Character class="absolute left-[3vh]"
+        :class="screenRation ? 'h-screen' : 'h-[60vh]'">
+            <Character class="absolute left-[5vh]"
             char="player" 
             :character="player"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
-            <Character class="absolute right-[3vh]"
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
+            <Character class="absolute right-[5vh]"
             char="enemy" 
             :character="enemy"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
         </div>
         <div v-else class="relative w-screen flex justify-center items-center h-[50vh] bg-[url(/Background/Stage2.png)] bg-cover transition-all duration-100 ease-in-out"
         :class="phase === 1 || phase === 4 ? 'bg-left' : phase === 2 || phase === 3 ? 'bg-right' : 'bg-center'">
@@ -197,24 +216,36 @@ watch(phase, () => {
             char="player" 
             :character="player"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
             <Character v-if="phase === 2 || phase === 3"
             char="enemy" 
             :character="enemy"
             :hitChar="hitCharacter" 
-            :hitDamage="calculate.damageResult"/>
+            :hitDamage="calculate.damageResult"
+            :screenRatio="screenRation"
+            :calculateWidth="calculateWidth"/>
         </div>
 
-        <ActionBar 
-        :player="player" 
-        :enemy="enemy" 
+        <!-- bottom screen -->
+        <ActionBar
+        :player="player"
         :action="skillAction"
-        :turnPhase="{ turn: turn, phase: phase }"
+        :phase="phase"
         :screenRatio="screenRation"
         :calculateWidth="calculateWidth"/>
     </div>
 </template>
 
 <style scoped>
+.calculate-screen-enter-from,
+.calculate-screen-leave-to {
+    opacity: 0;
+}
 
+.calculate-screen-enter-active,
+.calculate-screen-leave-active {
+    transition: all .5s ease;
+}
 </style>

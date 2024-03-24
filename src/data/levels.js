@@ -1,9 +1,9 @@
 const levels = [
-    { id: 1, unlock: true },
-    { id: 2, unlock: false },
-    { id: 3, unlock: false },
-    { id: 4, unlock: false },
-    { id: 5, unlock: false }
+    { id: 1, unlock: true, reward: 20 },
+    { id: 2, unlock: false, reward: 40 },
+    { id: 3, unlock: false, reward: 60 },
+    { id: 4, unlock: false, reward: 80 },
+    { id: 5, unlock: false, reward: 100 }
 ]
 
 export default levels

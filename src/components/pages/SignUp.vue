@@ -2,7 +2,7 @@
 import SignUpValidations from '../../libs/SignUpValidations'
 import router from '../../router'
 import levels from '../../data/levels'
-import { addUser } from '../../libs/FetchAPI'
+import { addUser,getAllUsers } from '../../libs/FetchAPI'
 import { ref } from 'vue'
 
 const username = ref('')
@@ -20,20 +20,24 @@ const onOffPassword = (x) => {
 const onSignup = async () => {
     const validations = new SignUpValidations(username.value, password.value, confirmPassword.value)
     errors.value = await validations.checkValidations()
+    const users = await getAllUsers()
+    console.log(users)
     let countError = 0
     for (const error in errors.value) {
         if (errors.value[error].length > 0) countError++
     }
     if (countError > 0) return false
     try {
-        const id = {
+        const newUser = {
+            id: `${users.length === 0 ? 1 : users[users.length - 1].id + 1}`,
             username: username.value,
             password: password.value,
-            gold: 100,
+            gold: 0,
             levels: levels,
-            characters: [1]
+            characters: [ 1 ],
+            isActive: false
         }
-        await addUser(id)
+        await addUser(newUser)
         router.push({ path: '/login' })
     } catch (error) {
         console.log(`Sign-up Error: ${error}`)
@@ -96,38 +100,5 @@ const onSignup = async () => {
 </template>
 
 <style scoped>
-.strike {
-    display: block;
-    text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-}
 
-.strike>span {
-    position: relative;
-    display: inline-block;
-}
-
-.strike>span:before,
-.strike>span:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 9999px;
-    height: 1px;
-    background: white;
-}
-
-.strike>span:before {
-    right: 100%;
-    margin-right: 15px;
-}
-
-.strike>span:after {
-    left: 100%;
-    margin-left: 15px;
-}
-#username::placeholder {
-    padding: 3vh;
-}
 </style>

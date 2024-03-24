@@ -18,12 +18,35 @@ function monsterEasy(enemy) {
     enemy.skillPoint = 0
 }
 
-function monsterMedium(enemy, player) {
-    
+function monsterHard(enemy, player, turn) {
+    const totalPlayerSkillPoint = (turn + 1 > 4 ? 4 : turn + 1) + player.action.charge
+    for (let i = 0; i < enemy.skillPoint; i++) {
+        const playerLatestHp = player.currentHP - (enemy.skillPoint - player.action.defense) * enemy.character.attack
+        const enemyLatestHp = enemy.currentHP - (totalPlayerSkillPoint - enemy.action.defense) * player.character.attack
+        if (playerLatestHp <= 0) enemy.action.attack++
+        else if (enemyLatestHp <= 0) {
+            if ((enemy.currentHP - (totalPlayerSkillPoint - enemy.skillPoint) * player.character.attack) <= 0) enemy.action.charge++
+            else enemy.action.defense++
+        }
+        else {
+            if (player.currentHP > enemy.character.attack * 6) {
+                if (player.action.defense >= enemy.skillPoint) {
+                    if (enemy.action.charge < 4) enemy.action.charge++
+                    else enemy.action.defense++
+                } else enemy.action.attack++
+            } else if (enemy.skillPoint === 8) {
+                if (player.action.defense < 8) enemy.action.attack++
+                else {
+                    if (enemy.action.charge < 4) enemy.action.charge++
+                    else enemy.action.defense++
+                } 
+            } else {
+                if (enemy.action.charge < 4) enemy.action.charge++
+                else enemy.action.defense++
+            }
+        }
+    }
+    enemy.skillPoint = 0
 }
 
-function monsterHard(enemy, player) {
-    
-}
-
-export { monsterEasy, monsterMedium, monsterHard }
+export { monsterEasy, monsterHard }

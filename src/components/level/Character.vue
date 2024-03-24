@@ -4,6 +4,9 @@ import { ref } from 'vue'
 const props = defineProps({
     char: {
         type: String,
+        validator(value) {
+            return ['player', 'enemy'].includes(value)
+        },
         required: true
     },
     character: {
@@ -15,6 +18,14 @@ const props = defineProps({
     },
     hitDamage: {
         type: Number,
+    },
+    screenRatio: {
+        type: Boolean,
+        required: true
+    },
+    calculateWidth: {
+        type: Boolean,
+        required: true
     }
 })
 
@@ -23,11 +34,14 @@ const blockDirection = ref(props.char === 'player' ? -1 : 1)
 </script>
 
 <template>
-    <div class="transition-all duration-300 ease-in"
-    :class="props.character.isHit ? 'hit' : props.character.isBlock ? 'blockHit' : props.character.currentHP === 0 ? 'rotate-90' : ''">
+    <div class="transition-all duration-300 ease-in" 
+    :class="props.character.isHit ? 'hit' : props.character.isBlock ? 'blockHit' : ''">
         <div class="relative flex justify-center items-center">
-            <img :src="`/Character/${props.character.character.image}`" :alt="props.char" class="w-[28vh]" 
-            :class="props.char === 'enemy' ? 'transform -scale-x-100' : ''">
+            <img v-if="props.char === 'player'" :src="`/Character/${props.character.character.image}`" :alt="props.char"
+            :class="props.calculateWidth ? 'w-[23vh]' : 'w-[28vh]'">
+            <img v-else :src="`/Character/${props.character.character.image}`" :alt="props.char"
+            class="transform -scale-x-90" 
+            :class="props.calculateWidth ? 'w-[25vh]' : 'w-[30vh]'">
             <transition name="damage">
                 <div v-if="props.hitChar" class="absolute text-[5vh] font-bold text-white">
                     {{ props.character.isHit ? props.hitDamage * -1 : props.character.isBlock ? 'Block' : '' }}
@@ -44,10 +58,6 @@ const blockDirection = ref(props.char === 'player' ? -1 : 1)
 
 .blockHit {
     animation: block 1.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
-}
-
-.dead {
-    animation: dead 1s cubic-bezier(0.36, 0.07, 0.19, 0.97);
 }
 
 .damage-leave-to {

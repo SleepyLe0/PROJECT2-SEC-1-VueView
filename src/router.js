@@ -16,12 +16,13 @@ const routes = [
     { path: '/level', component: Level },
     { path: '/setting', component: Setting },
     { path: '/shop', component: Shop },
-    { path: '/signup', component: SignUp },
+    { path: '/signup', component: SignUp }
 ]
 
 const router =  createRouter({
     history: createWebHistory(),
     routes,
+    linkActiveClass:"text-blue-600"
 })
 
 export default router

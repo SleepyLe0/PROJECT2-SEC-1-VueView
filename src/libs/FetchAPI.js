@@ -1,4 +1,4 @@
-const url = 'http://localhost:168/userAccounts'
+const url = import.meta.env.VITE_BASE_URL
 
 async function getAllUsers() {
     try {

@@ -17,7 +17,7 @@ const hero = computed(() => {
 <template>
   <div class="flex text-black justify-center items-center gap-2 ">
     <div class=" bg-gradient-to-t from-[#E2C799] to-[#C08261] border-[.25vh] border-black   
-      flex flex-col justify-center items-center rounded-lg w-[26vh] h-[32vh] shadow-xl shadow-black">
+      flex flex-col justify-center items-center rounded-lg w-[26vh] h-[32vh]">
       <div class="w-[15vh] h-[15vh]">
         <img :src="`/Character/${hero.image}`" alt="hero" />
       </div>
