@@ -4,12 +4,14 @@ const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 import BackButton from '../common/BackButton.vue'
 import EditingAccount from '../setting/EditingAccount.vue'
 import { ref } from 'vue'
-import { deleteUser } from '../../libs/FetchAPI'
+import { updateUser, deleteUser } from '../../libs/FetchAPI'
 import router from '../../router'
 
 const settingPage = ref('setting')
 
-const confirmLogout = () => {
+const confirmLogout = async () => {
+  currentUser.value.isActive = false
+  await updateUser(currentUser.value)
   localStorage.removeItem('currentUser')
   router.push('/')
 }

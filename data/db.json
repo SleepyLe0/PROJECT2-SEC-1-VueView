@@ -4,7 +4,7 @@
       "id": "1",
       "username": "SleepyLeo",
       "password": "123456",
-      "gold": 80,
+      "gold": 0,
       "levels": [
         {
           "id": 1,
@@ -13,30 +13,29 @@
         },
         {
           "id": 2,
-          "unlock": true,
+          "unlock": false,
           "reward": 40
         },
         {
           "id": 3,
-          "unlock": true,
+          "unlock": false,
           "reward": 60
         },
         {
           "id": 4,
-          "unlock": true,
+          "unlock": false,
           "reward": 80
         },
         {
           "id": 5,
-          "unlock": true,
+          "unlock": false,
           "reward": 100
         }
       ],
       "characters": [
-        1,
-        5,
-        3
-      ]
+        1
+      ],
+      "isActive": true
     }
   ]
 }

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { getAllUsers } from '../../libs/FetchAPI'
+import { getAllUsers, updateUser } from '../../libs/FetchAPI'
 import router from '../../router'
 
 const username = ref('')
@@ -13,16 +13,19 @@ const onLogin = async () => {
         const user = users.find(user => user.username === username.value)
         errors.value.username = ''
         errors.value.password = ''
-        if (user !== undefined) {
+        if (user === undefined) {
+            errors.value.username = 'Not found this username'
+        } else if (user.isActive) {
+            errors.value.username = 'This account is on active'
+        } else {
             if (user.password === password.value) {
+                user.isActive = true
+                await updateUser(user)
                 localStorage.setItem('currentUser', JSON.stringify(user))
-                console.log('Logged in successfully:', user.username)
                 router.push({ path: '/home' })
             } else {
                 errors.value.password = 'Password is incorrect'
             }
-        } else {
-            errors.value.username = 'Not found this username'
         }
     } catch (error) {
         console.log(`Log-in Error: ${error}`)
