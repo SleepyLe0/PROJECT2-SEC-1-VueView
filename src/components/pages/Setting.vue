@@ -21,10 +21,14 @@ const confirmUpdate = async (newPassword) => {
 }
 
 const confirmLogout = async () => {
-  currentUser.value.isActive = false
-  await updateUser(currentUser.value)
-  localStorage.removeItem('currentUser')
-  router.push('/')
+  try {
+    currentUser.value.isActive = false
+    await updateUser(currentUser.value)
+    localStorage.removeItem('currentUser')
+    router.push('/')
+  } catch(error) {
+    console.log(`error: ${error}`)
+  }
 }
 
 const confirmDelete = async () => {
@@ -36,10 +40,6 @@ const confirmDelete = async () => {
   } catch (error) {
     console.log(`error: ${error}`)
   }
-}
-
-const closeEditAccount = () => {
-  settingPage.value = 'setting'
 }
 </script>
 
@@ -88,7 +88,7 @@ const closeEditAccount = () => {
 
   <EditingAccount v-else
   :updateUser="confirmUpdate" 
-  @close="closeEditAccount" />
+  @close="() => settingPage = 'setting'"/>
 </template>
 
 
