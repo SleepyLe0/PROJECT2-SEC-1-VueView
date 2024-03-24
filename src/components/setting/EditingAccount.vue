@@ -1,11 +1,9 @@
-
 <script setup>
-import { updateUser } from "../../libs/FetchAPI"
 import { ref } from 'vue'
-import router from "../../router"
 
+const emits = defineEmits(['close'])
 const props = defineProps({
-  close: {
+  updateUser: {
     type: Function,
     required: true
   }
@@ -22,16 +20,13 @@ const updatePassword = async () => {
     } else if (newPassword.value.length < 6) {
       console.log('New password invalid')
     } else {
-      currentUser.value.password = newPassword.value
-      const updatedUser = await updateUser(currentUser.value)
-      localStorage.setItem('currentUser', JSON.stringify(updatedUser))
-      props.close()
-      console.log('Password updated successfully')
+      props.updateUser(newPassword.value)
     }
   } catch (error) {
     console.error('Error updating password:', error)
   }
 }
+
 </script>
 
 <template>
@@ -50,7 +45,7 @@ const updatePassword = async () => {
       </div>
       <div class="flex justify-end mt-8">
         <button @click="updatePassword"  class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-4">Confirm</button>
-        <button @click="props.close" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Cancel</button>
+        <button @click="$emit('close')" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Cancel</button>
       </div>
     </div>
   </div>

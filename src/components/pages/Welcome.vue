@@ -5,7 +5,7 @@ import router from '../../router'
 const authentication = async () => {
     try {
         const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
-        if (currentUser === undefined) router.push({ path: '/login' })
+        if (currentUser === undefined || currentUser.isActive) router.push({ path: '/login' })
         else {
             const user = await getUserById(currentUser.id)
             localStorage.setItem('currentUser', JSON.stringify(user))
