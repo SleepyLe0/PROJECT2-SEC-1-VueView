@@ -71,7 +71,7 @@ const confirmBuy = async () => {
               <button @click="conFirmBuyHero(character.id)"
                 class="flex justify-center items-center bg-[#49FF00] text-black font-bold rounded  w-[15vh] h-[5vh] gap-2">
                 <img src="/Common/Coin.png" alt="Coin" class="w-[4vh]">
-                100 $
+                {{ character.price }} $
               </button>
             </div>
           </div>

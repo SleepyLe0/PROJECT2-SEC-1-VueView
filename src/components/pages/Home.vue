@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const currentUser =ref(JSON.parse(localStorage.getItem('currentUser')))
+const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 </script>
 
 <template>
