@@ -16,8 +16,7 @@ const routes = [
     { path: '/level', component: Level },
     { path: '/setting', component: Setting },
     { path: '/shop', component: Shop },
-    { path: '/signup', component: SignUp },
-    { path: '/home', redirect: '/' }
+    { path: '/signup', component: SignUp }
 ]
 
 const router =  createRouter({

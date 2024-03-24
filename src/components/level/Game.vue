@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, computed } from 'vue'
-import { monsterEasy } from '../../libs/MonsterDifficult'
+import { monsterEasy, monsterHard } from '../../libs/MonsterDifficult'
 import heros from '../../data/heros'
 import monsters from '../../data/monsters'
 import ActionBar from './ActionBar.vue'
@@ -94,8 +94,8 @@ const enemyActionTurn = () => {
     enemy.value.action.charge = 0
     if (turn.value === 1) enemy.value.skillPoint++
     setTimeout(() => {
-        monsterEasy(enemy.value)
-        console.log(enemy.value.action)
+        if (props.level < 3) monsterEasy(enemy.value)
+        else monsterHard(enemy.value, player.value, turn.value)
         phase.value++
     }, 3000)
 }
@@ -130,11 +130,8 @@ const calculateActionTurn = (actor) => {
 }
 
 const gameEnd = () => {
-    if (player.value.currentHP === 0) {
-        console.log('Enemy Win!')
-        props.beatStage()
-    } else {
-        console.log('Player Win!') 
+    if (player.value.currentHP === 0) props.beatStage()
+    else {
         setTimeout(() => {
             props.beatStage(props.level)
         }, 1000)

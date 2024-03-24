@@ -43,14 +43,12 @@ const onOffPassword = () => {
         <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh]">
         <form class="bg-slate-500 rounded-xl p-[3vh] w-full mx-[5vh] xl:mx-[30vh] " @submit.prevent="onLogin()">
             <div class="text-[60px] text-white sm:text-[45px]">Login</div>
-
             <div class="mb-[2vh]">
                 <hr class=" opacity-50 pb-[1vh]">
                 <label for="username" class="text-white block mb-2 ">Username</label>
                 <input type="text" id="username" name="username" placeholder="Username"
                     class="w-full p-2 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
                     v-model="username">
-
                 <div class="text-red-600 pt-[1vh]" v-if="errors.username !== ''">{{ errors.username }}</div>
             </div>
             <div class="mb-[2vh]">
@@ -61,11 +59,9 @@ const onOffPassword = () => {
                         class="w-full p-2 rounded-full" v-model="password">
                     <img @click="onOffPassword" class=" opacity-30 absolute  right-0 object-fill h-[40px] w-[40px]" 
                         :src="`/Icon/${isPasswordHind ? 'in' : ''}visible.png`" />
-
                 </div>
                 <div class=" text-red-600 pt-[1vh]" v-if="errors.password !== ''">{{ errors.password }}</div>
             </div>
-
             <button type="submit"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  focus:outline-none focus:shadow-outline ">
                 Login
@@ -79,10 +75,7 @@ const onOffPassword = () => {
                     <p class="inline pb-3 hover:text-blue-700 ">Sign Up</p>
                 </router-link>
             </div>
-
         </form>
-
-
     </div>
 </template>
 

@@ -33,10 +33,10 @@ const hpColor = computed(() => {
 <template>
     <div class="w-full flex flex-col font-extrabold">
         <div class=" w-full flex bg-black" :class="props.char === 'player' ? 'justify-start' : 'justify-end'">
-            <div class="relative h-[8vh] flex transition-all ease-in-out duration-500 bg-gradient-to-b to-white"
+            <div class="relative h-[8vh] flex transition-all ease-in-out duration-500 bg-gradient-to-b to-gray-700"
                 :class="hpColor, props.char === 'player' ? 'justify-start' : 'justify-end'"
                 :style="{ width: hpPercentage + '%' }">
-                <h1 class="absolute w-full h-full flex items-center text-black text-[3vh] px-[3vh]" 
+                <h1 class="absolute w-full h-full flex items-center text-white text-[3vh] px-[3vh]" 
                 :class="props.char === 'player' ? 'justify-start' : 'justify-end'">
                     <slot>{{ props.char }}</slot>
                 </h1>

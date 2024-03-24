@@ -22,23 +22,22 @@ const cancelBuy = () => {
 }
 
 const confirmBuy = async () => {
-  if (selectedHero.value) {
-    const newGold = currentUser.value.gold - 100;
+  try {
+    const newGold = currentUser.value.gold - 100
     if (newGold >= 0) {
       currentUser.value.gold = newGold
       currentUser.value.characters.push(selectedHero.value)
       await updateUser(currentUser.value)
       localStorage.setItem('currentUser', JSON.stringify(currentUser.value))
       isConfirmationVisible.value = false
-
     } else {
       isErrorMessageVisible.value = true
       setTimeout(() => {
         isErrorMessageVisible.value = false
-      }, 1000)
+      }, 2000)
     }
-  } else {
-    alert("No hero selected.")
+  } catch (error) {
+    console.log(`error: ${error}`)
   }
 }
 
@@ -78,8 +77,7 @@ const confirmBuy = async () => {
         </div>
       </div>
     </div>
-    <div v-if="isConfirmationVisible"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div v-if="isConfirmationVisible" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div
         class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[400px] font-main">
         <div class="flex justify-center items-center ">
@@ -102,8 +100,7 @@ const confirmBuy = async () => {
         </div>
       </div>
     </div>
-    <div v-if="isErrorMessageVisible"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div v-if="isErrorMessageVisible" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
       <div
         class="bg-gradient-to-b from-[#9EA392] to-[#757A69] border-[#332222] border-4 rounded-lg w-[80%] max-w-[300px] font-main">
         <div class="flex justify-center items-center ">
