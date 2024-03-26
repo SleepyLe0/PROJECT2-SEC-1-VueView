@@ -1,38 +1,43 @@
 const heros = [
     {
         id: 1,
-        name: "Sword Man",
+        name: "Wizard",
         hp: 120,
         attack: 20,
-        image: "Hero/SwordMan.png"
+        price: 0,
+        image: "Hero/Wizard.png"
     },
     {
         id: 2,
-        name: "Sword Women",
+        name: "Merchant",
         hp: 80,
         attack: 30,
-        image: "Hero/SwordWomen.png"
+        price: 50,
+        image: "Hero/Merchant.png"
     },
     {
         id: 3,
-        name: "Archer",
+        name: "Lancer",
         hp: 60,
         attack: 50,
-        image: "Hero/Archer.png"
+        price: 100,
+        image: "Hero/Lancer.png"
     },
     {
         id: 4,
         name: "Mage",
         hp: 70,
         attack: 40,
+        price: 150,
         image: "Hero/Mage.png"
     },
     {
         id: 5,
-        name: "Wizard",
+        name: "Sword Man",
         hp: 50,
         attack: 100,
-        image: "Hero/Wizard.png"
+        price: 200,
+        image: "Hero/SwordMan.png"
     }
 ]
 
