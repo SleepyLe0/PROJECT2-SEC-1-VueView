@@ -16,13 +16,11 @@ const routes = [
         if (currentUser === undefined) return '/login'
     } },
     { path: '/login', component: Login, beforeEnter: async (to, from) => {
-        if (from.path === '/home') {
+        if (from.path !== '/') {
             const currentUser = JSON.parse(localStorage.getItem('currentUser'))
-            if (currentUser !== undefined) {
-                localStorage.removeItem('currentUser')
-                currentUser.isActive = false
-                await updateUser(currentUser)
-            }
+            localStorage.removeItem('currentUser')
+            currentUser.isActive = false
+            await updateUser(currentUser)
         }
     } },
     { path: '/inventory', component: Inventory },

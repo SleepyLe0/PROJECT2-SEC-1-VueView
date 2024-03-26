@@ -10,6 +10,7 @@ const authentication = async () => {
             const user = await getUserById(currentUser.id)
             if (user.isActive) router.push({ path: '/login' })
             else {
+                currentUser.isActive = true
                 user.isActive = true
                 localStorage.setItem('currentUser', JSON.stringify(user))
                 router.push({ path: '/home' })
