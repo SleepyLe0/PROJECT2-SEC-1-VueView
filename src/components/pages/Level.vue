@@ -17,10 +17,10 @@ const changeLevel = (level) => {
   currentPage.value = 'characterSelected'
 }
 
-const resetLevel = () => {
-  selectedLevel.value = 0
+const resetLevel = (level) => {
+  selectedLevel.value = (level + 1) ?? 0
   selectedCharacter.value = 0
-  currentPage.value = 'levelSelected'
+  currentPage.value = level === undefined ? 'levelSelected' : 'characterSelected'
   gameResult.value = false
 }
 

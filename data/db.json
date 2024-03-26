@@ -4,36 +4,43 @@
       "id": "1",
       "username": "SleepyLeo",
       "password": "123456",
-      "gold": 0,
+      "gold": 180,
       "levels": [
         {
           "id": 1,
           "unlock": true,
-          "reward": 20
+          "reward": 20,
+          "isClear": true
         },
         {
           "id": 2,
-          "unlock": false,
-          "reward": 40
+          "unlock": true,
+          "reward": 40,
+          "isClear": true
         },
         {
           "id": 3,
-          "unlock": false,
-          "reward": 60
+          "unlock": true,
+          "reward": 60,
+          "isClear": true
         },
         {
           "id": 4,
-          "unlock": false,
-          "reward": 80
+          "unlock": true,
+          "reward": 80,
+          "isClear": true
         },
         {
           "id": 5,
-          "unlock": false,
-          "reward": 100
+          "unlock": true,
+          "reward": 100,
+          "isClear": true
         }
       ],
       "characters": [
-        1
+        1,
+        3,
+        5
       ],
       "isActive": false
     }
