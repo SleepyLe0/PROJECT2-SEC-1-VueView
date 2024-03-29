@@ -8,7 +8,7 @@ const showModal = ref(false)
      xl:text-[4vh] w-[25vh] xl:w-[30vh] h-[7vh] xl:h-[10vh] bg-gradient-to-t from-red-900 to-orange-300 border-4 border-orange-200 transition duration-300 
      ease-in-out transform hover:scale-105">How to play</button>
       <transition>
-        <div v-if="showModal" class=" fixed flex inset-0 items-center justify-center ">
+        <div v-if="showModal" class="chakra-petch-regular fixed flex inset-0 items-center justify-center ">
           <div class="border-[1.5vh] lg:border-[2vh] border-[#332222] bg-gradient-to-b from-[#757A69] to-[#87946c] rounded-lg p-8 w-[40vh] lg:w-[90vh] max-h-[90vh] overflow-auto" >
             <div class="flex justify-between items-center border-b-2 border-y-stone-700 pb-2 lg:border-b-4 text-[3vh]">
               <h3 class=" font-semibold text-[3.5vh] lg:text-[6vh]">How to Play</h3>
@@ -53,6 +53,11 @@ const showModal = ref(false)
 </template>
 
 
-<style lang="scss" scoped>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+.chakra-petch-regular {
+  font-family: "Chakra Petch", sans-serif;
+}
 
 </style>
