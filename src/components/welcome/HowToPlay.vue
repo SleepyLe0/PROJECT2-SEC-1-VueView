@@ -7,7 +7,7 @@ const showModal = ref(false)
      <button @click="showModal = true" class="flex justify-center items-center rounded-full text-[3vh] 
      xl:text-[4vh] w-[25vh] xl:w-[30vh] h-[7vh] xl:h-[10vh] bg-gradient-to-t from-red-900 to-orange-300 border-4 border-orange-200 transition duration-300 
      ease-in-out transform hover:scale-105">How to play</button>
-      <transition>
+      <transition name="pop-up">
         <div v-if="showModal" class="chakra-petch-regular fixed flex inset-0 items-center justify-center ">
           <div class="border-[1.5vh] lg:border-[2vh] border-[#332222] bg-gradient-to-b from-[#757A69] to-[#87946c] rounded-lg p-8 w-[40vh] lg:w-[90vh] max-h-[90vh] overflow-auto" >
             <div class="flex justify-between items-center border-b-2 border-y-stone-700 pb-2 lg:border-b-4 text-[3vh]">
@@ -58,6 +58,16 @@ const showModal = ref(false)
 
 .chakra-petch-regular {
   font-family: "Chakra Petch", sans-serif;
+}
+
+.pop-up-enter-from,
+.pop-up-leave-to {
+  opacity: 0;
+}
+
+.pop-up-enter-active,
+.pop-up-leave-active {
+  transition: all .5s ease-in-out;
 }
 
 </style>

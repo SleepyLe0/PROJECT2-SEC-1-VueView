@@ -21,7 +21,8 @@ const props = defineProps({
 </script>
 
 <template>
-    <button class="w-full h-fit flex justify-center" @click="$emit('action', props.actionText)"
+    <button class="w-full h-fit flex justify-center hover:scale-110 active:scale-50 duration-200 transition-all ease-in-out" 
+    @click="$emit('action', props.actionText)"
     :class="props.actionText === 'charge' && props.actionPoint === 4 ? 'pointer-events-none opacity-50' : ''">
         <div class="relative">
             <img :src="props.image" alt="action"
