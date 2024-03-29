@@ -13,7 +13,7 @@ const confirmUpdate = async (newPassword) => {
     currentUser.value.password = newPassword
     await updateUser(currentUser.value)
     localStorage.setItem('currentUser', JSON.stringify(currentUser.value))
-    closeEditAccount()
+    settingPage.value = 'setting'
     console.log('Password updated successfully')
   } catch(error) {
     console.log(`error: ${error}`)
