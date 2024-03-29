@@ -12,12 +12,12 @@ import SignUp from './components/pages/SignUp.vue'
 const routes = [
     { path: '/', component: Welcome },
     { path: '/home', component: Home },
-    { path: '/login', component: Login, beforeEnter: async (to, from) => {
-        if (from.path !== '/') {
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'))
-            localStorage.removeItem('currentUser')
+    { path: '/login', component: Login, beforeEnter: async () => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
+        if (currentUser !== undefined) {
             currentUser.isActive = false
             await updateUser(currentUser)
+            localStorage.removeItem('currentUser')
         }
     } },
     { path: '/inventory', component: Inventory },
@@ -32,8 +32,8 @@ const router =  createRouter({
     routes
 })
 
-router.beforeEach((to, from) => {
-    if (to.path !== '/' && to.path !== '/login') {
+router.beforeEach(async (to, from) => {
+    if (to.path !== '/' && to.path !== '/login' && to.path !== '/signup') {
         const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
         if (currentUser === undefined) return '/login'
     }
