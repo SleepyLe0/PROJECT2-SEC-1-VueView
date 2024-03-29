@@ -15,3 +15,9 @@
 - Main Theme : Fantasy
 - Art Style : Cartoon
 
+ # Tutorial Video
+The image for tutorial gacha app video :
+
+[![IMAGE ALT TEXT HERE](https://github.com/SleepyLe0/PROJECT2-SEC-1-VueView/blob/main/public/Background/Castle.jpg)](https://youtu.be/e8ld3kXdml8)
+
+
