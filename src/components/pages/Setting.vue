@@ -7,6 +7,7 @@ import router from '../../router'
 
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const settingPage = ref('setting')
+const confirmPassword = ref('')
 
 const confirmUpdate = async (newPassword) => {
   try {
@@ -33,10 +34,14 @@ const confirmLogout = async () => {
 
 const confirmDelete = async () => {
   try {
+    if (confirmPassword.value === currentUser.value.password) {
     await deleteUser(currentUser.value.id)
     console.log('Account deleted successfully')
     localStorage.removeItem('currentUser')
     router.push('/')
+  } else {
+    console.log('password is incorrect')
+  }
   } catch (error) {
     console.log(`error: ${error}`)
   }
@@ -66,6 +71,8 @@ const confirmDelete = async () => {
   <div v-else-if="settingPage === 'confirmDelete'"
     class="flex flex-col w-full h-full justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
     <p class="text-white text-2xl mb-4">Delete Account</p>
+    <label for="newPassword" class="text-white">Your Password:</label>
+    <input type="password" v-model="confirmPassword" id="confirmPassword" class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
     <div class="flex flex-row gap-5">
       <button @click="confirmDelete"
         class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 ">
