@@ -1,5 +1,5 @@
 <script setup>
-import { getUserById } from '../../libs/FetchAPI'
+import { getUserById, updateUser } from '../../libs/FetchAPI'
 import router from '../../router'
 import HowToPlay from '../welcome/HowToPlay.vue'
 
@@ -12,8 +12,8 @@ const authentication = async () => {
             const user = await getUserById(currentUser.id)
             if (user.isActive) router.push({ path: '/login' })
             else {
-                currentUser.isActive = true
                 user.isActive = true
+                await updateUser(user)
                 localStorage.setItem('currentUser', JSON.stringify(user))
                 router.push({ path: '/home' })
             }

@@ -11,10 +11,7 @@ import SignUp from './components/pages/SignUp.vue'
 
 const routes = [
     { path: '/', component: Welcome },
-    { path: '/home', component: Home, beforeEnter: () => {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
-        if (currentUser === undefined) return '/login'
-    } },
+    { path: '/home', component: Home },
     { path: '/login', component: Login, beforeEnter: async (to, from) => {
         if (from.path !== '/') {
             const currentUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -33,6 +30,13 @@ const routes = [
 const router =  createRouter({
     history: createWebHistory(),
     routes
+})
+
+router.beforeEach((to, from) => {
+    if (to.path !== '/' && to.path !== '/login') {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
+        if (currentUser === undefined) return '/login'
+    }
 })
 
 export default router
