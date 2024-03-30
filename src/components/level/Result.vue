@@ -24,7 +24,7 @@ const reward = computed(() => {
   <div class="w-screen h-screen flex justify-center items-center bg-black bg-opacity-50">
     <div class="w-[90vw] h-[80vh] p-[1vh] bg-gradient-to-b from-[#757A69] to-[#131411] transition-all duration-300 ease-in-out">
       <div class="w-full h-full bg-[#EDDEAA] flex flex-col justify-center items-center gap-[5vh] p-[2vh]">
-        <h1 class="text-[10vh] font-extrabold bg-gradient-to-t from-[#630707] to-[#FFC582] bg-clip-text text-transparent">
+        <h1 class="text-[10vw] md:text-[10vh] font-extrabold bg-gradient-to-t from-[#630707] to-[#FFC582] bg-clip-text text-transparent">
           {{ gameResult ? 'Victory' : 'Defeated' }}
         </h1>
         <div v-if="props.gameResult" class="flex items-center gap-[1vh]">
