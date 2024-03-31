@@ -27,3 +27,8 @@
 1. Attack Button: จะเพิ่มจำนวน Attack ของผู้เล่น ซึ่งการ Attack จะแสดงผลหลังจากจบ Turn ผู้เล่น เมื่อจบ Turn ของผู้เล่น จะนำ Attack Point  ของผู้เล่น ไปคูณกับ ATK ของตัวละครเพื่อสร้างความเสียหายต่อศัตรู
 2. Defense Button: จะเพิ่มจำนวน Defense ของผู้เล่น ซึ่งการ Defense จะแสดงผลหลังจากศัตรู Action เสร็จ เมื่อจบ Turn ของศัตรูจะนำ Defense Point ของผู้เล่นไปลบ Attack Point ของศัตรู
 3. Charge Button: จะเพิ่มจำนวน Charge  ของผู้เล่น ซึ่งการ Charge  จะแสดงผลเมื่อเริ่ม Turn ถัดไปของผู้เล่น ในการ Charge แต่ละครั้งจะเป็นการเพิ่ม Skill Point ใน Turn ถัดไปของผู้เล่น Charge Point มีได้มากสุดแค่ 4 ครั้งต่อ Turn และในแต่ละ Turn เราจะต้องใช้ Skill Point ให้ครบก่อนถึงจะจบ Turn ได้ หากฝ่ายใดเลือดหมดก่อนก็จะถือเป็นฝ่ายแพ้ ดังนั้นผู้เล่นจะต้องใช้กลยุทธ์อย่างชาญฉลาดในการเลือกใช้ปุ่มเพื่อคว้าชัยชนะในเกมนี้ 
+
+ # Tutorial Video
+The image for tutorial gacha app video :
+
+[![IMAGE ALT TEXT HERE](https://github.com/SleepyLe0/PROJECT2-SEC-1-VueView/blob/main/public/Background/Castle.jpg)](https://youtu.be/e8ld3kXdml8)
