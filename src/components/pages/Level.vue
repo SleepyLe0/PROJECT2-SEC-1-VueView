@@ -17,10 +17,10 @@ const changeLevel = (level) => {
   currentPage.value = 'characterSelected'
 }
 
-const resetLevel = () => {
-  selectedLevel.value = 0
+const resetLevel = (level) => {
+  selectedLevel.value = (level + 1) ?? 0
   selectedCharacter.value = 0
-  currentPage.value = 'levelSelected'
+  currentPage.value = level === undefined ? 'levelSelected' : 'characterSelected'
   gameResult.value = false
 }
 
@@ -37,7 +37,9 @@ const finishStage = async (levelId) => {
   try {
     if (levelId !== undefined) {
       if (levelId < 5) currentUser.value.levels.find(level => level.id === (levelId + 1)).unlock = true
-      currentUser.value.gold += currentUser.value.levels.find(level => level.id === levelId).reward
+      const beatLevel = currentUser.value.levels.find(level => level.id === levelId)
+      beatLevel.isClear = true
+      currentUser.value.gold += beatLevel.reward
       await updateUser(currentUser.value)
       localStorage.setItem('currentUser', JSON.stringify(currentUser.value))
       gameResult.value = true

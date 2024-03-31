@@ -3,10 +3,11 @@ import { ref, watch, computed } from 'vue'
 import { monsterEasy, monsterHard } from '../../libs/MonsterDifficult'
 import heros from '../../data/heros'
 import monsters from '../../data/monsters'
-import ActionBar from './ActionBar.vue'
+import ActionButton from './ActionButton.vue'
 import Character from './Character.vue'
 import HealthBar from './HealthBar.vue'
 import CalculateScreen from './CalculateScreen.vue'
+import PauseScreen from './PauseScreen.vue'
 
 const props = defineProps({
     level: {
@@ -48,6 +49,8 @@ window.onresize = () => {
 const turn = ref(1)
 const phase = ref(1)
 const hitCharacter = ref(false)
+const gamePause = ref(false)
+const pauseDeny = ref(false)
 const calculate = ref({ 
     damageResult: 0,
     screen: false
@@ -69,6 +72,28 @@ const enemy = ref({
     isBlock: false
 })
 
+const retry = () => {
+    turn.value = 1
+    phase.value = 1
+    gamePause.value = false
+    player.value = {
+        currentHP: hero.value.hp,
+        skillPoint: 1,
+        character: hero.value,
+        action: { attack: 0, defense: 0, charge: 0 },
+        isHit: false,
+        isBlock: false
+    }
+    enemy.value = {
+        currentHP: monster.value.hp,
+        skillPoint: 1,
+        character: monster.value,
+        action: { attack: 0, defense: 0, charge: 0 },
+        isHit: false,
+        isBlock: false
+    }
+}
+
 const skillAction = (action) => {
     player.value.skillPoint--
     player.value.action[action]++
@@ -81,6 +106,7 @@ const startNewTurn = () => {
 }
 
 const playerActionTurn = () => {
+    pauseDeny.value = false
     if (turn.value >= 4) player.value.skillPoint = 4
     else player.value.skillPoint = turn.value
     player.value.skillPoint += player.value.action.charge
@@ -104,6 +130,7 @@ const calculateActionTurn = (actor) => {
     const attacker = (actor === 'player') ? player.value : enemy.value
     const defender = (actor === 'enemy') ? player.value : enemy.value
     calculate.value.screen = true
+    pauseDeny.value = true
     setTimeout(() => {
         calculate.value.screen = false
         if (attacker.action.attack > defender.action.defense) {
@@ -150,8 +177,7 @@ watch(phase, () => {
 
 <template>
     <div class="relative w-screen h-screen overflow-hidden flex">
-        <!-- calculate screen -->
-        <transition name="calculate-screen">
+        <transition name="pop-screen">
             <div v-if="calculate.screen" class="absolute z-50 w-full h-full bg-black bg-opacity-80">
                 <CalculateScreen :attackChar="phase === 2 ? 'player' : 'enemy'" 
                 :attackPoint="phase === 2 ? player.action.attack : enemy.action.attack" 
@@ -160,8 +186,15 @@ watch(phase, () => {
                 :calculateWidth="calculateWidth"/>
             </div>
         </transition>
+        <transition name="pop-screen">
+            <div v-if="gamePause" class="absolute z-50 w-full h-full bg-black bg-opacity-80">
+                <PauseScreen
+                @close="() => gamePause = false"
+                @retry="retry"
+                @exit="props.beatStage"/>
+            </div>
+        </transition>
 
-        <!-- top screen -->
         <div v-if="!calculateWidth" class="absolute flex w-screen justify-between gap-[3vh] z-10"
         :class="screenRation ? 'top-[3vh] px-[5vh]' : ''">
             <HealthBar char="player" 
@@ -169,9 +202,10 @@ watch(phase, () => {
             :turn="turn">
                 {{ player.currentHP }}
             </HealthBar>
-            <div v-if="screenRation" class="w-[45vh] flex justify-center items-center p-[3vh] bg-[#56443b] rounded-lg">
+            <button @click="gamePause = true" v-if="screenRation" class="w-[45vh] flex justify-center items-center p-[3vh] bg-[#56443b] rounded-lg"
+            :class="pauseDeny ? 'pointer-events-none' : ''">
                 <h1 class="text-[4vh] font-bold text-[#FCE6AE]">Turn {{ turn }}</h1>
-            </div>
+            </button>
             <HealthBar char="enemy" 
             :character="enemy"
             :turn="turn">
@@ -192,7 +226,6 @@ watch(phase, () => {
             </HealthBar>
         </div>
 
-        <!-- main screen -->
         <div v-if="!calculateWidth" class="relative w-screen flex items-center bg-[url(/Background/Stage2.png)] bg-center bg-cover"
         :class="screenRation ? 'h-screen' : 'h-[60vh]'">
             <Character class="absolute left-[5vh]"
@@ -228,24 +261,35 @@ watch(phase, () => {
             :calculateWidth="calculateWidth"/>
         </div>
 
-        <!-- bottom screen -->
-        <ActionBar
-        :player="player"
-        :action="skillAction"
-        :phase="phase"
-        :screenRatio="screenRation"
-        :calculateWidth="calculateWidth"/>
+        <div class="absolute bottom-0">
+            <button @click="gamePause = true" v-if="!screenRation" class="w-full flex justify-center bg-[#56443b]"
+            :class="pauseDeny ? 'pointer-events-none' : ''">
+                <h1 class="text-[4vh] font-bold text-[#FCE6AE]">Turn {{ turn }}</h1>
+            </button>
+            <div class="flex justify-center items-center bg-gradient-to-r from-[#251F1F] to-[#393646] p-[5vh] overflow-hidden"
+            :class="screenRation ? 'w-fit h-fit rounded-tr-lg' : !calculateWidth ? 'w-screen h-[40vh]' : 'w-screen h-[55vh]'">
+                <div class="flex gap-[2vh] h-fit" 
+                :class="calculateWidth ? 'flex-col' : 'flex-row', phase === 1 ? '' : 'opacity-50 pointer-events-none'">
+                    <ActionButton v-for="action in ['Charge', 'Defense', 'Attack']"
+                    :actionPoint="player.action[action.toLowerCase()]" 
+                    :actionText="`${action.toLowerCase()}`"
+                    :image="`/Skill/${action}.png`"
+                    :responsive="calculateWidth"
+                    @action="skillAction"/>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <style scoped>
-.calculate-screen-enter-from,
-.calculate-screen-leave-to {
+.pop-screen-enter-from,
+.pop-screen-leave-to {
     opacity: 0;
 }
 
-.calculate-screen-enter-active,
-.calculate-screen-leave-active {
+.pop-screen-enter-active,
+.pop-screen-leave-active {
     transition: all .5s ease;
 }
 </style>

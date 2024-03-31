@@ -23,7 +23,7 @@ const cancelBuy = () => {
 
 const confirmBuy = async () => {
   try {
-    const newGold = currentUser.value.gold - 100
+    const newGold = currentUser.value.gold - heros.find(hero => hero.id === selectedHero.value).price
     if (newGold >= 0) {
       currentUser.value.gold = newGold
       currentUser.value.characters.push(selectedHero.value)
@@ -62,7 +62,7 @@ const confirmBuy = async () => {
         </h1>
       </div>
       <div
-        class="flex flex-wrap items-center justify-center xl:justify-start pt-[5vh] p-[2vh] xl:p-[7vh]  overflow-auto  h-[65vh]">
+        class="flex flex-wrap items-center justify-center xl:justify-start pt-[5vh] p-[2vh] xl:p-[7vh]  overflow-auto  h-[65vh] gap-3">
         <div v-for="character in heros">
           <div v-if="!currentUser.characters.includes(character.id)">
             <CharacterCard :heroId="character.id" />

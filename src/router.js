@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { updateUser } from './libs/FetchAPI'
 import Welcome from './components/pages/Welcome.vue'
 import Home from './components/pages/Home.vue'
 import Login from './components/pages/Login.vue'
@@ -11,7 +12,14 @@ import SignUp from './components/pages/SignUp.vue'
 const routes = [
     { path: '/', component: Welcome },
     { path: '/home', component: Home },
-    { path: '/login', component: Login },
+    { path: '/login', component: Login, beforeEnter: async () => {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
+        if (currentUser !== undefined) {
+            currentUser.isActive = false
+            await updateUser(currentUser)
+            localStorage.removeItem('currentUser')
+        }
+    } },
     { path: '/inventory', component: Inventory },
     { path: '/level', component: Level },
     { path: '/setting', component: Setting },
@@ -21,8 +29,14 @@ const routes = [
 
 const router =  createRouter({
     history: createWebHistory(),
-    routes,
-    linkActiveClass:"text-blue-600"
+    routes
+})
+
+router.beforeEach(async (to, from) => {
+    if (to.path !== '/' && to.path !== '/login' && to.path !== '/signup') {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
+        if (currentUser === undefined) return '/login'
+    }
 })
 
 export default router

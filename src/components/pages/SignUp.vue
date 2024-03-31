@@ -29,7 +29,7 @@ const onSignup = async () => {
     if (countError > 0) return false
     try {
         const newUser = {
-            id: `${users.length === 0 ? 1 : users[users.length - 1].id + 1}`,
+            id: `${users.length === 0 ? 1 : Number(users[users.length - 1].id) + 1}`,
             username: username.value,
             password: password.value,
             gold: 0,

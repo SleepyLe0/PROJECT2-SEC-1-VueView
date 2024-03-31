@@ -7,13 +7,14 @@ import router from '../../router'
 
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const settingPage = ref('setting')
+const confirmPassword = ref('')
 
 const confirmUpdate = async (newPassword) => {
   try {
     currentUser.value.password = newPassword
     await updateUser(currentUser.value)
     localStorage.setItem('currentUser', JSON.stringify(currentUser.value))
-    closeEditAccount()
+    settingPage.value = 'setting'
     console.log('Password updated successfully')
   } catch(error) {
     console.log(`error: ${error}`)
@@ -33,10 +34,14 @@ const confirmLogout = async () => {
 
 const confirmDelete = async () => {
   try {
+    if (confirmPassword.value === currentUser.value.password) {
     await deleteUser(currentUser.value.id)
     console.log('Account deleted successfully')
     localStorage.removeItem('currentUser')
     router.push('/')
+  } else {
+    console.log('password is incorrect')
+  }
   } catch (error) {
     console.log(`error: ${error}`)
   }
@@ -63,28 +68,38 @@ const confirmDelete = async () => {
     </div>
   </div>
 
-  <div v-else-if="settingPage === 'confirmDelete'"
-    class="flex flex-col w-full h-full justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
-    <p class="text-white text-2xl mb-4">Delete Account</p>
-    <div class="flex flex-row gap-5">
-      <button @click="confirmDelete"
-        class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 ">
-        Confirm</button>
-      <button @click="settingPage = 'setting'"
-        class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 ">
-        Cancel</button>
+  <div v-else-if="settingPage === 'confirmDelete'" class="min-h-screen flex justify-center items-center bg-[#45483D] bg-opacity-70">
+  <div class="max-w-md w-full mx-auto p-8 bg-slate-500 rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold text-white mb-8">Delete Account</h2>
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col">
+        <label for="confirmPassword" class="text-white">Your Password:</label>
+        <input type="password" v-model="confirmPassword" id="confirmPassword" class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+      </div>
+    </div>
+    <div class="flex justify-end mt-8">
+      <button @click="confirmDelete" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-4">Confirm</button>
+      <button @click="settingPage = 'setting'" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Cancel</button>
     </div>
   </div>
+</div>
 
-  <div v-else-if="settingPage === 'confirmLogout'"
-    class="w-full h-full flex justify-center items-center bg-[#45483D] bg-opacity-70 gap-5">
-    <button @click="confirmLogout"
-      class="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 ">
-      Confirm</button>
-    <button @click="settingPage = 'setting'"
-      class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 ">
-      Cancel</button>
+
+<div v-else-if="settingPage === 'confirmLogout'" class="min-h-screen flex justify-center items-center bg-[#45483D] bg-opacity-70">
+  <div class="max-w-md w-full mx-auto p-8 bg-slate-500 rounded-lg shadow-lg flex flex-col justify-center items-center">
+    <h2 class="text-3xl font-bold text-white mb-8">Confirm Log Out?</h2>
+    <div class="flex gap-4">
+      <button @click="confirmLogout" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-4">
+        Confirm
+      </button>
+      <button @click="settingPage = 'setting'" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">
+        Cancel
+      </button>
+    </div>
   </div>
+</div>
+
+
 
   <EditingAccount v-else
   :updateUser="confirmUpdate" 
