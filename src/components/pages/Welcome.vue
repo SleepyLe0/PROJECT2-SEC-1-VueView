@@ -1,16 +1,18 @@
 <script setup>
-import { getUserById, updateUser } from '../../libs/FetchAPI'
+import { getAllUsers, getUserById, updateUser } from '../../libs/FetchAPI'
 import router from '../../router'
 import HowToPlay from '../welcome/HowToPlay.vue'
 
 
 const authentication = async () => {
     try {
+        const users = await getAllUsers()
         const currentUser = JSON.parse(localStorage.getItem('currentUser')) ?? undefined
-        if (currentUser === undefined) router.push({ path: '/login' })
+        const isUserExist = users.some(user => user.id === currentUser.id)
+        if (currentUser === undefined || !isUserExist) router.push({ path: '/login' })
         else {
             const user = await getUserById(currentUser.id)
-            if (user.isActive) router.push({ path: '/login' })
+            if (user.isActive || user === undefined) router.push({ path: '/login' })
             else {
                 user.isActive = true
                 await updateUser(user)
@@ -35,9 +37,6 @@ const authentication = async () => {
         </button>
        <HowToPlay />
     </div> 
-
-
-    
 </template>
 
 <style scoped></style>

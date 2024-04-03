@@ -5,9 +5,15 @@ import { ref } from 'vue'
 import { updateUser, deleteUser } from '../../libs/FetchAPI'
 import router from '../../router'
 
+
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const settingPage = ref('setting')
 const confirmPassword = ref('')
+const showCurrentPassword = ref(true)
+
+const toggleShowCurrentPassword = () => {
+  showCurrentPassword.value = !showCurrentPassword.value
+}
 
 const confirmUpdate = async (newPassword) => {
   try {
@@ -74,7 +80,13 @@ const confirmDelete = async () => {
     <div class="flex flex-col gap-4">
       <div class="flex flex-col">
         <label for="confirmPassword" class="text-white">Your Password:</label>
-        <input type="password" v-model="confirmPassword" id="confirmPassword" class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+        <div class="relative">
+        <input v-model="confirmPassword" :type="showCurrentPassword ? 'text' : 'password'" id="confirmPassword"  class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 w-full h-full" />
+        <button @click="toggleShowCurrentPassword" class="top-2 right-2 focus:outline-none absolute">
+              <img v-if="showCurrentPassword" src="/Icon/visible.png" alt="Hide" class="w-full h-full ">
+              <img v-else src="/Icon/invisible.png" alt="Show" class="w-full h-full ">
+            </button>
+        </div>
       </div>
     </div>
     <div class="flex justify-end mt-8">

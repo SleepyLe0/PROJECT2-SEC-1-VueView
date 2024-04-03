@@ -12,8 +12,8 @@ const props = defineProps({
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const currentPassword = ref('')
 const newPassword = ref('')
-const showCurrentPassword = ref(false)
-const showNewPassword = ref(false)
+const showCurrentPassword = ref(true)
+const showNewPassword = ref(true)
  
 const updatePassword = async () => {
   try {
@@ -47,18 +47,20 @@ const toggleShowNewPassword = () => {
         <div class="flex flex-col">
           <label for="currentPassword" class="text-white">Your Password:</label>
           <div class="relative">
-            <input v-model="currentPassword" :type="showCurrentPassword ? 'text' : 'password'" id="currentPassword" class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
-            <button @click="toggleShowCurrentPassword" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 focus:outline-none">
-              {{ showCurrentPassword ? 'Hide' : 'Show' }}
+            <input v-model="currentPassword" :type="showCurrentPassword ? 'text' : 'password'" id="currentPassword" class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 w-full h-full" />
+            <button @click="toggleShowCurrentPassword" class="absolute top-2 right-2 focus:outline-none">
+              <img v-if="showCurrentPassword" src="/Icon/visible.png" alt="Hide" class="w-full h-full ">
+              <img v-else src="/Icon/invisible.png" alt="Show" class="w-full h-full ">
             </button>
           </div>
         </div>
         <div class="flex flex-col">
           <label for="newPassword" class="text-white">New Password:</label>
           <div class="relative">
-            <input v-model="newPassword" :type="showNewPassword ? 'text' : 'password'" id="newPassword" class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
-            <button @click="toggleShowNewPassword" class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 focus:outline-none">
-              {{ showNewPassword ? 'Hide' : 'Show' }}
+            <input v-model="newPassword" :type="showNewPassword ? 'text' : 'password'" id="newPassword" class="mt-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 w-full h-full" />
+            <button @click="toggleShowNewPassword" class="absolute top-2 right-2 focus:outline-none">
+              <img v-if="showNewPassword" src="/Icon/visible.png" alt="Hide" class="w-full h-full">
+              <img v-else src="/Icon/invisible.png" alt="Show" class="w-full h-full">
             </button>
           </div>
         </div>
@@ -70,6 +72,7 @@ const toggleShowNewPassword = () => {
     </div>
   </div>
 </template>
+
  
 <style scoped>
  
