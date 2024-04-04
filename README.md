@@ -46,3 +46,12 @@ The image for tutorial gacha app video :
 # Component Hierarchy
 
 ![COMPONENT HIERARCHY](https://github.com/SleepyLe0/PROJECT2-SEC-1-VueView/blob/main/docs/INT203%20-%20Component%20Hierarchy.png)
+
+# Reference
+- [Gameplay Reference](https://www.jwthegame.com)
+- [Character Image Reference](https://craftpix.net/freebies/free-demon-characters-pixel-art/)
+- [Background Image Reference](https://pngtree.com/)
+- [Skills Image Reference](https://craftpix.net/freebies/free-swordsman-skills-icon-pack/)
+
+
+
