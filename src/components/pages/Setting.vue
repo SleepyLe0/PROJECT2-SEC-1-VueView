@@ -9,7 +9,7 @@ import router from '../../router'
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const settingPage = ref('setting')
 const confirmPassword = ref('')
-const showCurrentPassword = ref(true)
+const showCurrentPassword = ref(false)
 
 const toggleShowCurrentPassword = () => {
   showCurrentPassword.value = !showCurrentPassword.value

@@ -12,8 +12,8 @@ const props = defineProps({
 const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')))
 const currentPassword = ref('')
 const newPassword = ref('')
-const showCurrentPassword = ref(true)
-const showNewPassword = ref(true)
+const showCurrentPassword = ref(false)
+const showNewPassword = ref(false)
  
 const updatePassword = async () => {
   try {
