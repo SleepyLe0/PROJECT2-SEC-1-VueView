@@ -226,7 +226,8 @@ watch(phase, () => {
             </HealthBar>
         </div>
 
-        <div v-if="!calculateWidth" class="relative w-screen flex items-center bg-[url(/Background/Stage2.png)] bg-center bg-cover"
+        <div v-if="!calculateWidth" class="relative w-screen flex items-center bg-center bg-cover"
+        :style="{ 'background-image': `url(/Background/Stage${props.level}.png)` }"
         :class="screenRation ? 'h-screen' : 'h-[60vh]'">
             <Character class="absolute left-[5vh]"
             char="player" 
