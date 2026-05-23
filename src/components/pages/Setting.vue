@@ -57,19 +57,18 @@ const confirmDelete = async () => {
 <template>
   <div v-if="settingPage === 'setting'" class="px-[6vh]">
     <BackButton path="Home" />
-    <div
-      class="flex justify-center relative top-[18vh] h-[72vh] border-[1.5vh] lg:border-[2vh] border-[#332222] bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
-      <div
-        class="absolute top-[-6vh] w-[25vh] lg:w-[50vh] h-[10vh] border-[#332222] border-[1vh] bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
-        <h1 class="text-center text-[5vh] lg:text-[6vh] text-black">
-          Setting
-        </h1>
+    <div class="flex justify-center relative top-[18vh] h-[72vh] border-[1.5vh] lg:border-[2vh] border-[#332222] bg-gradient-to-b from-[#D9D9D9] to-[#737373]">
+      <div class="absolute top-[-6vh] w-[25vh] lg:w-[50vh] h-[10vh] border-[#332222] border-[1vh] bg-gradient-to-b from-[#D9D9D9] to-[#737373] anim-slam-down"
+          style="animation-delay:0.2s">
+        <h1 class="text-center text-[5vh] lg:text-[6vh] text-black">Setting</h1>
       </div>
-      <div
-        class="flex flex-col items-center justify-center absolute top-[20vh] text-[3vh] gap-5 text-black sm:text-[5vh]">
-        <button @click="settingPage = 'edit'" class=" hover:text-lime-200">Editing Password</button>
-        <button @click="settingPage = 'confirmLogout'" class=" hover:text-lime-200">Log Out</button>
-        <button @click="settingPage = 'confirmDelete'" class=" hover:text-lime-200">Delete Account</button>
+      <div class="flex flex-col items-center justify-center absolute top-[20vh] text-[3vh] gap-5 text-black sm:text-[5vh]">
+        <button @click="settingPage = 'edit'"
+            class="btn-epic anim-slide-up" style="animation-delay:0.35s">Editing Password</button>
+        <button @click="settingPage = 'confirmLogout'"
+            class="btn-epic anim-slide-up" style="animation-delay:0.47s">Log Out</button>
+        <button @click="settingPage = 'confirmDelete'"
+            class="btn-epic anim-slide-up" style="animation-delay:0.59s">Delete Account</button>
       </div>
     </div>
   </div>

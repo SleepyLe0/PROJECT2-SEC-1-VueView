@@ -39,9 +39,9 @@ const onOffPassword = () => {
 
 
 <template>
-    <div class="relative w-screen h-screen flex justify-center items-center ">
-        <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh]">
-        <form class="bg-slate-500 rounded-xl p-[3vh] w-full mx-[5vh] xl:mx-[30vh] " @submit.prevent="onLogin()">
+    <div class="relative w-screen h-screen flex justify-center items-center">
+        <img src="/Common/Logo.png" alt="logo" class="absolute top-[3vh] anim-slam-down" style="animation-delay:0.15s">
+        <form class="bg-slate-500 rounded-xl p-[3vh] w-full mx-[5vh] xl:mx-[30vh] anim-slide-up" style="animation-delay:0.3s" @submit.prevent="onLogin()">
             <div class="text-[60px] text-white sm:text-[45px]">Login</div>
             <div class="mb-[2vh]">
                 <hr class=" opacity-50 pb-[1vh]">

@@ -60,14 +60,19 @@ const showModal = ref(false)
   font-family: "Chakra Petch", sans-serif;
 }
 
-.pop-up-enter-from,
+.pop-up-enter-from {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.9);
+}
+.pop-up-enter-active {
+  transition: opacity 0.45s ease-out, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
 .pop-up-leave-to {
   opacity: 0;
+  transform: translateY(-40px) scale(0.92);
 }
-
-.pop-up-enter-active,
 .pop-up-leave-active {
-  transition: all .5s ease-in-out;
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
 }
 
 </style>

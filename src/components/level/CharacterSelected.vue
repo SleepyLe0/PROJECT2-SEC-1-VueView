@@ -39,10 +39,11 @@ const reward = computed(() => {
     <div class="w-screen h-[70vh] flex justify-center items-center">
         <BackButton @click="$emit('resetLevel')"/>
         <div class="flex flex-col justify-center items-center gap-[2vh]">
-            <h1 class="text-[10vh] bg-gradient-to-t from-[#630707] to-[#FFC582] bg-clip-text text-transparent">
+            <h1 class="text-[10vh] bg-gradient-to-t from-[#630707] to-[#FFC582] bg-clip-text text-transparent anim-slam-down"
+                style="animation-delay:0.15s">
                 LEVEL {{ props.level }}
             </h1>
-            <div class="p-[1vh] bg-gradient-to-b from-[#757A69] to-[#131411] transition-all duration-300 ease-in-out">
+            <div class="p-[1vh] bg-gradient-to-b from-[#757A69] to-[#131411] anim-slide-up" style="animation-delay:0.3s">
                 <div class="bg-[#EDDEAA] flex p-[2vh]">
                     <img :src="`/Character/${monster.image}`" alt="monster" class="w-[20vh] md:w-[30vh]">
                     <div class="flex flex-col gap-[1vh] justify-center text-[2vh] md:text-[3vh] text-black">
@@ -57,7 +58,7 @@ const reward = computed(() => {
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-0 bg-[#45483D] w-screen h-[40vh] flex justify-center items-center">
+        <div class="absolute bottom-0 bg-[#45483D] w-screen h-[40vh] flex justify-center items-center anim-slide-up" style="animation-delay:0.45s">
             <CharacterCollection :characters="props.characters" :selectedCharacter="props.selectedCharacter"
             @changeCharacter="props.action.changeCharacter"
             @selectCharacter="props.action.selectCharacter"/>

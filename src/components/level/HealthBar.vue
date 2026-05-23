@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const props = defineProps({
     char: {
@@ -28,15 +28,26 @@ const hpColor = computed(() => {
     else if (hpPercentage.value > 20) return 'from-[#FFE400]'
     else return 'from-[#FF1700]'
 })
+
+const hpFlash = ref(false)
+watch(() => props.character.currentHP, (newVal, oldVal) => {
+    if (newVal < oldVal) {
+        hpFlash.value = false
+        requestAnimationFrame(() => {
+            hpFlash.value = true
+            setTimeout(() => { hpFlash.value = false }, 600)
+        })
+    }
+})
 </script>
 
 <template>
     <div class="w-full flex flex-col font-extrabold">
-        <div class=" w-full flex bg-black" :class="props.char === 'player' ? 'justify-start' : 'justify-end'">
+        <div class="w-full flex bg-black" :class="props.char === 'player' ? 'justify-start' : 'justify-end'">
             <div class="relative h-[8vh] flex transition-all ease-in-out duration-500 bg-gradient-to-b to-gray-700"
-                :class="hpColor, props.char === 'player' ? 'justify-start' : 'justify-end'"
+                :class="[hpColor, props.char === 'player' ? 'justify-start' : 'justify-end', hpFlash ? 'hp-flash' : '']"
                 :style="{ width: hpPercentage + '%' }">
-                <h1 class="absolute w-full h-full flex items-center text-white text-[3vh] px-[3vh]" 
+                <h1 class="absolute w-full h-full flex items-center text-white text-[3vh] px-[3vh]"
                 :class="props.char === 'player' ? 'justify-start' : 'justify-end'">
                     <slot>{{ props.char }}</slot>
                 </h1>
@@ -59,4 +70,15 @@ const hpColor = computed(() => {
 </template>
 
 <style scoped>
+@keyframes hp-flash-anim {
+    0%   { filter: brightness(1); }
+    15%  { filter: brightness(3) saturate(0); }
+    35%  { filter: brightness(1.8) hue-rotate(340deg) saturate(2); }
+    60%  { filter: brightness(1.3); }
+    100% { filter: brightness(1); }
+}
+
+.hp-flash {
+    animation: hp-flash-anim 0.6s ease;
+}
 </style>
