@@ -1,0 +1,5612 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "auth_flow_signup_validation",
+        "label": "Sign-Up Validation Flow: SignUpValidations + Validations + FetchAPI",
+        "nodes": [
+          "libs_signupvalidations_checkvalidations",
+          "libs_validations_validations",
+          "libs_fetchapi_getallusers"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/libs/SignUpValidations.js"
+      },
+      {
+        "id": "session_lifecycle_management",
+        "label": "Session Lifecycle: main.js + router.js + FetchAPI updateUser",
+        "nodes": [
+          "src_main_appentry",
+          "src_router_routerconfig",
+          "libs_fetchapi_updateuser"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/main.js"
+      },
+      {
+        "id": "game_combat_data_model",
+        "label": "Combat Data Model: Heroes + Monsters + Levels",
+        "nodes": [
+          "data_heros_herosdata",
+          "data_monsters_monstersdata",
+          "data_levels_levelsdata"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "src/data/heros.js"
+      },
+      {
+        "id": "level_gameplay_components",
+        "label": "Core Level Gameplay Components",
+        "nodes": [
+          "level_game_gamecomponent",
+          "level_actionbutton_actionbuttoncomponent",
+          "level_character_charactercomponent",
+          "level_healthbar_healthbarcomponent",
+          "level_actioncutscene_actioncutscenecomponent",
+          "level_pausescreen_pausescreencomponent"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/components/level/Game.vue"
+      },
+      {
+        "id": "level_flow_orchestration",
+        "label": "Level Page Flow Orchestration",
+        "nodes": [
+          "pages_level_levelpage",
+          "level_levelselected_levelselectedcomponent",
+          "level_characterselected_characterselectedcomponent",
+          "level_game_gamecomponent",
+          "level_result_resultcomponent"
+        ],
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/components/pages/Level.vue"
+      },
+      {
+        "id": "auth_pages_localstorage",
+        "label": "Auth Pages Sharing LocalStorage User State",
+        "nodes": [
+          "pages_login_loginpage",
+          "pages_signup_signuppage",
+          "pages_welcome_welcomepage",
+          "pages_setting_settingpage"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "src/components/pages/Login.vue"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "tailwind.config.js",
+      "file_type": "code",
+      "source_file": "tailwind.config.js",
+      "source_location": "L1",
+      "id": "tailwind_config_js",
+      "community": 26,
+      "norm_label": "tailwind.config.js"
+    },
+    {
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "vite.config.js",
+      "source_location": "L1",
+      "id": "vite_config_js",
+      "community": 27,
+      "norm_label": "vite.config.js"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package_json",
+      "community": 1,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "project2_sec_1_vueview_package_name",
+      "community": 1,
+      "norm_label": "name"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "project2_sec_1_vueview_package_private",
+      "community": 1,
+      "norm_label": "private"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "project2_sec_1_vueview_package_version",
+      "community": 1,
+      "norm_label": "version"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "project2_sec_1_vueview_package_type",
+      "community": 1,
+      "norm_label": "type"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "project2_sec_1_vueview_package_scripts",
+      "community": 1,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "project2_sec_1_vueview_package_scripts_dev",
+      "community": 1,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "project2_sec_1_vueview_package_scripts_build",
+      "community": 1,
+      "norm_label": "build"
+    },
+    {
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "project2_sec_1_vueview_package_scripts_preview",
+      "community": 1,
+      "norm_label": "preview"
+    },
+    {
+      "label": "backend",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "id": "project2_sec_1_vueview_package_scripts_backend",
+      "community": 1,
+      "norm_label": "backend"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "project2_sec_1_vueview_package_dependencies",
+      "community": 1,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "json-server",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "project2_sec_1_vueview_package_dependencies_json_server",
+      "community": 1,
+      "norm_label": "json-server"
+    },
+    {
+      "label": "vue",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "project2_sec_1_vueview_package_dependencies_vue",
+      "community": 1,
+      "norm_label": "vue"
+    },
+    {
+      "label": "vue-router",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "id": "project2_sec_1_vueview_package_dependencies_vue_router",
+      "community": 1,
+      "norm_label": "vue-router"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "id": "project2_sec_1_vueview_package_devdependencies",
+      "community": 1,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@vitejs/plugin-vue",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "project2_sec_1_vueview_package_devdependencies_vitejs_plugin_vue",
+      "community": 1,
+      "norm_label": "@vitejs/plugin-vue"
+    },
+    {
+      "label": "autoprefixer",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "project2_sec_1_vueview_package_devdependencies_autoprefixer",
+      "community": 1,
+      "norm_label": "autoprefixer"
+    },
+    {
+      "label": "daisyui",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "id": "project2_sec_1_vueview_package_devdependencies_daisyui",
+      "community": 1,
+      "norm_label": "daisyui"
+    },
+    {
+      "label": "postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "id": "project2_sec_1_vueview_package_devdependencies_postcss",
+      "community": 1,
+      "norm_label": "postcss"
+    },
+    {
+      "label": "tailwindcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "project2_sec_1_vueview_package_devdependencies_tailwindcss",
+      "community": 1,
+      "norm_label": "tailwindcss"
+    },
+    {
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "id": "project2_sec_1_vueview_package_devdependencies_vite",
+      "community": 1,
+      "norm_label": "vite"
+    },
+    {
+      "label": "postcss.config.js",
+      "file_type": "code",
+      "source_file": "postcss.config.js",
+      "source_location": "L1",
+      "id": "postcss_config_js",
+      "community": 28,
+      "norm_label": "postcss.config.js"
+    },
+    {
+      "label": "extensions.json",
+      "file_type": "code",
+      "source_file": ".vscode/extensions.json",
+      "source_location": "L1",
+      "id": "vscode_extensions_json",
+      "community": 25,
+      "norm_label": "extensions.json"
+    },
+    {
+      "label": "recommendations",
+      "file_type": "code",
+      "source_file": ".vscode/extensions.json",
+      "source_location": "L2",
+      "id": "vscode_extensions_recommendations",
+      "community": 25,
+      "norm_label": "recommendations"
+    },
+    {
+      "label": "db.json",
+      "file_type": "code",
+      "source_file": "data/db.json",
+      "source_location": "L1",
+      "id": "data_db_json",
+      "community": 2,
+      "norm_label": "db.json"
+    },
+    {
+      "label": "userAccounts",
+      "file_type": "code",
+      "source_file": "data/db.json",
+      "source_location": "L2",
+      "id": "data_db_useraccounts",
+      "community": 2,
+      "norm_label": "useraccounts"
+    },
+    {
+      "label": "App.vue",
+      "file_type": "code",
+      "source_file": "src/App.vue",
+      "source_location": "L1",
+      "id": "src_app_vue",
+      "community": 2,
+      "norm_label": "app.vue"
+    },
+    {
+      "label": "main.js",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L1",
+      "id": "src_main_js",
+      "community": 2,
+      "norm_label": "main.js"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": "L15",
+      "id": "src_main_app",
+      "community": 2,
+      "norm_label": "app"
+    },
+    {
+      "label": "router.js",
+      "file_type": "code",
+      "source_file": "src/router.js",
+      "source_location": "L1",
+      "id": "src_router_js",
+      "community": 5,
+      "norm_label": "router.js"
+    },
+    {
+      "label": "routes",
+      "file_type": "code",
+      "source_file": "src/router.js",
+      "source_location": "L12",
+      "id": "src_router_routes",
+      "community": 5,
+      "norm_label": "routes"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "src/router.js",
+      "source_location": "L30",
+      "id": "src_router_router",
+      "community": 5,
+      "norm_label": "router"
+    },
+    {
+      "label": "FetchAPI.js",
+      "file_type": "code",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L1",
+      "id": "src_libs_fetchapi_js",
+      "community": 2,
+      "norm_label": "fetchapi.js"
+    },
+    {
+      "label": "getAllUsers()",
+      "file_type": "code",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L3",
+      "id": "libs_fetchapi_getallusers",
+      "community": 6,
+      "norm_label": "getallusers()"
+    },
+    {
+      "label": "getUserById()",
+      "file_type": "code",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L13",
+      "id": "libs_fetchapi_getuserbyid",
+      "community": 2,
+      "norm_label": "getuserbyid()"
+    },
+    {
+      "label": "addUser()",
+      "file_type": "code",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L23",
+      "id": "libs_fetchapi_adduser",
+      "community": 2,
+      "norm_label": "adduser()"
+    },
+    {
+      "label": "updateUser()",
+      "file_type": "code",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L39",
+      "id": "libs_fetchapi_updateuser",
+      "community": 2,
+      "norm_label": "updateuser()"
+    },
+    {
+      "label": "deleteUser()",
+      "file_type": "code",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L55",
+      "id": "libs_fetchapi_deleteuser",
+      "community": 2,
+      "norm_label": "deleteuser()"
+    },
+    {
+      "label": "SignUpValidations.js",
+      "file_type": "code",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L1",
+      "id": "src_libs_signupvalidations_js",
+      "community": 6,
+      "norm_label": "signupvalidations.js"
+    },
+    {
+      "label": "SignUpValidations",
+      "file_type": "code",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L4",
+      "id": "libs_signupvalidations_signupvalidations",
+      "community": 6,
+      "norm_label": "signupvalidations"
+    },
+    {
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L5",
+      "id": "libs_signupvalidations_signupvalidations_constructor",
+      "community": 6,
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": ".checkValidations()",
+      "file_type": "code",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L10",
+      "id": "libs_signupvalidations_signupvalidations_checkvalidations",
+      "community": 6,
+      "norm_label": ".checkvalidations()"
+    },
+    {
+      "label": "MonsterDifficult.js",
+      "file_type": "code",
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": "L1",
+      "id": "src_libs_monsterdifficult_js",
+      "community": 12,
+      "norm_label": "monsterdifficult.js"
+    },
+    {
+      "label": "monsterEasy()",
+      "file_type": "code",
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": "L1",
+      "id": "libs_monsterdifficult_monstereasy",
+      "community": 12,
+      "norm_label": "monstereasy()"
+    },
+    {
+      "label": "monsterHard()",
+      "file_type": "code",
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": "L21",
+      "id": "libs_monsterdifficult_monsterhard",
+      "community": 12,
+      "norm_label": "monsterhard()"
+    },
+    {
+      "label": "Validations.js",
+      "file_type": "code",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "L1",
+      "id": "src_libs_validations_js",
+      "community": 6,
+      "norm_label": "validations.js"
+    },
+    {
+      "label": "Validations",
+      "file_type": "code",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "L1",
+      "id": "libs_validations_validations",
+      "community": 6,
+      "norm_label": "validations"
+    },
+    {
+      "label": ".checkUsername()",
+      "file_type": "code",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "L2",
+      "id": "libs_validations_validations_checkusername",
+      "community": 6,
+      "norm_label": ".checkusername()"
+    },
+    {
+      "label": ".minLength()",
+      "file_type": "code",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "L6",
+      "id": "libs_validations_validations_minlength",
+      "community": 6,
+      "norm_label": ".minlength()"
+    },
+    {
+      "label": "HowToPlay.vue",
+      "file_type": "code",
+      "source_file": "src/components/welcome/HowToPlay.vue",
+      "source_location": "L1",
+      "id": "src_components_welcome_howtoplay_vue",
+      "community": 29,
+      "norm_label": "howtoplay.vue"
+    },
+    {
+      "label": "BackButton.vue",
+      "file_type": "code",
+      "source_file": "src/components/common/BackButton.vue",
+      "source_location": "L1",
+      "id": "src_components_common_backbutton_vue",
+      "community": 30,
+      "norm_label": "backbutton.vue"
+    },
+    {
+      "label": "CharacterCard.vue",
+      "file_type": "code",
+      "source_file": "src/components/common/CharacterCard.vue",
+      "source_location": "L1",
+      "id": "src_components_common_charactercard_vue",
+      "community": 31,
+      "norm_label": "charactercard.vue"
+    },
+    {
+      "label": "Game.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "L1",
+      "id": "src_components_level_game_vue",
+      "community": 32,
+      "norm_label": "game.vue"
+    },
+    {
+      "label": "PauseScreen.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/PauseScreen.vue",
+      "source_location": "L1",
+      "id": "src_components_level_pausescreen_vue",
+      "community": 33,
+      "norm_label": "pausescreen.vue"
+    },
+    {
+      "label": "LevelButton.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/LevelButton.vue",
+      "source_location": "L1",
+      "id": "src_components_level_levelbutton_vue",
+      "community": 34,
+      "norm_label": "levelbutton.vue"
+    },
+    {
+      "label": "Result.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/Result.vue",
+      "source_location": "L1",
+      "id": "src_components_level_result_vue",
+      "community": 35,
+      "norm_label": "result.vue"
+    },
+    {
+      "label": "ActionButton.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/ActionButton.vue",
+      "source_location": "L1",
+      "id": "src_components_level_actionbutton_vue",
+      "community": 36,
+      "norm_label": "actionbutton.vue"
+    },
+    {
+      "label": "CharacterCollection.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/CharacterCollection.vue",
+      "source_location": "L1",
+      "id": "src_components_level_charactercollection_vue",
+      "community": 37,
+      "norm_label": "charactercollection.vue"
+    },
+    {
+      "label": "Character.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/Character.vue",
+      "source_location": "L1",
+      "id": "src_components_level_character_vue",
+      "community": 17,
+      "norm_label": "character.vue"
+    },
+    {
+      "label": "validator()",
+      "file_type": "code",
+      "source_file": "src/components/level/Character.vue",
+      "source_location": "L7",
+      "id": "level_character_validator",
+      "community": 17,
+      "norm_label": "validator()"
+    },
+    {
+      "label": "ActionCutscene.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/ActionCutscene.vue",
+      "source_location": "L1",
+      "id": "src_components_level_actioncutscene_vue",
+      "community": 38,
+      "norm_label": "actioncutscene.vue"
+    },
+    {
+      "label": "HealthBar.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/HealthBar.vue",
+      "source_location": "L1",
+      "id": "src_components_level_healthbar_vue",
+      "community": 18,
+      "norm_label": "healthbar.vue"
+    },
+    {
+      "label": "validator()",
+      "file_type": "code",
+      "source_file": "src/components/level/HealthBar.vue",
+      "source_location": "L7",
+      "id": "level_healthbar_validator",
+      "community": 18,
+      "norm_label": "validator()"
+    },
+    {
+      "label": "CalculateScreen.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/CalculateScreen.vue",
+      "source_location": "L1",
+      "id": "src_components_level_calculatescreen_vue",
+      "community": 22,
+      "norm_label": "calculatescreen.vue"
+    },
+    {
+      "label": "validator()",
+      "file_type": "code",
+      "source_file": "src/components/level/CalculateScreen.vue",
+      "source_location": "L6",
+      "id": "level_calculatescreen_validator",
+      "community": 22,
+      "norm_label": "validator()"
+    },
+    {
+      "label": "CharacterSelected.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/CharacterSelected.vue",
+      "source_location": "L1",
+      "id": "src_components_level_characterselected_vue",
+      "community": 39,
+      "norm_label": "characterselected.vue"
+    },
+    {
+      "label": "LevelSelected.vue",
+      "file_type": "code",
+      "source_file": "src/components/level/LevelSelected.vue",
+      "source_location": "L1",
+      "id": "src_components_level_levelselected_vue",
+      "community": 40,
+      "norm_label": "levelselected.vue"
+    },
+    {
+      "label": "EditingAccount.vue",
+      "file_type": "code",
+      "source_file": "src/components/setting/EditingAccount.vue",
+      "source_location": "L1",
+      "id": "src_components_setting_editingaccount_vue",
+      "community": 21,
+      "norm_label": "editingaccount.vue"
+    },
+    {
+      "label": "if()",
+      "file_type": "code",
+      "source_file": "src/components/setting/EditingAccount.vue",
+      "source_location": "L20",
+      "id": "setting_editingaccount_if",
+      "community": 21,
+      "norm_label": "if()"
+    },
+    {
+      "label": "Inventory.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/Inventory.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_inventory_vue",
+      "community": 5,
+      "norm_label": "inventory.vue"
+    },
+    {
+      "label": "Login.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_login_vue",
+      "community": 5,
+      "norm_label": "login.vue"
+    },
+    {
+      "label": "user",
+      "file_type": "code",
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": "L13",
+      "id": "pages_login_user",
+      "community": 5,
+      "norm_label": "user"
+    },
+    {
+      "label": "Home.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/Home.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_home_vue",
+      "community": 5,
+      "norm_label": "home.vue"
+    },
+    {
+      "label": "Shop.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/Shop.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_shop_vue",
+      "community": 5,
+      "norm_label": "shop.vue"
+    },
+    {
+      "label": "SignUp.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/SignUp.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_signup_vue",
+      "community": 5,
+      "norm_label": "signup.vue"
+    },
+    {
+      "label": "Level.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_level_vue",
+      "community": 5,
+      "norm_label": "level.vue"
+    },
+    {
+      "label": "if()",
+      "file_type": "code",
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "L38",
+      "id": "pages_level_if",
+      "community": 5,
+      "norm_label": "if()"
+    },
+    {
+      "label": "Setting.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_setting_vue",
+      "community": 5,
+      "norm_label": "setting.vue"
+    },
+    {
+      "label": "if()",
+      "file_type": "code",
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "L43",
+      "id": "pages_setting_if",
+      "community": 5,
+      "norm_label": "if()"
+    },
+    {
+      "label": "Welcome.vue",
+      "file_type": "code",
+      "source_file": "src/components/pages/Welcome.vue",
+      "source_location": "L1",
+      "id": "src_components_pages_welcome_vue",
+      "community": 5,
+      "norm_label": "welcome.vue"
+    },
+    {
+      "label": "heros.js",
+      "file_type": "code",
+      "source_file": "src/data/heros.js",
+      "source_location": "L1",
+      "id": "src_data_heros_js",
+      "community": 23,
+      "norm_label": "heros.js"
+    },
+    {
+      "label": "heros",
+      "file_type": "code",
+      "source_file": "src/data/heros.js",
+      "source_location": "L1",
+      "id": "data_heros_heros",
+      "community": 23,
+      "norm_label": "heros"
+    },
+    {
+      "label": "levels.js",
+      "file_type": "code",
+      "source_file": "src/data/levels.js",
+      "source_location": "L1",
+      "id": "src_data_levels_js",
+      "community": 15,
+      "norm_label": "levels.js"
+    },
+    {
+      "label": "levels",
+      "file_type": "code",
+      "source_file": "src/data/levels.js",
+      "source_location": "L1",
+      "id": "data_levels_levels",
+      "community": 15,
+      "norm_label": "levels"
+    },
+    {
+      "label": "monsters.js",
+      "file_type": "code",
+      "source_file": "src/data/monsters.js",
+      "source_location": "L1",
+      "id": "src_data_monsters_js",
+      "community": 24,
+      "norm_label": "monsters.js"
+    },
+    {
+      "label": "monsters",
+      "file_type": "code",
+      "source_file": "src/data/monsters.js",
+      "source_location": "L1",
+      "id": "data_monsters_monsters",
+      "community": 24,
+      "norm_label": "monsters"
+    },
+    {
+      "label": "Tailwind CSS Config",
+      "file_type": "code",
+      "source_file": "tailwind.config.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "root_tailwind_config",
+      "community": 20,
+      "norm_label": "tailwind css config"
+    },
+    {
+      "label": "Vite Build Config",
+      "file_type": "code",
+      "source_file": "vite.config.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "root_vite_config",
+      "community": 41,
+      "norm_label": "vite build config"
+    },
+    {
+      "label": "Package JSON (Project Manifest)",
+      "file_type": "document",
+      "source_file": "package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "root_package_json",
+      "community": 42,
+      "norm_label": "package json (project manifest)"
+    },
+    {
+      "label": "PostCSS Config",
+      "file_type": "code",
+      "source_file": "postcss.config.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "root_postcss_config",
+      "community": 20,
+      "norm_label": "postcss config"
+    },
+    {
+      "label": "App Root Component",
+      "file_type": "code",
+      "source_file": "src/App.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "src_app_approot",
+      "community": 2,
+      "norm_label": "app root component"
+    },
+    {
+      "label": "Application Entry Point",
+      "file_type": "code",
+      "source_file": "src/main.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "src_main_appentry",
+      "community": 2,
+      "norm_label": "application entry point"
+    },
+    {
+      "label": "Vue Router Configuration",
+      "file_type": "code",
+      "source_file": "src/router.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "src_router_routerconfig",
+      "community": 2,
+      "norm_label": "vue router configuration"
+    },
+    {
+      "label": "checkValidations Method",
+      "file_type": "code",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "line:10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "libs_signupvalidations_checkvalidations",
+      "community": 6,
+      "norm_label": "checkvalidations method"
+    },
+    {
+      "label": "checkUsername Static Method",
+      "file_type": "code",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "line:2",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "libs_validations_checkusername",
+      "community": 6,
+      "norm_label": "checkusername static method"
+    },
+    {
+      "label": "minLength Static Method",
+      "file_type": "code",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "line:6",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "libs_validations_minlength",
+      "community": 6,
+      "norm_label": "minlength static method"
+    },
+    {
+      "label": "HowToPlay Modal Component",
+      "file_type": "code",
+      "source_file": "src/components/welcome/HowToPlay.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "welcome_howtoplay_howtoplay",
+      "community": 12,
+      "norm_label": "howtoplay modal component"
+    },
+    {
+      "label": "BackButton Navigation Component",
+      "file_type": "code",
+      "source_file": "src/components/common/BackButton.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "common_backbutton_backbutton",
+      "community": 43,
+      "norm_label": "backbutton navigation component"
+    },
+    {
+      "label": "CharacterCard Display Component",
+      "file_type": "code",
+      "source_file": "src/components/common/CharacterCard.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "common_charactercard_charactercard",
+      "community": 2,
+      "norm_label": "charactercard display component"
+    },
+    {
+      "label": "Heroes Static Data Array",
+      "file_type": "code",
+      "source_file": "src/data/heros.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "data_heros_herosdata",
+      "community": 2,
+      "norm_label": "heroes static data array"
+    },
+    {
+      "label": "Levels Static Data Array",
+      "file_type": "code",
+      "source_file": "src/data/levels.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "data_levels_levelsdata",
+      "community": 2,
+      "norm_label": "levels static data array"
+    },
+    {
+      "label": "Monsters Static Data Array",
+      "file_type": "code",
+      "source_file": "src/data/monsters.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "data_monsters_monstersdata",
+      "community": 2,
+      "norm_label": "monsters static data array"
+    },
+    {
+      "label": "Turn-Based Combat System Concept",
+      "file_type": "concept",
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_turnbased_combat",
+      "community": 12,
+      "norm_label": "turn-based combat system concept"
+    },
+    {
+      "label": "Authentication Route Guard Concept",
+      "file_type": "concept",
+      "source_file": "src/router.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_auth_guard",
+      "community": 2,
+      "norm_label": "authentication route guard concept"
+    },
+    {
+      "label": "LocalStorage Session Management",
+      "file_type": "concept",
+      "source_file": "src/main.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_localstorage_session",
+      "community": 2,
+      "norm_label": "localstorage session management"
+    },
+    {
+      "label": "Game Component",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_game_gamecomponent",
+      "community": 3,
+      "norm_label": "game component"
+    },
+    {
+      "label": "Player State (Game)",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 65-80",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_game_playerstate",
+      "community": 3,
+      "norm_label": "player state (game)"
+    },
+    {
+      "label": "Enemy State (Game)",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 73-80",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_game_enemystate",
+      "community": 3,
+      "norm_label": "enemy state (game)"
+    },
+    {
+      "label": "Phase Watcher (Turn Logic)",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 227-234",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_game_phasewatcher",
+      "community": 3,
+      "norm_label": "phase watcher (turn logic)"
+    },
+    {
+      "label": "calculateActionTurn Function",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 156-216",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_game_calculateactionturn",
+      "community": 3,
+      "norm_label": "calculateactionturn function"
+    },
+    {
+      "label": "skillAction Function",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 104-115",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_game_skillaction",
+      "community": 16,
+      "norm_label": "skillaction function"
+    },
+    {
+      "label": "gameEnd Function",
+      "file_type": "code",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 218-225",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_game_gameend",
+      "community": 3,
+      "norm_label": "gameend function"
+    },
+    {
+      "label": "PauseScreen Component",
+      "file_type": "code",
+      "source_file": "src/components/level/PauseScreen.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_pausescreen_pausescreencomponent",
+      "community": 3,
+      "norm_label": "pausescreen component"
+    },
+    {
+      "label": "LevelButton Component",
+      "file_type": "code",
+      "source_file": "src/components/level/LevelButton.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_levelbutton_levelbuttoncomponent",
+      "community": 3,
+      "norm_label": "levelbutton component"
+    },
+    {
+      "label": "Result Component",
+      "file_type": "code",
+      "source_file": "src/components/level/Result.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_result_resultcomponent",
+      "community": 3,
+      "norm_label": "result component"
+    },
+    {
+      "label": "ActionButton Component",
+      "file_type": "code",
+      "source_file": "src/components/level/ActionButton.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_actionbutton_actionbuttoncomponent",
+      "community": 3,
+      "norm_label": "actionbutton component"
+    },
+    {
+      "label": "handleClick Function (ActionButton)",
+      "file_type": "code",
+      "source_file": "src/components/level/ActionButton.vue",
+      "source_location": "line 27-34",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_actionbutton_handleclick",
+      "community": 16,
+      "norm_label": "handleclick function (actionbutton)"
+    },
+    {
+      "label": "CharacterCollection Component",
+      "file_type": "code",
+      "source_file": "src/components/level/CharacterCollection.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_charactercollection_charactercollectioncomponent",
+      "community": 3,
+      "norm_label": "charactercollection component"
+    },
+    {
+      "label": "Character Component",
+      "file_type": "code",
+      "source_file": "src/components/level/Character.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_character_charactercomponent",
+      "community": 3,
+      "norm_label": "character component"
+    },
+    {
+      "label": "ActionCutscene Component",
+      "file_type": "code",
+      "source_file": "src/components/level/ActionCutscene.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_actioncutscene_actioncutscenecomponent",
+      "community": 3,
+      "norm_label": "actioncutscene component"
+    },
+    {
+      "label": "HealthBar Component",
+      "file_type": "code",
+      "source_file": "src/components/level/HealthBar.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_healthbar_healthbarcomponent",
+      "community": 3,
+      "norm_label": "healthbar component"
+    },
+    {
+      "label": "CalculateScreen Component",
+      "file_type": "code",
+      "source_file": "src/components/level/CalculateScreen.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_calculatescreen_calculatescreencomponent",
+      "community": 44,
+      "norm_label": "calculatescreen component"
+    },
+    {
+      "label": "CharacterSelected Component",
+      "file_type": "code",
+      "source_file": "src/components/level/CharacterSelected.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_characterselected_characterselectedcomponent",
+      "community": 3,
+      "norm_label": "characterselected component"
+    },
+    {
+      "label": "LevelSelected Component",
+      "file_type": "code",
+      "source_file": "src/components/level/LevelSelected.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "level_levelselected_levelselectedcomponent",
+      "community": 3,
+      "norm_label": "levelselected component"
+    },
+    {
+      "label": "EditingAccount Component",
+      "file_type": "code",
+      "source_file": "src/components/setting/EditingAccount.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "setting_editingaccount_editingaccountcomponent",
+      "community": 7,
+      "norm_label": "editingaccount component"
+    },
+    {
+      "label": "updatePassword Function (EditingAccount)",
+      "file_type": "code",
+      "source_file": "src/components/setting/EditingAccount.vue",
+      "source_location": "line 18-30",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "setting_editingaccount_updatepassword",
+      "community": 19,
+      "norm_label": "updatepassword function (editingaccount)"
+    },
+    {
+      "label": "Inventory Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/Inventory.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_inventory_inventorypage",
+      "community": 7,
+      "norm_label": "inventory page"
+    },
+    {
+      "label": "Login Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_login_loginpage",
+      "community": 14,
+      "norm_label": "login page"
+    },
+    {
+      "label": "onLogin Function",
+      "file_type": "code",
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": "line 10-33",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_login_onlogin",
+      "community": 7,
+      "norm_label": "onlogin function"
+    },
+    {
+      "label": "Home Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/Home.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_home_homepage",
+      "community": 7,
+      "norm_label": "home page"
+    },
+    {
+      "label": "Shop Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/Shop.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_shop_shoppage",
+      "community": 7,
+      "norm_label": "shop page"
+    },
+    {
+      "label": "confirmBuy Function (Shop)",
+      "file_type": "code",
+      "source_file": "src/components/pages/Shop.vue",
+      "source_location": "line 24-42",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_shop_confirmbuy",
+      "community": 7,
+      "norm_label": "confirmbuy function (shop)"
+    },
+    {
+      "label": "SignUp Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/SignUp.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_signup_signuppage",
+      "community": 14,
+      "norm_label": "signup page"
+    },
+    {
+      "label": "onSignup Function",
+      "file_type": "code",
+      "source_file": "src/components/pages/SignUp.vue",
+      "source_location": "line 20-45",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_signup_onsignup",
+      "community": 7,
+      "norm_label": "onsignup function"
+    },
+    {
+      "label": "Level Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_level_levelpage",
+      "community": 3,
+      "norm_label": "level page"
+    },
+    {
+      "label": "finishStage Function",
+      "file_type": "code",
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "line 36-51",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_level_finishstage",
+      "community": 7,
+      "norm_label": "finishstage function"
+    },
+    {
+      "label": "Setting Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_setting_settingpage",
+      "community": 7,
+      "norm_label": "setting page"
+    },
+    {
+      "label": "confirmUpdate Function (Setting)",
+      "file_type": "code",
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "line 18-28",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_setting_confirmupdate",
+      "community": 19,
+      "norm_label": "confirmupdate function (setting)"
+    },
+    {
+      "label": "confirmLogout Function (Setting)",
+      "file_type": "code",
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "line 30-38",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_setting_confirmlogout",
+      "community": 7,
+      "norm_label": "confirmlogout function (setting)"
+    },
+    {
+      "label": "confirmDelete Function (Setting)",
+      "file_type": "code",
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "line 40-54",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_setting_confirmdelete",
+      "community": 45,
+      "norm_label": "confirmdelete function (setting)"
+    },
+    {
+      "label": "Welcome Page",
+      "file_type": "code",
+      "source_file": "src/components/pages/Welcome.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_welcome_welcomepage",
+      "community": 14,
+      "norm_label": "welcome page"
+    },
+    {
+      "label": "authentication Function (Welcome)",
+      "file_type": "code",
+      "source_file": "src/components/pages/Welcome.vue",
+      "source_location": "line 7-29",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pages_welcome_authentication",
+      "community": 7,
+      "norm_label": "authentication function (welcome)"
+    },
+    {
+      "label": "Turn-Based Battle System",
+      "file_type": "concept",
+      "source_file": "src/components/level/Game.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_turnbasedbattle",
+      "community": 3,
+      "norm_label": "turn-based battle system"
+    },
+    {
+      "label": "LocalStorage User State Pattern",
+      "file_type": "concept",
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_localstorageuserstate",
+      "community": 7,
+      "norm_label": "localstorage user state pattern"
+    },
+    {
+      "label": "VueView Turn-Based App Entry Point",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": "line 7-11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "index_vueview_app",
+      "community": 0,
+      "norm_label": "vueview turn-based app entry point"
+    },
+    {
+      "label": "Vite SVG Favicon",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": "line 5",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "index_vite_svg_icon",
+      "community": 0,
+      "norm_label": "vite svg favicon"
+    },
+    {
+      "label": "Vue App Mount Point (#app)",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": "line 10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "index_app_div",
+      "community": 0,
+      "norm_label": "vue app mount point (#app)"
+    },
+    {
+      "label": "Main JS Entry Script",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": "line 11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "index_main_js",
+      "community": 0,
+      "norm_label": "main js entry script"
+    },
+    {
+      "label": "VueView Project Overview",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_projectoverview",
+      "community": 0,
+      "norm_label": "vueview project overview"
+    },
+    {
+      "label": "Kundids Khawmeesri (65130500005) - Turn-Based Gameplay",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 2-4",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Kundids Khawmeesri",
+      "contributor": null,
+      "id": "readme_member_kundids",
+      "community": 0,
+      "norm_label": "kundids khawmeesri (65130500005) - turn-based gameplay"
+    },
+    {
+      "label": "Kantaphong Polmanee (65130500006) - Shop",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 5-7",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Kantaphong Polmanee",
+      "contributor": null,
+      "id": "readme_member_kantaphong",
+      "community": 0,
+      "norm_label": "kantaphong polmanee (65130500006) - shop"
+    },
+    {
+      "label": "Niraphan Duangchairakkasem (65130500039) - Login and Signup",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 8-10",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Niraphan Duangchairakkasem",
+      "contributor": null,
+      "id": "readme_member_niraphan",
+      "community": 0,
+      "norm_label": "niraphan duangchairakkasem (65130500039) - login and signup"
+    },
+    {
+      "label": "Benyaporn Sangkhiao (65130500040) - Home and Inventory",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 11-13",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Benyaporn Sangkhiao",
+      "contributor": null,
+      "id": "readme_member_benyaporn",
+      "community": 0,
+      "norm_label": "benyaporn sangkhiao (65130500040) - home and inventory"
+    },
+    {
+      "label": "Pongsapat Charoencharuskul (65130500045) - Setting",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 14-16",
+      "source_url": null,
+      "captured_at": null,
+      "author": "Pongsapat Charoencharuskul",
+      "contributor": null,
+      "id": "readme_member_pongsapat",
+      "community": 0,
+      "norm_label": "pongsapat charoencharuskul (65130500045) - setting"
+    },
+    {
+      "label": "Turn-Based Gameplay Feature",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 19",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_feature_turnbased",
+      "community": 0,
+      "norm_label": "turn-based gameplay feature"
+    },
+    {
+      "label": "Account System Feature",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 20",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_feature_accountsystem",
+      "community": 0,
+      "norm_label": "account system feature"
+    },
+    {
+      "label": "Shop Feature",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 21",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_feature_shop",
+      "community": 0,
+      "norm_label": "shop feature"
+    },
+    {
+      "label": "Inventory Feature",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 22",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_feature_inventory",
+      "community": 0,
+      "norm_label": "inventory feature"
+    },
+    {
+      "label": "Fantasy Theme",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 25",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_theme_fantasy",
+      "community": 0,
+      "norm_label": "fantasy theme"
+    },
+    {
+      "label": "Cartoon Art Style",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 26",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_artstyle_cartoon",
+      "community": 0,
+      "norm_label": "cartoon art style"
+    },
+    {
+      "label": "Turn-Based Gameplay Mechanics",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 28-40",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Players take turns attacking each other with strategy; skill points accumulate per turn up to 4 max; first turn bonus for the player who acts second; three actions available: Attack, Defense, Charge; all skill points must be used to end a turn; player with 0 HP loses",
+      "id": "readme_gameplay_mechanics",
+      "community": 0,
+      "norm_label": "turn-based gameplay mechanics"
+    },
+    {
+      "label": "Attack Button Action",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 37",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_action_attack",
+      "community": 0,
+      "norm_label": "attack button action"
+    },
+    {
+      "label": "Defense Button Action",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 38",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_action_defense",
+      "community": 0,
+      "norm_label": "defense button action"
+    },
+    {
+      "label": "Charge Button Action",
+      "file_type": "concept",
+      "source_file": "README.md",
+      "source_location": "line 39",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_action_charge",
+      "community": 0,
+      "norm_label": "charge button action"
+    },
+    {
+      "label": "Tutorial Video (YouTube)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 45",
+      "source_url": "https://youtu.be/e8ld3kXdml8",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_tutorial_video",
+      "community": 0,
+      "norm_label": "tutorial video (youtube)"
+    },
+    {
+      "label": "Component Hierarchy Diagram",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 49",
+      "source_url": "https://github.com/SleepyLe0/PROJECT2-SEC-1-VueView/blob/main/docs/INT203%20-%20Component%20Hierarchy.png",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_component_hierarchy",
+      "community": 0,
+      "norm_label": "component hierarchy diagram"
+    },
+    {
+      "label": "Gameplay Reference (jwthegame.com)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 52",
+      "source_url": "https://www.jwthegame.com",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_ref_jwthegame",
+      "community": 0,
+      "norm_label": "gameplay reference (jwthegame.com)"
+    },
+    {
+      "label": "Character Image Reference (craftpix.net - Demon Characters)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 53",
+      "source_url": "https://craftpix.net/freebies/free-demon-characters-pixel-art/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_ref_craftpix_characters",
+      "community": 0,
+      "norm_label": "character image reference (craftpix.net - demon characters)"
+    },
+    {
+      "label": "Background Image Reference (pngtree.com)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 54",
+      "source_url": "https://pngtree.com/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_ref_pngtree",
+      "community": 0,
+      "norm_label": "background image reference (pngtree.com)"
+    },
+    {
+      "label": "Skills Image Reference (craftpix.net - Swordsman Skills Icons)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "line 55",
+      "source_url": "https://craftpix.net/freebies/free-swordsman-skills-icon-pack/",
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_ref_craftpix_skills",
+      "community": 0,
+      "norm_label": "skills image reference (craftpix.net - swordsman skills icons)"
+    },
+    {
+      "label": "Vue View",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_vueview",
+      "community": 8,
+      "norm_label": "vue view"
+    },
+    {
+      "label": "App",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_app",
+      "community": 8,
+      "norm_label": "app"
+    },
+    {
+      "label": "BackButton (Common)",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_backbutton_common",
+      "community": 4,
+      "norm_label": "backbutton (common)"
+    },
+    {
+      "label": "CharacterCard :herold",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_charactercard",
+      "community": 4,
+      "norm_label": "charactercard :herold"
+    },
+    {
+      "label": "Home",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_home",
+      "community": 8,
+      "norm_label": "home"
+    },
+    {
+      "label": "Inventory",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_inventory",
+      "community": 8,
+      "norm_label": "inventory"
+    },
+    {
+      "label": "Level",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_level",
+      "community": 4,
+      "norm_label": "level"
+    },
+    {
+      "label": "Login",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_login",
+      "community": 8,
+      "norm_label": "login"
+    },
+    {
+      "label": "Signup",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_signup",
+      "community": 8,
+      "norm_label": "signup"
+    },
+    {
+      "label": "Shop",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_shop",
+      "community": 8,
+      "norm_label": "shop"
+    },
+    {
+      "label": "Setting",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_setting",
+      "community": 8,
+      "norm_label": "setting"
+    },
+    {
+      "label": "Welcome",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_welcome",
+      "community": 8,
+      "norm_label": "welcome"
+    },
+    {
+      "label": "EditingAccount @close :updateUser",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_editingaccount",
+      "community": 8,
+      "norm_label": "editingaccount @close :updateuser"
+    },
+    {
+      "label": "HowToPlay",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_howtoplay",
+      "community": 8,
+      "norm_label": "howtoplay"
+    },
+    {
+      "label": "LevelSelected :levels :action",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_levelselected",
+      "community": 4,
+      "norm_label": "levelselected :levels :action"
+    },
+    {
+      "label": "CharacterSelected @resetLevel :characters :level :selectCharacted :action",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_characterselected",
+      "community": 4,
+      "norm_label": "characterselected @resetlevel :characters :level :selectcharacted :action"
+    },
+    {
+      "label": "Game :level :character :beatStage",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_game",
+      "community": 4,
+      "norm_label": "game :level :character :beatstage"
+    },
+    {
+      "label": "BackButton :path (Level child)",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_backbutton_level",
+      "community": 4,
+      "norm_label": "backbutton :path (level child)"
+    },
+    {
+      "label": "LevelButton @changeLevel :level",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_levelbutton",
+      "community": 4,
+      "norm_label": "levelbutton @changelevel :level"
+    },
+    {
+      "label": "CharacterCollection @changeCharacter @selectCharacter :characters :selectedCharacter",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_charactercollection",
+      "community": 4,
+      "norm_label": "charactercollection @changecharacter @selectcharacter :characters :selectedcharacter"
+    },
+    {
+      "label": "BackButton :path (CharacterSelected child)",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_backbutton_characterselected",
+      "community": 4,
+      "norm_label": "backbutton :path (characterselected child)"
+    },
+    {
+      "label": "Character :char :character :hitChar :hitDamage :screenRatio :calculateWidth (CharacterCollection child)",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_character_collection_child",
+      "community": 4,
+      "norm_label": "character :char :character :hitchar :hitdamage :screenratio :calculatewidth (charactercollection child)"
+    },
+    {
+      "label": "CalculateScreen :attackChar :attackPoint :defensePoint :screenRatio :calculateWidth",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_calculatescreen",
+      "community": 4,
+      "norm_label": "calculatescreen :attackchar :attackpoint :defensepoint :screenratio :calculatewidth"
+    },
+    {
+      "label": "PauseScreen @close @retry @exit",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_pausescreen",
+      "community": 4,
+      "norm_label": "pausescreen @close @retry @exit"
+    },
+    {
+      "label": "HealthBar :char :character :turn",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_healthbar",
+      "community": 4,
+      "norm_label": "healthbar :char :character :turn"
+    },
+    {
+      "label": "Character :char :character :hitChar :hitDamage :screenRatio :calculateWidth (Game child)",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_character_game_child",
+      "community": 4,
+      "norm_label": "character :char :character :hitchar :hitdamage :screenratio :calculatewidth (game child)"
+    },
+    {
+      "label": "ActionButton @action :actionPoint :actionText :image :responsive",
+      "file_type": "image",
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "docs_int203___component_hierarchy_actionbutton",
+      "community": 4,
+      "norm_label": "actionbutton @action :actionpoint :actiontext :image :responsive"
+    },
+    {
+      "label": "Castle Background",
+      "file_type": "image",
+      "source_file": "public/Background/Castle.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_castle_castlebackground",
+      "community": 11,
+      "norm_label": "castle background"
+    },
+    {
+      "label": "Cartoon/Illustrated Art Style",
+      "file_type": "concept",
+      "source_file": "public/Background/Castle.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_castle_visualstyle",
+      "community": 11,
+      "norm_label": "cartoon/illustrated art style"
+    },
+    {
+      "label": "Medieval Fantasy Castle Setting",
+      "file_type": "concept",
+      "source_file": "public/Background/Castle.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_castle_setting",
+      "community": 11,
+      "norm_label": "medieval fantasy castle setting"
+    },
+    {
+      "label": "Adventurous Fairytale Mood",
+      "file_type": "concept",
+      "source_file": "public/Background/Castle.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_castle_mood",
+      "community": 11,
+      "norm_label": "adventurous fairytale mood"
+    },
+    {
+      "label": "Visual Elements: Towers, Flags, Trees, Sky, Clouds",
+      "file_type": "concept",
+      "source_file": "public/Background/Castle.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_castle_elements",
+      "community": 11,
+      "norm_label": "visual elements: towers, flags, trees, sky, clouds"
+    },
+    {
+      "label": "Stage 4 Background",
+      "file_type": "image",
+      "source_file": "public/Background/Stage4.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage4_stage4background",
+      "community": 10,
+      "norm_label": "stage 4 background"
+    },
+    {
+      "label": "Castle Wall / Battlements",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage4.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage4_castlewall",
+      "community": 10,
+      "norm_label": "castle wall / battlements"
+    },
+    {
+      "label": "Stone Towers with Green Roofs",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage4.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage4_stonetowers",
+      "community": 10,
+      "norm_label": "stone towers with green roofs"
+    },
+    {
+      "label": "Wooden Plank Floor / Walkway",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage4.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage4_woodenfloor",
+      "community": 10,
+      "norm_label": "wooden plank floor / walkway"
+    },
+    {
+      "label": "Stone Brick Ledge (Top and Bottom)",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage4.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage4_stonebrick",
+      "community": 10,
+      "norm_label": "stone brick ledge (top and bottom)"
+    },
+    {
+      "label": "Mountain and Cloudy Sky Background",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage4.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage4_mountainsky",
+      "community": 10,
+      "norm_label": "mountain and cloudy sky background"
+    },
+    {
+      "label": "Castle / Fortress Stage Theme",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage4.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage4_castletheme",
+      "community": 10,
+      "norm_label": "castle / fortress stage theme"
+    },
+    {
+      "label": "Stage 5 Background",
+      "file_type": "image",
+      "source_file": "public/Background/Stage5.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "scene_type": "elevated castle or fortress battlements",
+        "setting": "sky-high stone platform between two tower structures",
+        "visual_elements": [
+          "two circular stone towers with red tiled rooftops at left and right edges",
+          "heavy metal chains connecting the towers in the background",
+          "stone brick flooring with large flat paving tiles",
+          "a low stone parapet wall along the bottom edge",
+          "sparse dry grass tufts growing from cracks in the stone",
+          "clouds surrounding the platform at mid-level suggesting great height",
+          "sky with pale overcast lighting visible behind clouds"
+        ],
+        "mood": "foreboding, austere, climactic",
+        "color_palette": [
+          "muted stone gray",
+          "warm beige and tan for stonework",
+          "soft red-brown for tower rooftops",
+          "pale off-white and light blue for cloudy sky",
+          "desaturated yellow-green for sparse grass"
+        ],
+        "purpose": "game level background for a high-altitude fortress or castle rooftop stage, likely a late-game or boss encounter level given the dramatic elevated setting and chains between towers",
+        "confidence_score": 1.0
+      },
+      "id": "background_stage5_stage5background",
+      "community": 46,
+      "norm_label": "stage 5 background"
+    },
+    {
+      "label": "Stage 1 Background",
+      "file_type": "image",
+      "source_file": "public/Background/Stage1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "scene_type": "forest_bridge_waterway",
+        "description": "A 2D game stage background depicting a wooden bridge or dock platform in the foreground, with a glowing teal/cyan river or pool behind it, flanked by large moss-covered tree trunks in a misty forest environment. Small patches of grass and foliage are visible at the edges.",
+        "visual_elements": [
+          "wooden plank platform/bridge (foreground, occupies lower half)",
+          "glowing teal-green water or pool (mid-ground)",
+          "large moss-covered tree trunks (left and right sides)",
+          "misty foggy atmosphere (background)",
+          "green grass tufts at edges",
+          "stone or tile border separating platform from water"
+        ],
+        "mood": "mysterious, serene, slightly magical",
+        "color_palette": [
+          "warm brown (wooden planks)",
+          "muted teal and cyan (glowing water)",
+          "dark olive green (tree trunks and moss)",
+          "pale grey-green (misty background)",
+          "soft white (mist/fog)"
+        ],
+        "purpose": "Game level background for Stage 1; provides a nature/forest environment with a bridge-over-water motif suitable for a side-scrolling or arena-style game",
+        "confidence_score": 1.0
+      },
+      "id": "background_stage1_stage1background",
+      "community": 13,
+      "norm_label": "stage 1 background"
+    },
+    {
+      "label": "Wooden Platform Foreground Element",
+      "file_type": "image",
+      "source_file": "public/Background/Stage1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "Large wooden plank surface with visible plank seams and a stone/tile border at the top edge, serving as the main play area ground layer",
+        "confidence_score": 1.0
+      },
+      "id": "background_stage1_woodenplatform",
+      "community": 13,
+      "norm_label": "wooden platform foreground element"
+    },
+    {
+      "label": "Glowing Teal Water/Pool",
+      "file_type": "image",
+      "source_file": "public/Background/Stage1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A luminous teal-cyan water body visible behind the wooden platform, giving a magical or mystical quality to the scene",
+        "confidence_score": 1.0
+      },
+      "id": "background_stage1_glowingwater",
+      "community": 13,
+      "norm_label": "glowing teal water/pool"
+    },
+    {
+      "label": "Misty Forest Environment",
+      "file_type": "image",
+      "source_file": "public/Background/Stage1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "Background layer featuring tall dark tree trunks with moss, surrounded by atmospheric mist and fog, creating depth and a fantasy forest setting",
+        "confidence_score": 1.0
+      },
+      "id": "background_stage1_forestenvironment",
+      "community": 13,
+      "norm_label": "misty forest environment"
+    },
+    {
+      "label": "Stage 2 Background",
+      "file_type": "image",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_stage2background",
+      "community": 9,
+      "norm_label": "stage 2 background"
+    },
+    {
+      "label": "Wooden Dock / Pier Platform",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_wooden_dock",
+      "community": 9,
+      "norm_label": "wooden dock / pier platform"
+    },
+    {
+      "label": "Ocean / Sea Water",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_ocean",
+      "community": 9,
+      "norm_label": "ocean / sea water"
+    },
+    {
+      "label": "Sunset / Golden Sun on Horizon",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_sunset",
+      "community": 9,
+      "norm_label": "sunset / golden sun on horizon"
+    },
+    {
+      "label": "Bamboo / Wooden Posts with Sprouts",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_bamboo_posts",
+      "community": 9,
+      "norm_label": "bamboo / wooden posts with sprouts"
+    },
+    {
+      "label": "Sky with Clouds",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_sky",
+      "community": 9,
+      "norm_label": "sky with clouds"
+    },
+    {
+      "label": "Outdoor Coastal Pier Scene",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_scene_type",
+      "community": 9,
+      "norm_label": "outdoor coastal pier scene"
+    },
+    {
+      "label": "Warm Tropical Sunset Mood",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_mood",
+      "community": 9,
+      "norm_label": "warm tropical sunset mood"
+    },
+    {
+      "label": "Color Palette: Warm Browns, Ocean Blues, Golden Yellow, Soft Pinks",
+      "file_type": "concept",
+      "source_file": "public/Background/Stage2.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "background_stage2_color_palette",
+      "community": 9,
+      "norm_label": "color palette: warm browns, ocean blues, golden yellow, soft pinks"
+    },
+    {
+      "label": "Stage 3 Background",
+      "file_type": "image",
+      "source_file": "public/Background/Stage3.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "scene_type": "castle_ramparts_exterior",
+        "description": "A 2D side-scrolling game stage background depicting a medieval castle wall viewed from the outside. The foreground features a large wooden bridge or drawbridge platform with plank textures. Behind it stands a stone castle battlement wall with multiple cylindrical towers topped with green conical roofs. Mountains and a partly cloudy sky are visible in the background. Green shrubs and grass appear at the bottom corners.",
+        "visual_elements": [
+          "wooden bridge/drawbridge platform (foreground)",
+          "stone castle battlements with crenellations",
+          "cylindrical stone towers with green conical roofs",
+          "mountain range (midground)",
+          "partly cloudy blue sky (background)",
+          "green grass and shrubs (bottom corners)"
+        ],
+        "mood": "adventurous, medieval, classic platformer",
+        "color_palette": [
+          "warm brown (wood planks)",
+          "gray (stone bricks and towers)",
+          "green (conical rooftops, shrubs)",
+          "light blue (sky)",
+          "white (clouds)",
+          "muted gray-brown (mountains)"
+        ],
+        "purpose": "Game level background for Stage 3, suggesting a medieval castle setting typical of action or platformer games",
+        "art_style": "2D cartoon/illustrated, flat shading with stylized textures",
+        "confidence_score": 1.0
+      },
+      "id": "background_stage3_stage3background",
+      "community": 47,
+      "norm_label": "stage 3 background"
+    },
+    {
+      "label": "Charge Skill Icon",
+      "file_type": "image",
+      "source_file": "public/Skill/Charge.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A game skill icon depicting a reddish-brown humanoid figure with one fist raised triumphantly into the air, glowing with a green energy aura. The background is a vivid green, suggesting power or nature energy. The figure's muscular pose conveys charging up or empowering a skill. The art style is hand-drawn/illustrated with bold outlines typical of RPG or action game skill icons.",
+        "visual_style": "illustrated game icon, bold outlines, warm red-brown character, green energy glow, square with rounded corners",
+        "dominant_colors": [
+          "green",
+          "red-brown",
+          "yellow-green"
+        ],
+        "symbolism": "power charge, energy buildup, strength empowerment",
+        "icon_shape": "square with rounded corners",
+        "skill_type": "charge/power-up action"
+      },
+      "id": "skill_charge_chargeicon",
+      "community": 48,
+      "norm_label": "charge skill icon"
+    },
+    {
+      "label": "Attack Skill Icon",
+      "file_type": "image",
+      "source_file": "public/Skill/Attack.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A game skill icon depicting a dark stone or metal dagger/blade oriented diagonally from lower-left to upper-right. The blade has a jagged, rough texture with dark teal/gray coloring and visible highlights suggesting a worn stone weapon. Three drops of red blood drip from the blade tip, emphasizing a physical attack action. The background is a deep purple with dark cave-like stalactite shapes framing the icon, giving a dungeon or dark fantasy aesthetic. The icon communicates a melee or physical attack skill.",
+        "colors": [
+          "dark teal",
+          "gray",
+          "deep purple",
+          "red",
+          "black"
+        ],
+        "symbolism": "blood-dripping blade indicating physical damage or melee attack",
+        "style": "hand-drawn dark fantasy game art",
+        "action_represented": "melee attack or physical strike",
+        "confidence_score": 1.0
+      },
+      "id": "skill_attack_attackicon",
+      "community": 49,
+      "norm_label": "attack skill icon"
+    },
+    {
+      "label": "Defense Skill Icon",
+      "file_type": "image",
+      "source_file": "public/Skill/Defense.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A game skill icon depicting a green heraldic shield with a diagonal sword overlaid across it. The shield features a dark green divided field with lighter green sections and sketch-like black linework. A brown-handled sword with a dark blade crosses the shield diagonally from upper-left to lower-right. The background is a teal/aqua textured color with radiating highlight streaks suggesting energy or emphasis. The overall aesthetic is hand-drawn or illustrated in a fantasy RPG style. Symbolizes defensive combat capability combining shield protection with sword readiness.",
+        "colors": [
+          "green",
+          "dark green",
+          "teal",
+          "aqua",
+          "brown",
+          "black",
+          "grey"
+        ],
+        "symbolism": "Shield represents protection and defense; sword overlay suggests active defensive combat; radiating background suggests skill activation or power",
+        "style": "fantasy RPG hand-drawn illustration",
+        "shape": "rounded square icon with shield and sword motif",
+        "confidence": 1.0
+      },
+      "id": "skill_defense_defenseicon",
+      "community": 50,
+      "norm_label": "defense skill icon"
+    },
+    {
+      "label": "Mage Hero Character",
+      "file_type": "image",
+      "source_file": "public/Character/Hero/Mage.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A female mage hero character rendered in detailed pixel art style. She has a light blue head covering and dark skin tone. She wears a dark navy/blue outfit with a feathered or fur-trimmed skirt in deep blue, a fitted dark bodice with a gold belt, and sandals. She carries a golden staff with an orb at the bottom in one hand, and holds a blue lightning bolt in the other hand, indicating magical ability. Gold jewelry including a necklace and bracelets are visible. Her pose is dynamic and confident, facing slightly to the right.",
+        "art_style": "pixel art with high detail and illustrated quality",
+        "color_palette": [
+          "navy blue",
+          "dark blue",
+          "gold",
+          "light blue",
+          "brown",
+          "teal"
+        ],
+        "class_archetype": "mage/sorceress",
+        "equipment": [
+          "golden staff with orb",
+          "lightning bolt spell",
+          "feathered skirt",
+          "gold belt",
+          "gold necklace",
+          "gold bracelets",
+          "sandals"
+        ],
+        "visual_style": "semi-detailed pixel art, fantasy RPG character sprite",
+        "gender": "female",
+        "confidence_score": 1.0
+      },
+      "id": "hero_mage_magecharacter",
+      "community": 51,
+      "norm_label": "mage hero character"
+    },
+    {
+      "label": "Wizard Hero Character",
+      "file_type": "image",
+      "source_file": "public/Character/Hero/Wizard.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A pixel art RPG wizard/mage character standing upright. The character is a stocky male figure with reddish-brown hair and a beard, wearing a dramatic red cape with white fur trim draped over both shoulders. Beneath the cape he wears a brown tunic secured with a belt, white puffy sleeves, and tall brown boots. He holds a long staff in his right hand topped with a glowing red/orange orb. The art style is detailed pixel art with a fantasy RPG aesthetic, reminiscent of classic JRPG or strategy RPG sprite work. Color palette is dominated by deep reds, warm browns, and white accents. Class archetype: Mage/Wizard/Sorcerer.",
+        "visual_style": "pixel art",
+        "class_archetype": "Wizard/Mage/Sorcerer",
+        "primary_colors": [
+          "red",
+          "brown",
+          "white",
+          "orange"
+        ],
+        "equipment": [
+          "red cape with fur trim",
+          "brown tunic",
+          "belt",
+          "white puffy sleeves",
+          "tall brown boots",
+          "staff with glowing orb"
+        ],
+        "art_style": "detailed RPG pixel art sprite",
+        "character_pose": "standing upright facing viewer"
+      },
+      "id": "hero_wizard_wizardcharacter",
+      "community": 52,
+      "norm_label": "wizard hero character"
+    },
+    {
+      "label": "Lancer Hero Character",
+      "file_type": "image",
+      "source_file": "public/Character/Hero/Lancer.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A pixel-art style game character sprite depicting a male lancer/spear-wielding hero. The character has short reddish-brown hair and a mustache, wearing layered dark green and black armor with silver trim and shoulder pauldrons. He wears a green cape/cloak draped over one shoulder. He holds a tall wooden spear with a pointed metal tip in his right hand, standing in a relaxed idle pose. The art style is semi-detailed 2D pixel/sprite art with clean outlines, typical of classic RPG or strategy game aesthetics. The character exudes a seasoned warrior or knight archetype.",
+        "class_archetype": "Lancer / Spear User",
+        "primary_colors": [
+          "dark green",
+          "black",
+          "silver",
+          "brown",
+          "yellow-green"
+        ],
+        "equipment": [
+          "spear",
+          "plate armor",
+          "pauldrons",
+          "cape",
+          "greaves"
+        ],
+        "art_style": "2D pixel sprite art / semi-detailed RPG style",
+        "pose": "idle standing",
+        "gender": "male",
+        "hair_color": "reddish-brown",
+        "confidence_score": 1.0
+      },
+      "id": "hero_lancer_lancercharacter",
+      "community": 53,
+      "norm_label": "lancer hero character"
+    },
+    {
+      "label": "SwordMan Hero Character",
+      "file_type": "image",
+      "source_file": "public/Character/Hero/SwordMan.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A pixel art style male elf warrior character standing in a neutral pose. He has pointed ears, blonde/golden hair with a headband, and a slender build. He wears dark navy/black armor with gold trim accents, including a chest piece with a circular golden emblem, dark gloves, and armored boots. He holds a long straight sword pointed downward in front of him with both hands. A round shield is visible on his back or side. The art style is detailed 2D pixel/sprite art with clean shading and a fantasy RPG aesthetic.",
+        "class_archetype": "Swordsman / Warrior",
+        "race": "Elf",
+        "primary_colors": [
+          "dark navy blue",
+          "black",
+          "gold",
+          "gray"
+        ],
+        "equipment": [
+          "long sword",
+          "round shield",
+          "chest armor",
+          "gloves",
+          "armored boots",
+          "headband"
+        ],
+        "art_style": "2D pixel art / RPG sprite",
+        "visual_style": "fantasy RPG character sprite",
+        "pose": "standing neutral with sword held downward",
+        "gender": "male",
+        "expression": "calm / neutral",
+        "pixel_density": "medium-high detail sprite"
+      },
+      "id": "hero_swordman_swordmancharacter",
+      "community": 54,
+      "norm_label": "swordman hero character"
+    },
+    {
+      "label": "Merchant Hero Character",
+      "file_type": "image",
+      "source_file": "public/Character/Hero/Merchant.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "Pixel art style merchant/trader character. A humanoid figure with pointed elf-like ears and short pinkish-red hair. Wears a long cream/beige coat with dark cross-lace detailing on the chest, black trousers, and barefoot or light sandals. Carries a large purple potion bottle in one hand, a rolled scroll or map tucked under the arm, and a small brown satchel/bag at the side. Additional small items (pouches, goods) hang from the belt area. Warm medium skin tone. Art style is detailed pixel/sprite art with shading, consistent with a fantasy RPG aesthetic. Class archetype: merchant, alchemist-adjacent trader. Color palette: cream, beige, black, purple (potion), brown, muted reds.",
+      "visual_style": "pixel art / sprite art",
+      "class_archetype": "merchant / trader / alchemist",
+      "primary_colors": [
+        "cream",
+        "beige",
+        "black",
+        "purple",
+        "brown"
+      ],
+      "equipment": [
+        "purple potion bottle",
+        "rolled scroll or map",
+        "brown satchel bag",
+        "belt pouches"
+      ],
+      "confidence": 1.0,
+      "id": "hero_merchant_merchantcharacter",
+      "community": 55,
+      "norm_label": "merchant hero character"
+    },
+    {
+      "label": "Dragon Monster",
+      "file_type": "image",
+      "source_file": "public/Character/Monster/Dragon.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A humanoid dragon monster sprite in pixel/semi-pixel art style. The creature stands upright on two legs, holding a wooden staff. It has red scaly skin with dark red horns on its head, large dark green bat-like wings folded behind its body, clawed feet and hands, and wears a simple green tunic/cloak. One leg appears bandaged. The monster has a masked or beaked face with red coloring. The overall appearance suggests a dragonborn or lizardfolk-type enemy character. Art style is detailed 2D RPG sprite work with muted earthy tones contrasted by the vivid red skin.",
+        "monster_type": "dragon_humanoid",
+        "visual_style": "2D RPG sprite, semi-pixel art",
+        "primary_colors": [
+          "red",
+          "dark green",
+          "brown",
+          "orange"
+        ],
+        "menace_level": "medium",
+        "art_style": "detailed 2D character sprite",
+        "pose": "standing upright with staff",
+        "accessories": [
+          "wooden staff",
+          "green tunic",
+          "bandaged leg"
+        ],
+        "wings": true,
+        "bipedal": true,
+        "confidence_score": 1.0
+      },
+      "id": "monster_dragon_dragonmonster",
+      "community": 56,
+      "norm_label": "dragon monster"
+    },
+    {
+      "label": "Jhin Monster",
+      "file_type": "image",
+      "source_file": "public/Character/Monster/Jhin.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A female demon/monster sprite in RPG pixel-art style. The character has blue skin, dark blue curved horns, and large dark blue bat-like wings spread behind her. She wears an orange and white dress with a corset-style bodice in orange/gold, and a flowing white skirt. She holds a long silver sword/blade horizontally in front of her. Her feet/legs are scaled or armored in orange-gold, resembling dragon or reptilian feet. The art style is 2D sprite-based, reminiscent of classic JRPG or tactical RPG games. Overall color palette: blue, white, orange/gold, dark navy wings.",
+      "visual_style": "2D RPG sprite, JRPG aesthetic, classic game art",
+      "monster_type": "demon/succubus-type female monster",
+      "colors": [
+        "blue",
+        "white",
+        "orange",
+        "gold",
+        "dark navy"
+      ],
+      "art_style": "2D sprite, pixel-art adjacent, JRPG",
+      "confidence_score": 1.0,
+      "id": "monster_jhin_jhinmonster",
+      "community": 57,
+      "norm_label": "jhin monster"
+    },
+    {
+      "label": "Medusa Monster",
+      "file_type": "image",
+      "source_file": "public/Character/Monster/Medusa.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "Pixel art style game sprite of Medusa, depicted as a female humanoid monster with red hair and small red horns, wearing an orange tunic/dress with a flowing green cape. She has gray-toned skin and is holding a flame in one raised hand. She wears gold greaves and dark blue boots. The character stands in a frontal pose typical of RPG monster sprites.",
+        "monster_type": "mythological",
+        "mythological_origin": "Greek mythology",
+        "visual_style": "pixel art / 2D RPG sprite",
+        "primary_colors": [
+          "orange",
+          "green",
+          "red",
+          "gray",
+          "gold",
+          "blue"
+        ],
+        "art_style": "retro pixel art",
+        "notable_features": [
+          "red horns",
+          "flame in hand",
+          "green cape",
+          "orange tunic",
+          "gray skin",
+          "gold greaves"
+        ],
+        "pose": "frontal standing pose",
+        "gender": "female",
+        "confidence_score": 1.0
+      },
+      "id": "monster_medusa_medusamonster",
+      "community": 58,
+      "norm_label": "medusa monster"
+    },
+    {
+      "label": "LizardMan Monster",
+      "file_type": "image",
+      "source_file": "public/Character/Monster/LizardMan.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A reptilian humanoid monster character sprite rendered in a 2D RPG art style. The creature has dark blue-green scaly skin, curved horns on its head, and a bipedal humanoid body. It wears a purple tunic/robe with a brown belt, dark teal armor on the arms and shoulders, and beige/bone-colored leg armor with spiky protrusions. The LizardMan wields two long daggers or short swords, one in each hand, held outward in a combat-ready stance. The overall art style is classic JRPG sprite with clean outlines and flat shading, reminiscent of Dragon Quest or similar fantasy RPG aesthetics.",
+        "monster_type": "lizard_humanoid",
+        "colors": [
+          "dark blue-green",
+          "purple",
+          "brown",
+          "beige",
+          "teal",
+          "bone-white"
+        ],
+        "art_style": "2D RPG sprite, JRPG style, flat shading with outlines",
+        "weapons": [
+          "dual daggers",
+          "dual short swords"
+        ],
+        "armor": "arm guards, shoulder plates, leg armor",
+        "pose": "combat stance, dual-wielding",
+        "visual_style": "top-down or front-facing character sprite"
+      },
+      "id": "monster_lizardman_lizardmanmonster",
+      "community": 59,
+      "norm_label": "lizardman monster"
+    },
+    {
+      "label": "Demon Monster",
+      "file_type": "image",
+      "source_file": "public/Character/Monster/Demon.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A humanoid demon character rendered in pixel/RPG art style. The creature has a pale grayish-blue skin tone with a lean, tall build. It wears a red draped vest/tunic and has brown furry lower body and legs resembling a satyr or beast-man. It has wild brown hair with small horns, and holds a small red imp or skull-like creature in one raised hand while the other hand appears clawed or holding a weapon. The color palette is dominated by red, brown, and gray. The art style is detailed 2D sprite work typical of classic RPG or indie fantasy games. Menace level is moderate to high \u2014 the figure looks sinister and magical, suggesting a spellcaster or summoner demon archetype.",
+      "properties": {
+        "monster_type": "demon",
+        "subtype": "humanoid satyr-demon / dark summoner",
+        "visual_style": "2D pixel/RPG sprite",
+        "primary_colors": [
+          "red",
+          "brown",
+          "gray",
+          "pale blue"
+        ],
+        "menace_level": "moderate-high",
+        "art_style": "classic RPG / indie fantasy pixel art",
+        "distinctive_features": [
+          "furry beast legs",
+          "red tunic",
+          "horns",
+          "pale skin",
+          "holding small imp/skull"
+        ],
+        "role_archetype": "spellcaster / summoner"
+      },
+      "id": "monster_demon_demonmonster",
+      "community": 60,
+      "norm_label": "demon monster"
+    },
+    {
+      "label": "Right Navigation Button",
+      "file_type": "image",
+      "source_file": "public/Common/RightButton.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A right-facing navigation button with a chevron/arrow icon pointing right. The button has a dark navy/blue gradient square background with an octagonal shape achieved via beveled/chamfered corners. The border has a teal/cyan highlight color giving it a glowing neon accent. The chevron arrow in the center is light blue-white (near-white with a subtle blue tint), suggesting a forward or next navigation action. The overall visual style is reminiscent of a sci-fi or game UI aesthetic with dark backgrounds and neon accents. The button suggests a 'next' or 'forward' interaction for carousel, slideshow, or paginated navigation.",
+        "shape": "octagonal/beveled square",
+        "background_color": "dark navy blue gradient",
+        "border_color": "teal/cyan neon",
+        "icon": "right-facing chevron arrow",
+        "icon_color": "light blue-white",
+        "style": "sci-fi / game UI",
+        "interaction": "navigate right, next, forward",
+        "dimensions_approx": "square icon button",
+        "confidence_score": 1.0
+      },
+      "id": "common_rightbutton_rightbuttonui",
+      "community": 61,
+      "norm_label": "right navigation button"
+    },
+    {
+      "label": "Back Navigation Button",
+      "file_type": "image",
+      "source_file": "public/Common/BackButton.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A curved left-pointing arrow icon used as a back/return navigation button. The arrow has a sweeping curved body that arcs from the right side downward and curves back to the left, with a large arrowhead pointing left. The design is a solid dark charcoal/dark gray fill on a white background with no border or container shape. The style is flat and iconographic, representing a return or undo-style navigation action. Commonly used in UI to navigate back to a previous screen or step.",
+        "shape": "curved arrow with arrowhead pointing left",
+        "colors": {
+          "fill": "dark charcoal (#3a3a3a)",
+          "background": "white/transparent"
+        },
+        "style": "flat icon, solid fill, no outline",
+        "interaction": "navigation back or return to previous view",
+        "visual_weight": "bold, high contrast"
+      },
+      "id": "common_backbutton_backbuttonui",
+      "community": 62,
+      "norm_label": "back navigation button"
+    },
+    {
+      "label": "Left Navigation Button",
+      "file_type": "image",
+      "source_file": "public/Common/LeftButton.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A left-facing chevron/arrow navigation button with a dark navy-blue octagonal rounded square background featuring a teal/cyan border outline. The chevron arrow is rendered in a light mint/pale cyan color with a subtle 3D bevel effect. The button uses a gradient from dark navy at center to slightly lighter blue at edges. The overall design suggests a 'previous' or 'back' navigation control, suitable for carousels, sliders, or paginated UI navigation. The octagonal clipped corners and glowing teal border give it a futuristic or game-like UI aesthetic.",
+      "visual_style": {
+        "shape": "octagonal_rounded_square",
+        "border_color": "teal/cyan",
+        "background_gradient": "dark_navy_blue",
+        "icon": "left_chevron_arrow",
+        "icon_color": "light_mint_pale_cyan",
+        "icon_effect": "3D_bevel",
+        "aesthetic": "futuristic_game_ui"
+      },
+      "interaction": "navigates_previous_or_back",
+      "confidence_score": 1.0,
+      "id": "common_leftbutton_leftbuttonui",
+      "community": 63,
+      "norm_label": "left navigation button"
+    },
+    {
+      "label": "VueView Game Logo",
+      "file_type": "image",
+      "source_file": "public/Common/Logo.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "Pixel-art style logo displaying the word 'VUEVIEW' with a large stylized orange and white gradient 'V' followed by 'UEVIEW' in matching pixel font. The text uses an orange-to-white gradient with a retro pixel/bitmap aesthetic, suggesting a game or entertainment platform branding.",
+        "text": "VUEVIEW",
+        "style": "pixel art, retro bitmap font, orange-white gradient",
+        "colors": [
+          "orange",
+          "white",
+          "dark outline"
+        ],
+        "brand": "VueView"
+      },
+      "id": "common_logo_gamelogo",
+      "community": 64,
+      "norm_label": "vueview game logo"
+    },
+    {
+      "label": "Coin Currency Icon",
+      "file_type": "image",
+      "source_file": "public/Common/Coin.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "A stack of gold coins rendered in a cartoon/illustrated style. The coins are bright yellow-gold with a crown emblem stamped on their faces. The stack is arranged in a pyramid-like pile of approximately 6-7 coins, with ridged/serrated edges visible. The art style is polished and game-ready, consistent with in-game currency or reward UI elements. Likely represents the primary currency used in the game for purchases, rewards, or scoring.",
+        "visual_style": "cartoon/illustrated, vibrant golden-yellow color palette, bold outlines, slight shading for depth",
+        "colors": [
+          "gold",
+          "yellow",
+          "light yellow highlight",
+          "dark yellow shadow"
+        ],
+        "currency_type": "primary in-game coin currency",
+        "ui_role": "currency icon, reward indicator, or shop price display",
+        "confidence": 1.0
+      },
+      "id": "common_coin_coincurrency",
+      "community": 65,
+      "norm_label": "coin currency icon"
+    },
+    {
+      "label": "Full Card Frame",
+      "file_type": "image",
+      "source_file": "public/Common/Card/FullCard.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A game card template with a dark navy/charcoal border featuring gold trim and decorative fleur-de-lis ornaments at the top corners and top center. The card has a rounded arch shape at the top. The interior background is a warm cream/parchment color. In the lower-middle section, there is a blue ribbon/banner element with fabric folds on the sides, overlaying a scroll-like parchment text area with aged/torn edges. The overall style is fantasy RPG, suitable for character or item cards in a game inventory or shop UI.",
+      "confidence_score": 1.0,
+      "id": "card_fullcard_fullcardframe",
+      "community": 66,
+      "norm_label": "full card frame"
+    },
+    {
+      "label": "Half Card Frame",
+      "file_type": "image",
+      "source_file": "public/Common/Card/HalfCard.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A half-card UI frame asset in a fantasy/medieval pixel-art style. Features a dark navy/slate blue background border with ornate gold trim and beaded edge detail running along all four sides. The interior content area is defined by a prominent rounded arch (archway) shape with gold outlining, revealing a cream/parchment-colored background. The upper-left and upper-right corners each display decorative gold fleur-de-lis or leaf-and-scroll ornaments with small blue accent gems. The overall aesthetic is regal and gothic, consistent with a trading card game or RPG inventory UI. The card appears to be a shorter/taller variant (portrait orientation, cut at the top) used for displaying character or item artwork within an arched window frame.",
+      "style_tags": [
+        "fantasy",
+        "medieval",
+        "pixel-art",
+        "gothic",
+        "ornate",
+        "gold-trim",
+        "navy-blue",
+        "parchment",
+        "arch",
+        "fleur-de-lis",
+        "beaded-border",
+        "RPG",
+        "card-frame"
+      ],
+      "confidence_score": 1.0,
+      "id": "card_halfcard_halfcardframe",
+      "community": 67,
+      "norm_label": "half card frame"
+    },
+    {
+      "label": "Visible/Show Icon",
+      "file_type": "image",
+      "source_file": "public/Icon/visible.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "properties": {
+        "description": "Eye icon representing password visibility toggle. Solid black eye shape with a white circular iris/pupil in the center. Simple, flat design style on a transparent background. Used as a UI icon to show/reveal hidden password text.",
+        "style": "flat",
+        "colors": [
+          "black",
+          "white"
+        ],
+        "shape": "eye",
+        "usage": "password visibility toggle",
+        "background": "transparent"
+      },
+      "id": "icon_visible_visibleicon",
+      "community": 68,
+      "norm_label": "visible/show icon"
+    },
+    {
+      "label": "Invisible/Hide Icon",
+      "file_type": "image",
+      "source_file": "public/Icon/invisible.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A black eye icon with a diagonal slash through it, representing a password visibility toggle in the hidden/invisible state. The icon is monochromatic (solid black) on a transparent background, with a minimalist flat design style. Commonly used as a UI element to hide/mask password input fields.",
+      "visual_style": "flat",
+      "colors": [
+        "black"
+      ],
+      "background": "transparent",
+      "semantic_meaning": "hide password / toggle visibility off",
+      "confidence_score": 1.0,
+      "id": "icon_invisible_invisibleicon",
+      "community": 69,
+      "norm_label": "invisible/hide icon"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "project2_sec_1_vueview_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "project2_sec_1_vueview_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "project2_sec_1_vueview_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "project2_sec_1_vueview_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "project2_sec_1_vueview_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "project2_sec_1_vueview_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "project2_sec_1_vueview_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_scripts",
+      "target": "project2_sec_1_vueview_package_scripts_backend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_scripts",
+      "target": "project2_sec_1_vueview_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_scripts",
+      "target": "project2_sec_1_vueview_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_scripts",
+      "target": "project2_sec_1_vueview_package_scripts_preview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_dependencies",
+      "target": "project2_sec_1_vueview_package_dependencies_json_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_dependencies",
+      "target": "project2_sec_1_vueview_package_dependencies_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_dependencies",
+      "target": "project2_sec_1_vueview_package_dependencies_vue_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_devdependencies",
+      "target": "project2_sec_1_vueview_package_devdependencies_autoprefixer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_devdependencies",
+      "target": "project2_sec_1_vueview_package_devdependencies_daisyui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_devdependencies",
+      "target": "project2_sec_1_vueview_package_devdependencies_postcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_devdependencies",
+      "target": "project2_sec_1_vueview_package_devdependencies_tailwindcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_devdependencies",
+      "target": "project2_sec_1_vueview_package_devdependencies_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "project2_sec_1_vueview_package_devdependencies",
+      "target": "project2_sec_1_vueview_package_devdependencies_vitejs_plugin_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".vscode/extensions.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "vscode_extensions_json",
+      "target": "vscode_extensions_recommendations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/db.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "data_db_json",
+      "target": "data_db_useraccounts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "data/db.json",
+      "source_location": "characters array in userAccounts",
+      "weight": 0.9,
+      "source": "data_heros_herosdata",
+      "target": "data_db_useraccounts"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "data/db.json",
+      "source_location": "levels array in userAccounts",
+      "weight": 0.9,
+      "source": "data_levels_levelsdata",
+      "target": "data_db_useraccounts"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "line:25",
+      "weight": 1.0,
+      "source": "libs_fetchapi_adduser",
+      "target": "data_db_useraccounts"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "line:57",
+      "weight": 1.0,
+      "source": "libs_fetchapi_deleteuser",
+      "target": "data_db_useraccounts"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "line:5",
+      "weight": 1.0,
+      "source": "libs_fetchapi_getallusers",
+      "target": "data_db_useraccounts"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "line:41",
+      "weight": 1.0,
+      "source": "libs_fetchapi_updateuser",
+      "target": "data_db_useraccounts"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_main_js",
+      "target": "src_app_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_main_js",
+      "target": "libs_fetchapi_updateuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_main_js",
+      "target": "src_libs_fetchapi_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_main_js",
+      "target": "src_main_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_main_js",
+      "target": "src_router_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "libs_fetchapi_updateuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_home_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_inventory_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_level_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_login_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_setting_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_shop_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_signup_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_components_pages_welcome_vue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_libs_fetchapi_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_router_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/router.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_router_js",
+      "target": "src_router_routes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_libs_fetchapi_js",
+      "target": "libs_fetchapi_adduser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_libs_fetchapi_js",
+      "target": "libs_fetchapi_deleteuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_libs_fetchapi_js",
+      "target": "libs_fetchapi_getallusers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_libs_fetchapi_js",
+      "target": "libs_fetchapi_getuserbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/FetchAPI.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "src_libs_fetchapi_js",
+      "target": "libs_fetchapi_updateuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_libs_signupvalidations_js",
+      "target": "src_libs_fetchapi_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "line:12",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_checkvalidations",
+      "target": "libs_fetchapi_getallusers"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_signupvalidations_checkvalidations",
+      "target": "libs_fetchapi_getallusers"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_libs_signupvalidations_js",
+      "target": "libs_fetchapi_getallusers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main.js",
+      "source_location": "line:11",
+      "weight": 1.0,
+      "source": "src_main_appentry",
+      "target": "libs_fetchapi_updateuser"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/router.js",
+      "source_location": "line:19",
+      "weight": 1.0,
+      "source": "src_router_routerconfig",
+      "target": "libs_fetchapi_updateuser"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_libs_signupvalidations_js",
+      "target": "libs_signupvalidations_signupvalidations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_libs_signupvalidations_js",
+      "target": "src_libs_validations_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "line:10",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_signupvalidations",
+      "target": "libs_signupvalidations_checkvalidations"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_signupvalidations",
+      "target": "libs_signupvalidations_signupvalidations_checkvalidations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_signupvalidations",
+      "target": "libs_signupvalidations_signupvalidations_constructor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "line:1",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_signupvalidations",
+      "target": "libs_validations_validations"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_libs_monsterdifficult_js",
+      "target": "libs_monsterdifficult_monstereasy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_libs_monsterdifficult_js",
+      "target": "libs_monsterdifficult_monsterhard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": "line:1",
+      "weight": 1.0,
+      "source": "libs_monsterdifficult_monstereasy",
+      "target": "concept_turnbased_combat"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "libs_monsterdifficult_monstereasy",
+      "target": "libs_monsterdifficult_monsterhard"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/libs/MonsterDifficult.js",
+      "source_location": "line:21",
+      "weight": 1.0,
+      "source": "libs_monsterdifficult_monsterhard",
+      "target": "concept_turnbased_combat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_libs_validations_js",
+      "target": "libs_validations_validations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/Validations.js",
+      "source_location": "line:2",
+      "weight": 1.0,
+      "source": "libs_validations_validations",
+      "target": "libs_validations_checkusername"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/Validations.js",
+      "source_location": "line:6",
+      "weight": 1.0,
+      "source": "libs_validations_validations",
+      "target": "libs_validations_minlength"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "libs_validations_validations",
+      "target": "libs_validations_validations_checkusername",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/libs/Validations.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "libs_validations_validations",
+      "target": "libs_validations_validations_minlength",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/level/Character.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_components_level_character_vue",
+      "target": "level_character_validator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/level/HealthBar.vue",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_components_level_healthbar_vue",
+      "target": "level_healthbar_validator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/level/CalculateScreen.vue",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_level_calculatescreen_vue",
+      "target": "level_calculatescreen_validator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/setting/EditingAccount.vue",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_components_setting_editingaccount_vue",
+      "target": "setting_editingaccount_if",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_components_pages_login_vue",
+      "target": "pages_login_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "src_components_pages_level_vue",
+      "target": "pages_level_if",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "src_components_pages_setting_vue",
+      "target": "pages_setting_if",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/heros.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_heros_js",
+      "target": "data_heros_heros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/levels.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_levels_js",
+      "target": "data_levels_levels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/data/monsters.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "src_data_monsters_js",
+      "target": "data_monsters_monsters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "tailwind.config.js",
+      "source_location": null,
+      "weight": 0.8,
+      "source": "root_tailwind_config",
+      "target": "root_postcss_config"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main.js",
+      "source_location": "line:4",
+      "weight": 1.0,
+      "source": "src_main_appentry",
+      "target": "src_app_approot"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/main.js",
+      "source_location": "line:8",
+      "weight": 1.0,
+      "source": "src_main_appentry",
+      "target": "concept_localstorage_session"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main.js",
+      "source_location": "line:5",
+      "weight": 1.0,
+      "source": "src_main_appentry",
+      "target": "src_router_routerconfig"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/router.js",
+      "source_location": "line:35",
+      "weight": 1.0,
+      "source": "src_router_routerconfig",
+      "target": "concept_auth_guard"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/router.js",
+      "source_location": "line:17",
+      "weight": 1.0,
+      "source": "src_router_routerconfig",
+      "target": "concept_localstorage_session"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "line:15",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_checkvalidations",
+      "target": "libs_validations_checkusername"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/SignUpValidations.js",
+      "source_location": "line:18",
+      "weight": 1.0,
+      "source": "libs_signupvalidations_checkvalidations",
+      "target": "libs_validations_minlength"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/components/welcome/HowToPlay.vue",
+      "source_location": "line:18",
+      "weight": 0.8,
+      "source": "welcome_howtoplay_howtoplay",
+      "target": "concept_turnbased_combat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/common/CharacterCard.vue",
+      "source_location": "line:3",
+      "weight": 1.0,
+      "source": "common_charactercard_charactercard",
+      "target": "data_heros_herosdata"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/data/monsters.js",
+      "source_location": "level field maps to levels id",
+      "weight": 0.9,
+      "source": "data_monsters_monstersdata",
+      "target": "data_levels_levelsdata"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/router.js",
+      "source_location": "line:35",
+      "weight": 0.9,
+      "source": "concept_auth_guard",
+      "target": "concept_localstorage_session"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "level_game_gamecomponent",
+      "target": "concept_turnbasedbattle"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 6",
+      "weight": 1.0,
+      "source": "level_game_gamecomponent",
+      "target": "level_actionbutton_actionbuttoncomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 10",
+      "weight": 1.0,
+      "source": "level_game_gamecomponent",
+      "target": "level_actioncutscene_actioncutscenecomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 7",
+      "weight": 1.0,
+      "source": "level_game_gamecomponent",
+      "target": "level_character_charactercomponent"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 330-343",
+      "weight": 1.0,
+      "source": "level_game_gamecomponent",
+      "target": "level_healthbar_healthbarcomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 9",
+      "weight": 1.0,
+      "source": "level_game_gamecomponent",
+      "target": "level_pausescreen_pausescreencomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "line 6",
+      "weight": 1.0,
+      "source": "pages_level_levelpage",
+      "target": "level_game_gamecomponent"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 362-377",
+      "weight": 0.9,
+      "source": "level_character_charactercomponent",
+      "target": "level_game_playerstate"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 157-175",
+      "weight": 1.0,
+      "source": "level_game_calculateactionturn",
+      "target": "level_game_playerstate"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 330-343",
+      "weight": 0.9,
+      "source": "level_healthbar_healthbarcomponent",
+      "target": "level_game_playerstate"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 157-175",
+      "weight": 1.0,
+      "source": "level_game_calculateactionturn",
+      "target": "level_game_enemystate"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 229-230",
+      "weight": 1.0,
+      "source": "level_game_phasewatcher",
+      "target": "level_game_calculateactionturn"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": "line 233",
+      "weight": 1.0,
+      "source": "level_game_phasewatcher",
+      "target": "level_game_gameend"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/components/level/Game.vue",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "level_game_calculateactionturn",
+      "target": "concept_turnbasedbattle"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/ActionButton.vue",
+      "source_location": "line 33",
+      "weight": 1.0,
+      "source": "level_actionbutton_handleclick",
+      "target": "level_game_skillaction"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/LevelSelected.vue",
+      "source_location": "line 2",
+      "weight": 1.0,
+      "source": "level_levelselected_levelselectedcomponent",
+      "target": "level_levelbutton_levelbuttoncomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "line 7",
+      "weight": 1.0,
+      "source": "pages_level_levelpage",
+      "target": "level_result_resultcomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/CharacterSelected.vue",
+      "source_location": "line 6",
+      "weight": 1.0,
+      "source": "level_characterselected_characterselectedcomponent",
+      "target": "level_charactercollection_charactercollectioncomponent"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/components/level/ActionCutscene.vue",
+      "source_location": null,
+      "weight": 0.8,
+      "source": "level_actioncutscene_actioncutscenecomponent",
+      "target": "concept_turnbasedbattle"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "line 5",
+      "weight": 1.0,
+      "source": "pages_level_levelpage",
+      "target": "level_characterselected_characterselectedcomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "line 4",
+      "weight": 1.0,
+      "source": "pages_level_levelpage",
+      "target": "level_levelselected_levelselectedcomponent"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "line 3",
+      "weight": 1.0,
+      "source": "pages_setting_settingpage",
+      "target": "setting_editingaccount_editingaccountcomponent"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "line 115-117",
+      "weight": 0.9,
+      "source": "pages_setting_confirmupdate",
+      "target": "setting_editingaccount_updatepassword"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Inventory.vue",
+      "source_location": "line 4",
+      "weight": 1.0,
+      "source": "pages_inventory_inventorypage",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/components/pages/Inventory.vue",
+      "source_location": null,
+      "weight": 0.7,
+      "source": "pages_inventory_inventorypage",
+      "target": "pages_shop_shoppage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": "line 76",
+      "weight": 0.8,
+      "source": "pages_login_loginpage",
+      "target": "pages_signup_signuppage"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": null,
+      "weight": 0.6,
+      "source": "pages_login_loginpage",
+      "target": "pages_welcome_welcomepage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Login.vue",
+      "source_location": "line 24",
+      "weight": 1.0,
+      "source": "pages_login_onlogin",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Home.vue",
+      "source_location": "line 4",
+      "weight": 1.0,
+      "source": "pages_home_homepage",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Shop.vue",
+      "source_location": "line 8",
+      "weight": 1.0,
+      "source": "pages_shop_shoppage",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Shop.vue",
+      "source_location": "line 31",
+      "weight": 1.0,
+      "source": "pages_shop_confirmbuy",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/components/pages/SignUp.vue",
+      "source_location": null,
+      "weight": 0.75,
+      "source": "pages_signup_onsignup",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Level.vue",
+      "source_location": "line 43",
+      "weight": 1.0,
+      "source": "pages_level_finishstage",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "line 9",
+      "weight": 1.0,
+      "source": "pages_setting_settingpage",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Setting.vue",
+      "source_location": "line 33",
+      "weight": 1.0,
+      "source": "pages_setting_confirmlogout",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Welcome.vue",
+      "source_location": "line 10",
+      "weight": 1.0,
+      "source": "pages_welcome_authentication",
+      "target": "concept_localstorageuserstate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "line 10",
+      "weight": 1.0,
+      "source": "index_vueview_app",
+      "target": "index_app_div"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "line 11",
+      "weight": 1.0,
+      "source": "index_vueview_app",
+      "target": "index_main_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "line 5",
+      "weight": 1.0,
+      "source": "index_vueview_app",
+      "target": "index_vite_svg_icon"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "index.html",
+      "source_location": "line 7",
+      "weight": 0.9,
+      "source": "index_vueview_app",
+      "target": "readme_projectoverview"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 26",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_artstyle_cartoon"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 49",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_component_hierarchy"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 20",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_feature_accountsystem"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 22",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_feature_inventory"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 21",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_feature_shop"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 19",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_feature_turnbased"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 28-40",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_gameplay_mechanics"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 11-13",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_member_benyaporn"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 5-7",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_member_kantaphong"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 2-4",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_member_kundids"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 8-10",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_member_niraphan"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 14-16",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_member_pongsapat"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 53",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_ref_craftpix_characters"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 55",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_ref_craftpix_skills"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 52",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_ref_jwthegame"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 54",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_ref_pngtree"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 25",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_theme_fantasy"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 45",
+      "weight": 1.0,
+      "source": "readme_projectoverview",
+      "target": "readme_tutorial_video"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 3",
+      "weight": 1.0,
+      "source": "readme_member_kundids",
+      "target": "readme_feature_turnbased"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 6",
+      "weight": 1.0,
+      "source": "readme_member_kantaphong",
+      "target": "readme_feature_shop"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 9",
+      "weight": 1.0,
+      "source": "readme_member_niraphan",
+      "target": "readme_feature_accountsystem"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 12",
+      "weight": 1.0,
+      "source": "readme_member_benyaporn",
+      "target": "readme_feature_inventory"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "README.md",
+      "source_location": "line 19,28-40",
+      "weight": 0.9,
+      "source": "readme_feature_turnbased",
+      "target": "readme_gameplay_mechanics"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": "line 25-26",
+      "weight": 0.8,
+      "source": "readme_theme_fantasy",
+      "target": "readme_artstyle_cartoon"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 37",
+      "weight": 1.0,
+      "source": "readme_gameplay_mechanics",
+      "target": "readme_action_attack"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 39",
+      "weight": 1.0,
+      "source": "readme_gameplay_mechanics",
+      "target": "readme_action_charge"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "line 38",
+      "weight": 1.0,
+      "source": "readme_gameplay_mechanics",
+      "target": "readme_action_defense"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_vueview",
+      "target": "docs_int203___component_hierarchy_app"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_home"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_inventory"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_level"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_login"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_setting"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_shop"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_signup"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_app",
+      "target": "docs_int203___component_hierarchy_welcome"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "docs_int203___component_hierarchy_backbutton_common",
+      "target": "docs_int203___component_hierarchy_backbutton_characterselected"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "docs_int203___component_hierarchy_backbutton_common",
+      "target": "docs_int203___component_hierarchy_backbutton_level"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 0.75,
+      "source": "docs_int203___component_hierarchy_charactercard",
+      "target": "docs_int203___component_hierarchy_charactercollection"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_level",
+      "target": "docs_int203___component_hierarchy_characterselected"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_level",
+      "target": "docs_int203___component_hierarchy_game"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_level",
+      "target": "docs_int203___component_hierarchy_levelselected"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_setting",
+      "target": "docs_int203___component_hierarchy_editingaccount"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_welcome",
+      "target": "docs_int203___component_hierarchy_howtoplay"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_levelselected",
+      "target": "docs_int203___component_hierarchy_backbutton_level"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_levelselected",
+      "target": "docs_int203___component_hierarchy_levelbutton"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_characterselected",
+      "target": "docs_int203___component_hierarchy_backbutton_characterselected"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_characterselected",
+      "target": "docs_int203___component_hierarchy_charactercollection"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_game",
+      "target": "docs_int203___component_hierarchy_actionbutton"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_game",
+      "target": "docs_int203___component_hierarchy_calculatescreen"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_game",
+      "target": "docs_int203___component_hierarchy_character_game_child"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_game",
+      "target": "docs_int203___component_hierarchy_healthbar"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_game",
+      "target": "docs_int203___component_hierarchy_pausescreen"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/INT203 - Component Hierarchy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "docs_int203___component_hierarchy_charactercollection",
+      "target": "docs_int203___component_hierarchy_character_collection_child"
+    },
+    {
+      "relation": "contains",
+      "provenance": "EXTRACTED",
+      "confidence_score": 1.0,
+      "weight": 1.0,
+      "attributes": {
+        "description": "Features multiple pointed towers with orange roofs, red pennant flags, stone walls with a central arched gate, green trees and bushes at the base, a light blue sky with white clouds, and distant birds"
+      },
+      "source": "background_castle_castlebackground",
+      "target": "background_castle_elements"
+    },
+    {
+      "relation": "evokes",
+      "provenance": "EXTRACTED",
+      "confidence_score": 1.0,
+      "weight": 1.0,
+      "attributes": {
+        "description": "The image conveys a cheerful, adventurous fairytale atmosphere suitable for a fantasy game scene"
+      },
+      "source": "background_castle_castlebackground",
+      "target": "background_castle_mood"
+    },
+    {
+      "relation": "used_as_game_background_for",
+      "provenance": "INFERRED",
+      "confidence_score": 0.95,
+      "weight": 0.95,
+      "attributes": {
+        "description": "Intended as a game scene background, likely for a location such as a castle level, town, or story chapter set in a fantasy world"
+      },
+      "source": "background_castle_castlebackground",
+      "target": "background_castle_setting"
+    },
+    {
+      "relation": "has_style",
+      "provenance": "EXTRACTED",
+      "confidence_score": 1.0,
+      "weight": 1.0,
+      "attributes": {
+        "description": "The image uses a flat cartoon/comic illustration style with bold outlines and cel-shading, reminiscent of animated fairytale art"
+      },
+      "source": "background_castle_castlebackground",
+      "target": "background_castle_visualstyle"
+    },
+    {
+      "relation": "contains_visual_element",
+      "provenance": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source": "background_stage4_stage4background",
+      "target": "background_stage4_mountainsky"
+    },
+    {
+      "relation": "used_as",
+      "provenance": "INFERRED",
+      "confidence_score": 0.85,
+      "source": "background_stage4_stage4background",
+      "target": "background_stage4_castletheme"
+    },
+    {
+      "relation": "contains_visual_element",
+      "provenance": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source": "background_stage4_stage4background",
+      "target": "background_stage4_castlewall"
+    },
+    {
+      "relation": "contains_visual_element",
+      "provenance": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source": "background_stage4_stage4background",
+      "target": "background_stage4_stonebrick"
+    },
+    {
+      "relation": "contains_visual_element",
+      "provenance": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source": "background_stage4_stage4background",
+      "target": "background_stage4_stonetowers"
+    },
+    {
+      "relation": "serves_as",
+      "provenance": "INFERRED",
+      "confidence_score": 0.85,
+      "label": "gameplay platform surface",
+      "source": "background_stage4_woodenfloor",
+      "target": "background_stage4_stage4background"
+    },
+    {
+      "relation": "part_of",
+      "provenance": "INFERRED",
+      "confidence_score": 0.95,
+      "source": "background_stage4_castlewall",
+      "target": "background_stage4_castletheme"
+    },
+    {
+      "relation": "part_of",
+      "provenance": "INFERRED",
+      "confidence_score": 0.95,
+      "source": "background_stage4_stonetowers",
+      "target": "background_stage4_castletheme"
+    },
+    {
+      "relation": "contains",
+      "properties": {
+        "description": "Stage 1 background contains the misty forest as its background layer",
+        "confidence_score": 1.0
+      },
+      "source": "background_stage1_stage1background",
+      "target": "background_stage1_forestenvironment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "properties": {
+        "description": "Stage 1 background contains the glowing water element in the mid-ground",
+        "confidence_score": 1.0
+      },
+      "source": "background_stage1_stage1background",
+      "target": "background_stage1_glowingwater",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "properties": {
+        "description": "Stage 1 background contains the wooden platform as its foreground layer",
+        "confidence_score": 1.0
+      },
+      "source": "background_stage1_stage1background",
+      "target": "background_stage1_woodenplatform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "positioned_in_front_of",
+      "properties": {
+        "description": "The wooden platform sits in front of the glowing water, suggesting it is a bridge or dock over water",
+        "confidence_score": 0.95
+      },
+      "source": "background_stage1_woodenplatform",
+      "target": "background_stage1_glowingwater",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains_element",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_bamboo_posts"
+    },
+    {
+      "relation": "has_color_palette",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_color_palette"
+    },
+    {
+      "relation": "evokes",
+      "confidence_score": 0.95,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_mood"
+    },
+    {
+      "relation": "contains_element",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_ocean"
+    },
+    {
+      "relation": "depicts",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_scene_type"
+    },
+    {
+      "relation": "contains_element",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_sky"
+    },
+    {
+      "relation": "serves_as_game_level_background",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_stage2background"
+    },
+    {
+      "relation": "contains_element",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_sunset"
+    },
+    {
+      "relation": "contains_element",
+      "confidence_score": 1.0,
+      "source": "background_stage2_stage2background",
+      "target": "background_stage2_wooden_dock"
+    },
+    {
+      "relation": "placed_on",
+      "confidence_score": 0.95,
+      "source": "background_stage2_bamboo_posts",
+      "target": "background_stage2_wooden_dock"
+    },
+    {
+      "relation": "situated_above",
+      "confidence_score": 1.0,
+      "source": "background_stage2_wooden_dock",
+      "target": "background_stage2_ocean"
+    },
+    {
+      "relation": "reflects_on",
+      "confidence_score": 0.9,
+      "source": "background_stage2_sunset",
+      "target": "background_stage2_ocean"
+    },
+    {
+      "relation": "positioned_in",
+      "confidence_score": 1.0,
+      "source": "background_stage2_sunset",
+      "target": "background_stage2_sky"
+    },
+    {
+      "relation": "establishes",
+      "confidence_score": 0.9,
+      "source": "background_stage2_scene_type",
+      "target": "background_stage2_mood"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "auth_flow_signup_validation",
+      "label": "Sign-Up Validation Flow: SignUpValidations + Validations + FetchAPI",
+      "nodes": [
+        "libs_signupvalidations_checkvalidations",
+        "libs_validations_validations",
+        "libs_fetchapi_getallusers"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/libs/SignUpValidations.js"
+    },
+    {
+      "id": "session_lifecycle_management",
+      "label": "Session Lifecycle: main.js + router.js + FetchAPI updateUser",
+      "nodes": [
+        "src_main_appentry",
+        "src_router_routerconfig",
+        "libs_fetchapi_updateuser"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/main.js"
+    },
+    {
+      "id": "game_combat_data_model",
+      "label": "Combat Data Model: Heroes + Monsters + Levels",
+      "nodes": [
+        "data_heros_herosdata",
+        "data_monsters_monstersdata",
+        "data_levels_levelsdata"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/data/heros.js"
+    },
+    {
+      "id": "level_gameplay_components",
+      "label": "Core Level Gameplay Components",
+      "nodes": [
+        "level_game_gamecomponent",
+        "level_actionbutton_actionbuttoncomponent",
+        "level_character_charactercomponent",
+        "level_healthbar_healthbarcomponent",
+        "level_actioncutscene_actioncutscenecomponent",
+        "level_pausescreen_pausescreencomponent"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/level/Game.vue"
+    },
+    {
+      "id": "level_flow_orchestration",
+      "label": "Level Page Flow Orchestration",
+      "nodes": [
+        "pages_level_levelpage",
+        "level_levelselected_levelselectedcomponent",
+        "level_characterselected_characterselectedcomponent",
+        "level_game_gamecomponent",
+        "level_result_resultcomponent"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/pages/Level.vue"
+    },
+    {
+      "id": "auth_pages_localstorage",
+      "label": "Auth Pages Sharing LocalStorage User State",
+      "nodes": [
+        "pages_login_loginpage",
+        "pages_signup_signuppage",
+        "pages_welcome_welcomepage",
+        "pages_setting_settingpage"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/components/pages/Login.vue"
+    }
+  ],
+  "built_at_commit": "44998820edc723c3ab19a8d3fdf016e5dc085b6e"
+}

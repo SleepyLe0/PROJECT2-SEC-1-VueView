@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Environment variables
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,5 +28,12 @@ dist-ssr
 *.sln
 *.sw?
 
+# Superpowers
 .superpowers
 docs/superpowers
+
+# Graphify
+graphify-out/manifest.json
+graphify-out/cost.json
+# Optional: commit for speed, skip to keep repo small
+graphify-out/cache
